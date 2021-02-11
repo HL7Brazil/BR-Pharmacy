@@ -124,6 +124,7 @@
     <element id="Practitioner.telecom.system">
       <path value="Practitioner.telecom.system" />
       <min value="1" />
+      <fixedCode value="phone" />
     </element>
     <element id="Practitioner.telecom.value">
       <path value="Practitioner.telecom.value" />

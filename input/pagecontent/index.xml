@@ -45,7 +45,6 @@
 
 <p>The list of br-pharmacy Profiles is shown below.  Each profile defines the minimum mandatory elements, extensions and terminology requirements that <strong>MUST</strong> be present. For each profile, requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a <a href="http://hl7.org/fhir/R4/formats.html#table">logical view</a> of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.  For each br-pharmacy Profile, an overview of the required set of RESTful FHIR interactions - for example, search and read operations - is provided in the <em>Quick Start</em> Section of the profile page.</p>
 
-<li><a href="StructureDefinition-Encounter.html">br-pharmacy Encounter Profile</a></li>
 <li><a href="StructureDefinition-Patient.html">br-pharmacy Patient Profile</a></li>
 <li><a href="StructureDefinition-Practitioner.html">br-pharmacy Practitioner Profile</a></li>
 <li><a href="StructureDefinition-Organization.html">br-pharmacy Organization Profile</a></li>

@@ -46,7 +46,7 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-      <min value="1" />
+      <min value="2" />
     </element>
     <element id="MedicationRequest.identifier:prescriptionIdentifier">
       <path value="MedicationRequest.identifier" />
@@ -62,7 +62,7 @@
     <element id="MedicationRequest.identifier:prescriptionIdentifier.system">
       <path value="MedicationRequest.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescription" />
     </element>
     <element id="MedicationRequest.identifier:prescriptionIdentifier.value">
       <path value="MedicationRequest.identifier.value" />

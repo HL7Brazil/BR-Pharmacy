@@ -103,6 +103,8 @@
     </element>
     <element id="Patient.name">
       <path value="Patient.name" />
+      <short value="Elemento que contém os nomes do paciente" />
+      <definition value="Uma lista de nomes do paciente." />
       <min value="1" />
     </element>
     <element id="Patient.name.use">
