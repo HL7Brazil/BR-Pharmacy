@@ -141,7 +141,7 @@
     </element>
     <element id="Patient.birthDate">
       <path value="Patient.birthDate" />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="Patient.address">
       <path value="Patient.address" />
