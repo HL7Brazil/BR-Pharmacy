@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationRequest" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
+  <name value="MedicationRequest" />
+  <title value="MedicationRequest" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="workflow" />
+    <uri value="http://hl7.org/fhir/workflow" />
+    <name value="Workflow Pattern" />
+  </mapping>
+  <mapping>
+    <identity value="script10.6" />
+    <uri value="http://ncpdp.org/SCRIPT10_6" />
+    <name value="Mapping to NCPDP SCRIPT 10.6" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationRequest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationRequest.identifier">
+      <path value="MedicationRequest.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier">
+      <path value="MedicationRequest.identifier" />
+      <sliceName value="prescriptionIdentifier" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.use">
+      <path value="MedicationRequest.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.system">
+      <path value="MedicationRequest.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.value">
+      <path value="MedicationRequest.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier">
+      <path value="MedicationRequest.identifier" />
+      <sliceName value="platformIdentifier" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.use">
+      <path value="MedicationRequest.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.system">
+      <path value="MedicationRequest.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.value">
+      <path value="MedicationRequest.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier">
+      <path value="MedicationRequest.identifier" />
+      <sliceName value="previousPrescriptionIdentifier" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.use">
+      <path value="MedicationRequest.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.system">
+      <path value="MedicationRequest.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
+    </element>
+    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.value">
+      <path value="MedicationRequest.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.intent">
+      <path value="MedicationRequest.intent" />
+      <fixedCode value="original-order" />
+    </element>
+    <element id="MedicationRequest.medication[x]">
+      <path value="MedicationRequest.medication[x]" />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="MedicationRequest.medication[x].coding">
+      <path value="MedicationRequest.medication[x].coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition">
+      <path value="MedicationRequest.medication[x].coding" />
+      <sliceName value="comercialOrComposition" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.system">
+      <path value="MedicationRequest.medication[x].coding.system" />
+      <min value="1" />
+      <fixedUri value="http://terminologia/fhir/comercialOrComposition" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.code">
+      <path value="MedicationRequest.medication[x].coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.display">
+      <path value="MedicationRequest.medication[x].coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier">
+      <path value="MedicationRequest.medication[x].coding" />
+      <sliceName value="supplier" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.system">
+      <path value="MedicationRequest.medication[x].coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.code">
+      <path value="MedicationRequest.medication[x].coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.display">
+      <path value="MedicationRequest.medication[x].coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.subject.identifier">
+      <path value="MedicationRequest.subject.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCPF">
+      <path value="MedicationRequest.subject.identifier" />
+      <sliceName value="identifierCPF" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCPF.use">
+      <path value="MedicationRequest.subject.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCPF.system">
+      <path value="MedicationRequest.subject.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCPF.value">
+      <path value="MedicationRequest.subject.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCNS">
+      <path value="MedicationRequest.subject.identifier" />
+      <sliceName value="identifierCNS" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCNS.use">
+      <path value="MedicationRequest.subject.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCNS.system">
+      <path value="MedicationRequest.subject.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cns" />
+    </element>
+    <element id="MedicationRequest.subject.identifier:identifierCNS.value">
+      <path value="MedicationRequest.subject.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.supportingInformation.reference">
+      <path value="MedicationRequest.supportingInformation.reference" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.supportingInformation.type">
+      <path value="MedicationRequest.supportingInformation.type" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.authoredOn">
+      <path value="MedicationRequest.authoredOn" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester">
+      <path value="MedicationRequest.requester" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester.identifier">
+      <path value="MedicationRequest.requester.identifier" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.use">
+      <path value="MedicationRequest.requester.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.system">
+      <path value="MedicationRequest.requester.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.value">
+      <path value="MedicationRequest.requester.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding">
+      <path value="MedicationRequest.reasonCode.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID">
+      <path value="MedicationRequest.reasonCode.coding" />
+      <sliceName value="CID" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.system">
+      <path value="MedicationRequest.reasonCode.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://hl7.org/fhir/sid/icd-10" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.code">
+      <path value="MedicationRequest.reasonCode.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.display">
+      <path value="MedicationRequest.reasonCode.coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction">
+      <path value="MedicationRequest.dosageInstruction" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method">
+      <path value="MedicationRequest.dosageInstruction.method" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding">
+      <path value="MedicationRequest.dosageInstruction.method.coding" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.system">
+      <path value="MedicationRequest.dosageInstruction.method.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.code">
+      <path value="MedicationRequest.dosageInstruction.method.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.display">
+      <path value="MedicationRequest.dosageInstruction.method.coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x]" />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit" />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://unitsofmeasure.org" />
+      </binding>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system" />
+      <min value="1" />
+      <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+  </differential>
+</StructureDefinition>
