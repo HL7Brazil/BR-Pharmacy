@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <p>
-    This section outlines important definitions, interpretations, and requirements common to all BR-Core actors used in this guide.
+    This section outlines important definitions, interpretations, and requirements common to all br-pharmacy actors used in this guide.
     The conformance verbs -
     <strong>SHALL</strong>
     ,
@@ -21,19 +21,19 @@
 
   <ul id="markdown-toc">
     <li>
-      <a href="#claiming-conformance-to-a-br-core-profile" id="markdown-claiming-conformance-to-a-br-core-profile">Claiming Conformance to a BR-Core Profile</a>
+      <a href="#claiming-conformance-to-a-br-pharmacy-profile" id="markdown-claiming-conformance-to-a-br-pharmacy-profile">Claiming Conformance to a br-pharmacy Profile</a>
     </li>
     <li>
       <a href="#must-support" id="markdown-toc-must-support">Must Support</a>
     </li>
     <li>
-      <a href="#referencing-br-core-profiles" id="markdown-toc-referencing-br-core-profiles">Referencing BR-Core Profiles</a>
+      <a href="#referencing-br-pharmacy-profiles" id="markdown-toc-referencing-br-pharmacy-profiles">Referencing br-pharmacy Profiles</a>
     </li>
     <li>
       <a href="#missing-data" id="markdown-toc-missing-data">Missing Data</a>
     </li>
     <li>
-      <a href="#using-codes-in-br-core-profiles" id="markdown-toc-using-codes-in-br-core-profiles">Using Codes in BR-Core Profiles</a>
+      <a href="#using-codes-in-br-pharmacy-profiles" id="markdown-toc-using-codes-in-br-pharmacy-profiles">Using Codes in br-pharmacy Profiles</a>
     </li>
     <li>
       <a href="#readfetch-syntax" id="markdown-toc-readfetch-syntax">Read(Fetch) Syntax</a>
@@ -60,13 +60,13 @@
 
   <hr />
 
-  <p>The table below lists the BR-Core Profile and FHIR Resources used for the corresponding Data elements:</p>
+  <p>The table below lists the br-pharmacy Profile and FHIR Resources used for the corresponding Data elements:</p>
 
   <table>
     <thead>
       <tr>
         <th>Entities</th>
-        <th>BR-Core Profile</th>
+        <th>br-pharmacy Profile</th>
         <th>FHIR Resource</th>
         <th></th>
       </tr>
@@ -75,7 +75,7 @@
       <tr>
         <td>Encounters</td>
         <td>
-          <a href="StructureDefinition-Encounter.html">BR-Core Encounter Profile</a>
+          <a href="StructureDefinition-Encounter.html">br-pharmacy Encounter Profile</a>
         </td>
         <td>Procedure</td>
         <td></td>
@@ -83,7 +83,7 @@
       <tr>
         <td>Patients</td>
         <td>
-          <a href="StructureDefinition-Patient.html">BR-Core Patient Profile</a>
+          <a href="StructureDefinition-Patient.html">br-pharmacy Patient Profile</a>
         </td>
         <td>Patient</td>
         <td></td>
@@ -91,7 +91,7 @@
       <tr>
         <td>Practitioners</td>
         <td>
-          <a href="StructureDefinition-Practitioner.html">BR-Core Practitioner Profile</a>
+          <a href="StructureDefinition-Practitioner.html">br-pharmacy Practitioner Profile</a>
         </td>
         <td>Procedure</td>
         <td></td>
@@ -99,7 +99,7 @@
       <tr>
         <td>Organizations</td>
         <td>
-          <a href="StructureDefinition-Organization.html">BR-Core Organization Profile</a>
+          <a href="StructureDefinition-Organization.html">br-pharmacy Organization Profile</a>
         </td>
         <td>Procedure</td>
         <td></td>
@@ -107,10 +107,10 @@
     </tbody>
   </table>
 
-  <h3 id="claiming-conformance-to-a-br-core-profile">Claiming Conformance to a BR-Core Profile</h3>
+  <h3 id="claiming-conformance-to-a-br-pharmacy-profile">Claiming Conformance to a br-pharmacy Profile</h3>
 
   <p>
-    To claim conformance to a BR-Core Profile BR-Core Servers
+    To claim conformance to a br-pharmacy Profile br-pharmacy Servers
     <strong>SHALL</strong>
     :
   </p>
@@ -122,51 +122,51 @@
       as defined by that profile’s StructureDefinition.
     </li>
     <li>
-      Conform to the BR-Core Server Capability Statement expectations for that profile’s type.
+      Conform to the br-pharmacy Server Capability Statement expectations for that profile’s type.
     </li>
   </ul>
 
   <ul>
     <li>
-      BR-Core Responders
+      br-pharmacy Responders
       <strong>SHALL</strong>
       be capable of populating all data elements as part of the query results as specified by the
-      BR-Core Server Capability Statement.
+      br-pharmacy Server Capability Statement.
     </li>
     <li>
-      BR-Core Requestors
+      br-pharmacy Requestors
       <strong>SHALL</strong>
-      be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. In other words BR-Core Requestors
+      be capable of processing resource instances containing the data elements without generating an error or causing the application to fail. In other words br-pharmacy Requestors
       <strong>SHOULD</strong>
       be capable of displaying the data elements for human use or storing it for other purposes.
     </li>
     <li>
-      In situations where information on a particular data element is not present and the reason for absence is unknown, BR-Core Responders
+      In situations where information on a particular data element is not present and the reason for absence is unknown, br-pharmacy Responders
       <strong>SHALL NOT</strong>
       include the data elements in the resource instance returned as part of the query results.
     </li>
     <li>
-      When querying BR-Core Responders, BR-Core Requestors
+      When querying br-pharmacy Responders, br-pharmacy Requestors
       <strong>SHALL</strong>
-      interpret missing data elements within resource instances as data not present in the BR-Core Responder’s system.
+      interpret missing data elements within resource instances as data not present in the br-pharmacy Responder’s system.
     </li>
     <li>
-      In situations where information on a particular data element is missing and the BR-Core Responder knows the precise reason for the absence of data, BR-Core Responders
+      In situations where information on a particular data element is missing and the br-pharmacy Responder knows the precise reason for the absence of data, br-pharmacy Responders
       <strong>SHALL</strong>
       send the reason for the missing information using values (such as nullFlavors) from the value set where they exist or using the dataAbsentReason extension.
     </li>
     <li>
       <p>
-        BR-Core Requestors
+        br-pharmacy Requestors
         <strong>SHALL</strong>
         be able to process resource instances containing data elements asserting missing information.
       </p>
     </li>
     <li>
       NOTE: Typically
-      <em>BR-Core Responder</em>
+      <em>br-pharmacy Responder</em>
       Actor = Server and
-      <em>BR-Core Requestor Actor</em>
+      <em>br-pharmacy Requestor Actor</em>
       = Client
     </li>
     <li>
@@ -185,28 +185,28 @@
       <a href="http://hl7.org/fhir/R4/search.html">FHIR Search</a>
       and
       <a href="http://hl7.org/fhir/R4/resource.html">FHIR Resource</a>
-      formats before implementing BR-Core requirements.
+      formats before implementing br-pharmacy requirements.
     </li>
   </ul>
 
-  <h3 id="referencing-br-core-profiles">Referencing BR-Core Profiles</h3>
+  <h3 id="referencing-br-pharmacy-profiles">Referencing br-pharmacy Profiles</h3>
 
   <p>
     Many of the profiles in this guide
     <a href="http://hl7.org/fhir/R4/references.html">reference</a>
-    other FHIR resources that are also BR-Core Profiles.  This is defined in the formal profile definitions.  For example,
-    <a href="StructureDefinition-careteam.html">BR-Core CareTeam Profile</a>
-    references BR-Core Patient.  For any other references to base FHIR resources
+    other FHIR resources that are also br-pharmacy Profiles.  This is defined in the formal profile definitions.  For example,
+    <a href="StructureDefinition-careteam.html">br-pharmacy CareTeam Profile</a>
+    references br-pharmacy Patient.  For any other references to base FHIR resources
     <sup id="fnref:2" role="doc-noteref">
       <a href="#fn:2" class="footnote">1</a>
     </sup>
-    or not formally defined in a BR-Core Profiles, the referenced resource
+    or not formally defined in a br-pharmacy Profiles, the referenced resource
     <strong>SHOULD</strong>
-    be a BR-Core Profile if a BR-Core Profile exists for the resource type.  For example, although
+    be a br-pharmacy Profile if a br-pharmacy Profile exists for the resource type.  For example, although
     <code class="highlighter-rouge">Condition.asserter</code>
     is not constrained by this guide, the reference to Patient or Practitioner
     <strong>SHOULD</strong>
-    be a valid BR-Core Patient or BR-Core Practitioner.  BR-Core Resources in the
+    be a valid br-pharmacy Patient or br-pharmacy Practitioner.  br-pharmacy Resources in the
     <a href="http://hl7.org/fhir/R4/profiling.html#snapshot">differential view</a>
     and marked as “Must Support” follow the Must Support rules listed above.  Other resources allowed in the base FHIR specification may be referenced even though the current publication framework does not display them.  For example, RelatedPerson is an allowed target reference in
     <code class="highlighter-rouge">DocumentReference.author</code>
@@ -332,7 +332,7 @@
     </li>
   </ol>
 
-  <h3 id="using-codes-in-br-core-profiles">Using Codes in BR-Core Profiles</h3>
+  <h3 id="using-codes-in-br-pharmacy-profiles">Using Codes in br-pharmacy Profiles</h3>
 
   <h4 class="no_toc" id="required-binding-for-codeableconcept-datatype">Required binding for CodeableConcept Datatype</h4>
 
@@ -363,13 +363,13 @@
         <code>    "code": {
             "coding": [
              {
-                "system": "https://br-core.gointerop.com/fhir/codesystem-[company]-[system]-[entity]-[attribute]",  //NOTE:this is the standard concept defined in the value set//
+                "system": "https://br-pharmacy.gointerop.com/fhir/codesystem-[company]-[system]-[entity]-[attribute]",  //NOTE:this is the standard concept defined in the value set//
                 "code": "[proprietary-codification]",
                 "display": "Body Weight"
               },
         //NOTE:this is a translation to a more specific concept
              {
-                "system": "https://br-core.gointerop.com/fhir/codesystem-[company]-[system]-[entity]-[attribute]",
+                "system": "https://br-pharmacy.gointerop.com/fhir/codesystem-[company]-[system]-[entity]-[attribute]",
                 "code": "[proprietary-codification]",
                 "display": "Body Weight Measured"
               }
@@ -391,7 +391,7 @@
     Both the
     <a href="http://hl7.org/fhir/R4/observation-vitalsigns.html">Vital Signs Profile</a>
     and
-    <a href="StructureDefinition-observation.html">BR-Core Laboratory Result Observation Profile</a>
+    <a href="StructureDefinition-observation.html">br-pharmacy Laboratory Result Observation Profile</a>
     bind the
     <code class="highlighter-rouge">valueQuantity</code>
     datatypes to the
@@ -772,7 +772,7 @@
 
   <h3 id="across-platform-searches">Across Platform Searches</h3>
 
-  <p>BR-Core servers are not required to resolve full URLs that are external to their environment.</p>
+  <p>br-pharmacy servers are not required to resolve full URLs that are external to their environment.</p>
 
   <h3 id="guidance-on-limiting-the-number-of-search-results">Guidance On Limiting The Number Of Search Results</h3>
 
@@ -791,7 +791,7 @@
     <ol>
       <li id="fn:2" role="doc-endnote">
         <p>
-          For example, the base Location resource is being referenced by the BR-Core Encounter and BR-Core PractitionerRole resources.
+          For example, the base Location resource is being referenced by the br-pharmacy Encounter and br-pharmacy PractitionerRole resources.
           <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a>
         </p>
       </li>      

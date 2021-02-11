@@ -4,51 +4,51 @@
 <ul id="markdown-toc">
   <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
   <li><a href="#how-to-read-this-guide" id="markdown-toc-how-to-read-this-guide">How to read this Guide</a></li>
-  <li><a href="#br-core-actors" id="markdown-toc-actors">BR-Core Actors</a></li>
-  <li><a href="#br-core-profiles" id="markdown-toc-profiles">BR-Core Profiles</a></li>
+  <li><a href="#br-pharmacy-actors" id="markdown-toc-actors">br-pharmacy Actors</a></li>
+  <li><a href="#br-pharmacy-profiles" id="markdown-toc-profiles">br-pharmacy Profiles</a></li>
 </ul>
 
 <!-- end TOC -->
 
 <h3 id="introduction">Introduction</h3>
 
-<p>BR-Core is a national interoperability profile within the BR Realm that intends enable the interchange of data among the brazilian territory.</p>
+<p>br-pharmacy is a national interoperability profile within the BR Realm that intends enable the interchange of data among the brazilian territory.</p>
 
-<p>The BR-Core Implementation Guide is based on <a href="http://hl7.org/fhir/R4/index.html" title="FHIR Version R4 Specification Home Page">FHIR Version R4</a></p>
+<p>The br-pharmacy Implementation Guide is based on <a href="http://hl7.org/fhir/R4/index.html" title="FHIR Version R4 Specification Home Page">FHIR Version R4</a></p>
 
 <h3 id="how-to-read-this-guide">How to read this Guide</h3>
 
 <p>This Guide is divided into several pages which are listed at the top of each page in the menu bar.</p>
 
 <ul>
-  <li><a href="index.html" title="Home Page">Home</a>: The home page provides the introduction and background for Instituto HL7 Brasil® BR-Core Implementation Guide.</li>
-  <li><a href="general-guidance.html" title="General Guidance Page">General Guidance</a> provides guidance, definitions and requirements common to all Instituto HL7 Brasil® BR-Core Implementation Guide actors used in this guide.</li>      
+  <li><a href="index.html" title="Home Page">Home</a>: The home page provides the introduction and background for Instituto HL7 Brasil® br-pharmacy Implementation Guide.</li>
+  <li><a href="general-guidance.html" title="General Guidance Page">General Guidance</a> provides guidance, definitions and requirements common to all Instituto HL7 Brasil® br-pharmacy Implementation Guide actors used in this guide.</li>      
   <li><a href="artifacts.html">FHIR Artifacts</a>: These pages provides detailed descriptions and formal definitions for all the FHIR objects defined in this guide.
     <ul>
-      <li><a href="profiles.html">Profiles and Extensions</a>: This page lists the set of Profile and Extension that are defined in this guide to exchange quality data. Each Profile page includes a narrative introduction, formal definition and a “Quick Start” guide to the supported search transaction for each Instituto HL7 Brasil® BR-Core Implementation Guide Profile.</li>      
+      <li><a href="profiles.html">Profiles and Extensions</a>: This page lists the set of Profile and Extension that are defined in this guide to exchange quality data. Each Profile page includes a narrative introduction, formal definition and a “Quick Start” guide to the supported search transaction for each Instituto HL7 Brasil® br-pharmacy Implementation Guide Profile.</li>      
     </ul>
   </li>
-  <li><a href="security.html">Security</a>: General security requirements and recommendations for Instituto HL7 Brasil®® BR-Core Implementation Guide actors.</li>
+  <li><a href="security.html">Security</a>: General security requirements and recommendations for Instituto HL7 Brasil®® br-pharmacy Implementation Guide actors.</li>
   <li><a href="downloads.html" title="Downloads Page">Downloads</a>: This page provides links to downloadable artifacts.</li>
 </ul>
 
-<h3 id="br-core-actors">BR-Core Actors</h3>
+<h3 id="br-pharmacy-actors">br-pharmacy Actors</h3>
 
-<p>The following actors are part of the BR-Core IG:</p>
+<p>The following actors are part of the br-pharmacy IG:</p>
 
 <ul>
-  <li>BR-Core Requestor: An application that initiates a data access request to retrieve patient data. This can be thought of as the client in a client-server interaction.</li>
-  <li>BR-Core Responder: A product that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.</li>
+  <li>br-pharmacy Requestor: An application that initiates a data access request to retrieve patient data. This can be thought of as the client in a client-server interaction.</li>
+  <li>br-pharmacy Responder: A product that responds to the data access request providing patient data. This can be thought of as the server in a client-server interaction.</li>
 </ul>
 
-<h3 id="br-core-profiles">BR-Core Profiles</h3>
+<h3 id="br-pharmacy-profiles">br-pharmacy Profiles</h3>
 
-<p>The list of BR-Core Profiles is shown below.  Each profile defines the minimum mandatory elements, extensions and terminology requirements that <strong>MUST</strong> be present. For each profile, requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a <a href="http://hl7.org/fhir/R4/formats.html#table">logical view</a> of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.  For each BR-Core Profile, an overview of the required set of RESTful FHIR interactions - for example, search and read operations - is provided in the <em>Quick Start</em> Section of the profile page.</p>
+<p>The list of br-pharmacy Profiles is shown below.  Each profile defines the minimum mandatory elements, extensions and terminology requirements that <strong>MUST</strong> be present. For each profile, requirements and guidance are given in a simple narrative summary. A formal hierarchical table that presents a <a href="http://hl7.org/fhir/R4/formats.html#table">logical view</a> of the content in both a differential and snapshot view is also provided along with references to appropriate terminologies and examples.  For each br-pharmacy Profile, an overview of the required set of RESTful FHIR interactions - for example, search and read operations - is provided in the <em>Quick Start</em> Section of the profile page.</p>
 
-<li><a href="StructureDefinition-Encounter.html">BR-Core Encounter Profile</a></li>
-<li><a href="StructureDefinition-Patient.html">BR-Core Patient Profile</a></li>
-<li><a href="StructureDefinition-Practitioner.html">BR-Core Practitioner Profile</a></li>
-<li><a href="StructureDefinition-Organization.html">BR-Core Organization Profile</a></li>
+<li><a href="StructureDefinition-Encounter.html">br-pharmacy Encounter Profile</a></li>
+<li><a href="StructureDefinition-Patient.html">br-pharmacy Patient Profile</a></li>
+<li><a href="StructureDefinition-Practitioner.html">br-pharmacy Practitioner Profile</a></li>
+<li><a href="StructureDefinition-Organization.html">br-pharmacy Organization Profile</a></li>
 
 
 <hr />

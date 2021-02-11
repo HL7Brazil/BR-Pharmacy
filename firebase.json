@@ -1,0 +1,48 @@
+{
+  "hosting": {
+    "cleanUrls": false,
+    "public": "output",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/fhir/",
+        "destination": "/fhir/index.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/artifacts",
+        "destination": "/fhir/artifacts.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/Encounter",
+        "destination": "/fhir/StructureDefinition-Encounter.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/Patient",
+        "destination": "/fhir/StructureDefinition-Patient.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/Practitioner",
+        "destination": "/fhir/StructureDefinition-Practitioner.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationRequest",
+        "destination": "/fhir/StructureDefinition-MedicationRequest.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/Organization",
+        "destination": "/fhir/StructureDefinition-Organization.html",
+        "type": 301
+      }
+    ]
+  }
+}

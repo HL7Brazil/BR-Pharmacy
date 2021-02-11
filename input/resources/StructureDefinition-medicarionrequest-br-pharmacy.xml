@@ -165,48 +165,19 @@
     </element>
     <element id="MedicationRequest.subject.identifier">
       <path value="MedicationRequest.subject.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
       <min value="1" />
     </element>
-    <element id="MedicationRequest.subject.identifier:identifierCPF">
-      <path value="MedicationRequest.subject.identifier" />
-      <sliceName value="identifierCPF" />
-    </element>
-    <element id="MedicationRequest.subject.identifier:identifierCPF.use">
+    <element id="MedicationRequest.subject.identifier.use">
       <path value="MedicationRequest.subject.identifier.use" />
       <min value="1" />
       <fixedCode value="official" />
     </element>
-    <element id="MedicationRequest.subject.identifier:identifierCPF.system">
+    <element id="MedicationRequest.subject.identifier.system">
       <path value="MedicationRequest.subject.identifier.system" />
       <min value="1" />
       <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
     </element>
-    <element id="MedicationRequest.subject.identifier:identifierCPF.value">
-      <path value="MedicationRequest.subject.identifier.value" />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.subject.identifier:identifierCNS">
-      <path value="MedicationRequest.subject.identifier" />
-      <sliceName value="identifierCNS" />
-    </element>
-    <element id="MedicationRequest.subject.identifier:identifierCNS.use">
-      <path value="MedicationRequest.subject.identifier.use" />
-      <min value="1" />
-      <fixedCode value="official" />
-    </element>
-    <element id="MedicationRequest.subject.identifier:identifierCNS.system">
-      <path value="MedicationRequest.subject.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cns" />
-    </element>
-    <element id="MedicationRequest.subject.identifier:identifierCNS.value">
+    <element id="MedicationRequest.subject.identifier.value">
       <path value="MedicationRequest.subject.identifier.value" />
       <min value="1" />
     </element>
@@ -318,7 +289,7 @@
       <min value="1" />
       <binding>
         <strength value="required" />
-        <valueSet value="http://unitsofmeasure.org" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
       </binding>
     </element>
     <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system">
