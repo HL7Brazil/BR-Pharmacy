@@ -36,6 +36,11 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
   <derivation value="constraint" />
   <differential>
+    <element id="Practitioner">
+      <path value="Practitioner" />
+      <short value="Uma pessoa com uma responsabilidade formal no fornecimento de cuidados de saúde ou serviços relacionados" />
+      <definition value="Uma pessoa que está direta ou indiretamente envolvida no fornecimento de cuidados de saúde." />
+    </element>
     <element id="Practitioner.identifier">
       <path value="Practitioner.identifier" />
       <slicing>
@@ -45,10 +50,14 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Documento" />
+      <definition value="Documento(s) do profissional" />
       <min value="1" />
     </element>
     <element id="Practitioner.identifier.use">
       <path value="Practitioner.identifier.use" />
+      <short value="Uso do Documento" />
+      <definition value="Documentos ativos ou inativos do prescritor&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
     </element>
     <element id="Practitioner.identifier.system">
@@ -57,11 +66,15 @@
     </element>
     <element id="Practitioner.identifier.value">
       <path value="Practitioner.identifier.value" />
+      <short value="Número do Documento" />
+      <definition value="Número do documento, incluindo letras e outros caracteres utilizados." />
       <min value="1" />
     </element>
     <element id="Practitioner.identifier:cpf">
       <path value="Practitioner.identifier" />
       <sliceName value="cpf" />
+      <short value="CPF" />
+      <definition value="O cadastro de pessoa física do profissional prescritor" />
       <max value="1" />
     </element>
     <element id="Practitioner.identifier:cpf.use">
@@ -82,6 +95,8 @@
     <element id="Practitioner.identifier:cns">
       <path value="Practitioner.identifier" />
       <sliceName value="cns" />
+      <short value="CNS" />
+      <definition value="O cartão nacional de saúde do profissional prescritor" />
     </element>
     <element id="Practitioner.identifier:cns.use">
       <path value="Practitioner.identifier.use" />
@@ -96,43 +111,111 @@
       <path value="Practitioner.identifier.value" />
       <min value="1" />
     </element>
+    <element id="Practitioner.active">
+      <path value="Practitioner.active" />
+      <short value="Registro em Uso" />
+      <definition value="Indica se o registro desse profissional ainda está em uso. A codição de inativo pode indicar que tanto uma informação errada quanto um profissional que não está mais atuando." />
+    </element>
     <element id="Practitioner.name">
       <path value="Practitioner.name" />
+      <short value="Nome do Profissional" />
+      <definition value="Nome(s) associado(s) ao profissional." />
       <min value="1" />
     </element>
     <element id="Practitioner.name.use">
       <path value="Practitioner.name.use" />
+      <short value="Tipo de Nome" />
+      <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de profissionais.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
       <fixedCode value="official" />
     </element>
     <element id="Practitioner.name.text">
       <path value="Practitioner.name.text" />
+      <short value="Nome Completo" />
+      <definition value="Nome completo do profissional, composto pelo nome próprio, que pode ser mais de um quando trata-se de um nome composto, pelo sobrenome e pelo sufixo (Filho, Neto, Júnior etc.) quando aplicável." />
       <min value="1" />
     </element>
     <element id="Practitioner.name.family">
       <path value="Practitioner.name.family" />
+      <short value="Sobrenome" />
+      <definition value="O(s) sobrenome(s) do indivíduo, quando é possível coletar esta informação desagregada." />
       <mustSupport value="true" />
     </element>
     <element id="Practitioner.name.given">
       <path value="Practitioner.name.given" />
+      <short value="Nome Próprio" />
+      <definition value="O nome próprio do indivíduo, incluindo todos aqueles que não são o sobrenome no caso de nomes compostos, quando é possível coletar esta informação desagregada." />
       <mustSupport value="true" />
+    </element>
+    <element id="Practitioner.name.prefix">
+      <path value="Practitioner.name.prefix" />
+      <short value="Prefixo do Nome" />
+      <definition value="Prefixo do nome tipicamente utilizado quando se adquire títulos acadêmicos (Prof. ou Dr.), estados maritais (Sr., Sra., Srta.) etc., e é possível coletar esta informação." />
+    </element>
+    <element id="Practitioner.name.suffix">
+      <path value="Practitioner.name.suffix" />
+      <short value="Sufixo do Nome" />
+      <definition value="Sufixo do nome, tipicamente utilizado para identificar a geração do indivíduo (Filho, Neto, Júnior etc.), quando é possível coletar esta informação desagregada." />
+    </element>
+    <element id="Practitioner.name.period">
+      <path value="Practitioner.name.period" />
+      <short value="Período de Uso do Nome" />
+      <definition value="Indica a data inicial e final do uso do nome." />
+    </element>
+    <element id="Practitioner.name.period.start">
+      <path value="Practitioner.name.period.start" />
+      <short value="Data Inicial" />
+      <definition value="Quando o uso do nome iniciou." />
+    </element>
+    <element id="Practitioner.name.period.end">
+      <path value="Practitioner.name.period.end" />
+      <short value="Data Final" />
+      <definition value="Quando o uso do nome terminou." />
     </element>
     <element id="Practitioner.telecom">
       <path value="Practitioner.telecom" />
+      <short value="Meio de Contato" />
+      <definition value="Informações do(s) meio(s) de contato com o profissional. Não devem ser informados meios de contato pessoais, apenas profissionais." />
       <min value="1" />
     </element>
     <element id="Practitioner.telecom.system">
       <path value="Practitioner.telecom.system" />
+      <short value="Tipo de Meio de Contato" />
+      <definition value="sms: número de telefone celular. phone: número de telefone fixo. fax: número de fax. email: endereço de correio eletrônico (e-mail). pager: número de pager/bip. url: endereço do sítio eletrônico na internet, inclusive redes sociais. other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao).&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
       <fixedCode value="phone" />
     </element>
     <element id="Practitioner.telecom.value">
       <path value="Practitioner.telecom.value" />
+      <short value="Contato" />
+      <definition value="O número do telefone (preferencialmente em formato internacional +CC DDD XXXXX-XXXX, onde CC é o código do país, DDD código da cidade/localidade e XXXXX-XXXX é o número do telefone propriamente dito), endereço de correio eletrônico (ex.: fulano@provedor.br), URL ou outro valor que identifique o contato. Quando utilizar &quot;other&quot; no system, inserir uma descrição do meio de contato, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)." />
       <min value="1" />
     </element>
     <element id="Practitioner.telecom.use">
       <path value="Practitioner.telecom.use" />
+      <short value="Uso do Meio de Contato" />
+      <definition value="work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
+    </element>
+    <element id="Practitioner.telecom.rank">
+      <path value="Practitioner.telecom.rank" />
+      <short value="Ordem de Preferência" />
+      <definition value="Especifica uma ordem preferencial entre vários contatos do mesmo tipo, sendo o de valor 1 o preferido." />
+    </element>
+    <element id="Practitioner.telecom.period">
+      <path value="Practitioner.telecom.period" />
+      <short value="Período do Meio de Contato" />
+      <definition value="Período em que o meio de contato foi utilizado pelo profisisonal." />
+    </element>
+    <element id="Practitioner.telecom.period.start">
+      <path value="Practitioner.telecom.period.start" />
+      <short value="Data de Início do Meio de Contato" />
+      <definition value="Data em que o meio de contato foi cadastrado ou começou a ser utilizado pelo profissional." />
+    </element>
+    <element id="Practitioner.telecom.period.end">
+      <path value="Practitioner.telecom.period.end" />
+      <short value="Data da Término do Meio de Contato" />
+      <definition value="Data em que o meio de contato foi desativado ou parou de ser utilizado pelo profissional." />
     </element>
     <element id="Practitioner.address">
       <path value="Practitioner.address" />
@@ -143,17 +226,25 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Dados de Endereçamento" />
+      <definition value="Dados do(s) endereço(s) onde o profissional pode ser localizado. Não devem ser informados endereços pessoais, apenas profissionais." />
     </element>
     <element id="Practitioner.address.use">
       <path value="Practitioner.address.use" />
+      <short value="Uso do Endereço" />
+      <definition value="work: endereço comercial ou de trabalho atual. temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc. old: endereço anterior.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
     </element>
     <element id="Practitioner.address.type">
       <path value="Practitioner.address.type" />
+      <short value="Tipo de Endereço" />
+      <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc. postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <min value="1" />
     </element>
     <element id="Practitioner.address.text">
       <path value="Practitioner.address.text" />
+      <short value="Endereço" />
+      <definition value="Endereço completo" />
       <min value="1" />
     </element>
     <element id="Practitioner.address.line">
@@ -165,55 +256,86 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Endereço" />
+      <definition value="Detalhes do endereço" />
       <min value="5" />
       <max value="5" />
     </element>
     <element id="Practitioner.address.line:streetType">
       <path value="Practitioner.address.line" />
       <sliceName value="streetType" />
+      <short value="Tipo de Logradouro" />
+      <definition value="Tipo de logradouro do endereço." />
     </element>
     <element id="Practitioner.address.line:street">
       <path value="Practitioner.address.line" />
       <sliceName value="street" />
+      <short value="Logradouro" />
+      <definition value="Logradouro do endereço (ex.: Visconde do Rio Branco, das Laranjeiras, QRSW 8 Bloco A-1) . Quando não for possível utilizar o elemento streetType, incluir textualmente no início do nome do logradouro o tipo de logradouro abreviado (ex.: R. Visconde do Rio Branco, Av. das Laranjeiras, Quadra QRSW 8 Bloco A-1)." />
     </element>
     <element id="Practitioner.address.line:number">
       <path value="Practitioner.address.line" />
       <sliceName value="number" />
+      <short value="Número" />
+      <definition value="Número do endereço." />
     </element>
     <element id="Practitioner.address.line:complement">
       <path value="Practitioner.address.line" />
       <sliceName value="complement" />
+      <short value="Complemento" />
+      <definition value="Complemento do endereço, como o nome do edifício, bloco, número do apartamento, número da sala etc." />
     </element>
     <element id="Practitioner.address.line:neighborhood">
       <path value="Practitioner.address.line" />
       <sliceName value="neighborhood" />
+      <short value="Bairro" />
+      <definition value="Bairro do endereço." />
     </element>
     <element id="Practitioner.address.city">
       <path value="Practitioner.address.city" />
+      <short value="Município" />
+      <definition value="Município do endereço." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.state">
       <path value="Practitioner.address.state" />
+      <short value="UF" />
+      <definition value="Unidade Federativa (estados ou Distrito Federal) do endereço." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.postalCode">
       <path value="Practitioner.address.postalCode" />
+      <short value="CEP" />
+      <definition value="Código de Endereçamento Postal. Utilizar a máscara XXXXX-XXXX." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.country">
       <path value="Practitioner.address.country" />
+      <short value="País" />
+      <definition value="País do endereço" />
       <min value="1" />
     </element>
     <element id="Practitioner.gender">
       <path value="Practitioner.gender" />
+      <short value="Sexo" />
+      <definition value="male: masculino. female: feminino. unknown: ignorado." />
       <min value="1" />
     </element>
     <element id="Practitioner.birthDate">
       <path value="Practitioner.birthDate" />
+      <short value="Data de Nascimento" />
+      <definition value="Data de nascimento do profissional" />
       <min value="1" />
+    </element>
+    <element id="Practitioner.photo">
+      <path value="Practitioner.photo" />
+      <short value="Foto" />
+      <definition value="Foto do profissional" />
     </element>
     <element id="Practitioner.qualification">
       <path value="Practitioner.qualification" />
+      <short value="Qualificação" />
+      <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
       <min value="1" />
     </element>
     <element id="Practitioner.qualification.identifier">
@@ -271,6 +393,11 @@
     <element id="Practitioner.qualification.issuer.identifier.value">
       <path value="Practitioner.qualification.issuer.identifier.value" />
       <min value="1" />
+    </element>
+    <element id="Practitioner.communication">
+      <path value="Practitioner.communication" />
+      <short value="Idioma" />
+      <definition value="Idioma utilizado com o paciente" />
     </element>
   </differential>
 </StructureDefinition>

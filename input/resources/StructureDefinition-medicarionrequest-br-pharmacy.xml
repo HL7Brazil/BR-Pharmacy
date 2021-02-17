@@ -46,6 +46,8 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Uma chave de identificação para uma prescrição" />
+      <definition value="Um identificador único para uma dada prescrição." />
       <min value="2" />
     </element>
     <element id="MedicationRequest.identifier:prescriptionIdentifier">
