@@ -336,7 +336,7 @@
       <path value="Practitioner.qualification" />
       <short value="Qualificação" />
       <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
-      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Practitioner.qualification.identifier">
       <path value="Practitioner.qualification.identifier" />
