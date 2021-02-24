@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationRequest" />
-  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-request" />
+  <version value="0.0.1" />
   <name value="MedicationRequest" />
   <title value="MedicationRequest" />
   <status value="draft" />
@@ -87,25 +88,6 @@
       <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
     </element>
     <element id="MedicationRequest.identifier:platformIdentifier.value">
-      <path value="MedicationRequest.identifier.value" />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier">
-      <path value="MedicationRequest.identifier" />
-      <sliceName value="previousPrescriptionIdentifier" />
-      <max value="1" />
-    </element>
-    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.use">
-      <path value="MedicationRequest.identifier.use" />
-      <min value="1" />
-      <fixedCode value="official" />
-    </element>
-    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.system">
-      <path value="MedicationRequest.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
-    </element>
-    <element id="MedicationRequest.identifier:previousPrescriptionIdentifier.value">
       <path value="MedicationRequest.identifier.value" />
       <min value="1" />
     </element>

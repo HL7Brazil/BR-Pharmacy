@@ -4,10 +4,12 @@
     
 <p>The following Profiles and have been defined for this implementation guide.</p>
 
-<li><a href="StructureDefinition-Patient.html">BR-Core Patient Profile</a></li>
-<li><a href="StructureDefinition-Practitioner.html">BR-Core Practitioner Profile</a></li>
-<li><a href="StructureDefinition-MedicationRequest.html">BR-Core MedicationRequest Profile</a></li>
-<li><a href="StructureDefinition-Organization.html">BR-Core Organization Profile</a></li>
+<li><a href="StructureDefinition-Patient.html">BR-Pharmacy Patient Profile</a></li>
+<li><a href="StructureDefinition-Practitioner.html">BR-Pharmacy Practitioner Profile</a></li>
+<li><a href="StructureDefinition-Organization.html">BR-Pharmacy Organization Profile</a></li>
+<li><a href="StructureDefinition-MedicationPrescriptionBundle.html">BR-Pharmacy MedicationPrescriptionBundle Profile</a></li>
+<li><a href="StructureDefinition-MedicationPrescriptionComposition.html">BR-Pharmacy MedicationPrescriptionComposition Profile</a></li>
+<li><a href="StructureDefinition-MedicationRequest.html">BR-Pharmacy MedicationRequest Profile</a></li>
 
 <!--<h3 id="terminologies">Terminologies</h3>
 

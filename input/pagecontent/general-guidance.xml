@@ -73,17 +73,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>Encounters</td>
-        <td>
-          <a href="StructureDefinition-Encounter.html">br-pharmacy Encounter Profile</a>
-        </td>
-        <td>Procedure</td>
-        <td></td>
-      </tr>
-      <tr>
         <td>Patients</td>
         <td>
-          <a href="StructureDefinition-Patient.html">br-pharmacy Patient Profile</a>
+          <a href="StructureDefinition-Patient.html">BR-Core Patient Profile</a>
         </td>
         <td>Patient</td>
         <td></td>
@@ -91,7 +83,7 @@
       <tr>
         <td>Practitioners</td>
         <td>
-          <a href="StructureDefinition-Practitioner.html">br-pharmacy Practitioner Profile</a>
+          <a href="StructureDefinition-Practitioner.html">BR-Core Practitioner Profile</a>
         </td>
         <td>Procedure</td>
         <td></td>
@@ -99,9 +91,33 @@
       <tr>
         <td>Organizations</td>
         <td>
-          <a href="StructureDefinition-Organization.html">br-pharmacy Organization Profile</a>
+          <a href="StructureDefinition-Organization.html">BR-Core Organization Profile</a>
         </td>
         <td>Procedure</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MedicationPrescriptionBundle</td>
+        <td>
+          <a href="StructureDefinition-MedicationPrescriptionBundle.html">BR-Pharmacy MedicationPrescriptionBundle Profile</a>
+        </td>
+        <td>MedicationPrescriptionBundle</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MedicationPrescriptionComposition</td>
+        <td>
+          <a href="StructureDefinition-MedicationPrescriptionComposition.html">BR-Pharmacy MedicationPrescriptionComposition Profile</a>
+        </td>
+        <td>MedicationPrescriptionComposition</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>MedicationRequest</td>
+        <td>
+          <a href="StructureDefinition-MedicationRequest.html">BR-Pharmacy MedicationRequest Profile</a>
+        </td>
+        <td>MedicationRequest</td>
         <td></td>
       </tr>  
     </tbody>

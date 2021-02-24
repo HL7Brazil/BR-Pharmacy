@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationPrescriptionBundle" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-prescription-bundle" />
+  <version value="0.0.1" />
+  <name value="MedicationPrescriptionBundle" />
+  <title value="MedicationPrescriptionBundle" />
+  <status value="draft" />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle.identifier">
+      <path value="Bundle.identifier" />
+      <short value="Uma chave de identificação para uma prescrição" />
+      <definition value="Um identificador único para uma dada prescrição." />
+      <min value="1" />
+    </element>
+    <element id="Bundle.identifier.use">
+      <path value="Bundle.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Bundle.identifier.system">
+      <path value="Bundle.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
+    </element>
+    <element id="Bundle.identifier.value">
+      <path value="Bundle.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="profile" />
+          <path value="resolve()" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="2" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationPrescriptionComposition">
+      <path value="Bundle.entry" />
+      <sliceName value="sliceMedicationPrescriptionComposition" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationPrescriptionComposition.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition" />
+      </type>
+    </element>
+    <element id="Bundle.entry:sliceMedicationRequest">
+      <path value="Bundle.entry" />
+      <sliceName value="sliceMedicationRequest" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationRequest.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
+      </type>
+    </element>
+    <element id="Bundle.signature">
+      <path value="Bundle.signature" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.type.system">
+      <path value="Bundle.signature.type.system" />
+      <min value="1" />
+      <fixedUri value="urn:iso-astm:E1762-95:2013" />
+    </element>
+    <element id="Bundle.signature.type.version">
+      <path value="Bundle.signature.type.version" />
+      <min value="1" />
+      <fixedString value="4.0.1" />
+    </element>
+    <element id="Bundle.signature.type.code">
+      <path value="Bundle.signature.type.code" />
+      <min value="1" />
+      <fixedCode value="1.2.840.10065.1.12.1.1" />
+    </element>
+    <element id="Bundle.signature.type.display">
+      <path value="Bundle.signature.type.display" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.who.identifier">
+      <path value="Bundle.signature.who.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.who.identifier.use">
+      <path value="Bundle.signature.who.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Bundle.signature.who.identifier.system">
+      <path value="Bundle.signature.who.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="Bundle.signature.who.identifier.value">
+      <path value="Bundle.signature.who.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf">
+      <path value="Bundle.signature.onBehalfOf" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier">
+      <path value="Bundle.signature.onBehalfOf.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.use">
+      <path value="Bundle.signature.onBehalfOf.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.system">
+      <path value="Bundle.signature.onBehalfOf.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.value">
+      <path value="Bundle.signature.onBehalfOf.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.sigFormat">
+      <path value="Bundle.signature.sigFormat" />
+      <min value="1" />
+      <fixedCode value="application/jose" />
+    </element>
+    <element id="Bundle.signature.data">
+      <path value="Bundle.signature.data" />
+      <definition value="The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.&#xD;&#xA;&#xD;&#xA;The Signature.data is base64 encoded JWS-Signature RFC 7515: JSON Web Signature (JWS)" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>
