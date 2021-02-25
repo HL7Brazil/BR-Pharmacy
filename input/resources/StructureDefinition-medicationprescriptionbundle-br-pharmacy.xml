@@ -75,7 +75,7 @@
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-prescription-composition" />
       </type>
     </element>
     <element id="Bundle.entry:sliceMedicationRequest">
@@ -88,8 +88,40 @@
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-request" />
       </type>
+    </element>
+    <element id="Bundle.entry:sliceMedicationRequest.resource.identifier">
+      <path value="Bundle.entry.resource.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="2" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationRequest.resource.medication[x].coding">
+      <path value="Bundle.entry.resource.medication[x].coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationRequest.resource.reasonCode.coding">
+      <path value="Bundle.entry.resource.reasonCode.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
     </element>
     <element id="Bundle.signature">
       <path value="Bundle.signature" />
