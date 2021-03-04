@@ -45,18 +45,32 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Identificador do Estabelecimento Emissor" />
+      <definition value="Identificador do Estabelecimento Emissor que é utilizado para identificar o Estabelecimento em diferentes sistemas." />
+      <requirements value="Os Estabelecimentos são conhecidas por uma variedade de identificadores. Algumas instituições mantêm vários e a maioria coleta identificadores para troca com outras organizações." />
       <min value="1" />
     </element>
     <element id="Organization.identifier.use">
       <path value="Organization.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
       <min value="1" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
     </element>
     <element id="Organization.identifier.system">
       <path value="Organization.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system é sempre case sensitive." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
     </element>
     <element id="Organization.identifier.value">
       <path value="Organization.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
       <min value="1" />
     </element>
     <element id="Organization.identifier:cnpj">
@@ -64,21 +78,229 @@
       <sliceName value="cnpj" />
       <short value="CNPJ do Estabelecimento Emissor" />
       <definition value="CNPJ do Estabelecimento Emissor da Prescrição" />
+      <requirements value="Os Estabelecimentos são conhecidas por uma variedade de identificadores. Algumas instituições mantêm vários e a maioria coleta identificadores para troca com outras organizações." />
       <max value="1" />
     </element>
     <element id="Organization.identifier:cnpj.use">
       <path value="Organization.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
       <min value="1" />
       <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
+    </element>
+    <element id="Organization.identifier:cnpj.type">
+      <path value="Organization.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding">
+      <path value="Organization.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding.system">
+      <path value="Organization.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding.version">
+      <path value="Organization.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding.code">
+      <path value="Organization.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding.display">
+      <path value="Organization.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.coding.userSelected">
+      <path value="Organization.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Organization.identifier:cnpj.type.text">
+      <path value="Organization.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito conforme visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um &quot;Nome de Exibição&quot; de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
     </element>
     <element id="Organization.identifier:cnpj.system">
       <path value="Organization.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
       <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
     </element>
     <element id="Organization.identifier:cnpj.value">
       <path value="Organization.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
       <min value="1" />
+    </element>
+    <element id="Organization.identifier:cnpj.period">
+      <path value="Organization.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duration](datatypes.html#Duration)." />
+    </element>
+    <element id="Organization.identifier:cnpj.period.start">
+      <path value="Organization.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Organization.identifier:cnpj.period.end">
+      <path value="Organization.identifier.period.end" />
+      <short value="Horário de término com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner">
+      <path value="Organization.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display que reflete o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.reference">
+      <path value="Organization.identifier.assigner.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local em que o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. Os URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type]/[id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.type">
+      <path value="Organization.identifier.assigner.type" />
+      <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xA;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier">
+      <path value="Organization.identifier.assigner.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhuma exigência de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processa a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xA;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso têm permissão - mas não são obrigados - a verificar se o identificador corresponde à referência literal&#xA;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xA;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.use">
+      <path value="Organization.identifier.assigner.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding">
+      <path value="Organization.identifier.assigner.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding.system">
+      <path value="Organization.identifier.assigner.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding.version">
+      <path value="Organization.identifier.assigner.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding.code">
+      <path value="Organization.identifier.assigner.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding.display">
+      <path value="Organization.identifier.assigner.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.coding.userSelected">
+      <path value="Organization.identifier.assigner.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.type.text">
+      <path value="Organization.identifier.assigner.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito conforme visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um &quot;Nome de Exibição&quot; de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.system">
+      <path value="Organization.identifier.assigner.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.value">
+      <path value="Organization.identifier.assigner.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.period">
+      <path value="Organization.identifier.assigner.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duration](datatypes.html#Duration)." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.period.start">
+      <path value="Organization.identifier.assigner.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.period.end">
+      <path value="Organization.identifier.assigner.identifier.period.end" />
+      <short value="Horário de término com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.identifier.assigner">
+      <path value="Organization.identifier.assigner.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display que reflete o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Organization.identifier:cnpj.assigner.display">
+      <path value="Organization.identifier.assigner.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa em texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
     </element>
     <element id="Organization.identifier:cnes">
       <path value="Organization.identifier" />
@@ -176,18 +398,31 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Um endereço para a organização" />
+      <definition value="Um endereço para a organização." />
+      <comment value="A organização pode ter vários endereços com diferentes usos ou períodos aplicáveis. O código de uso 'home' não deve ser usado." />
+      <requirements value="Pode ser necessário manter o controle dos endereços da organização para contato, cobrança ou requisitos de relatórios." />
       <min value="1" />
     </element>
     <element id="Organization.address.use">
       <path value="Organization.address.use" />
+      <definition value="O objetivo deste endereço." />
+      <comment value="Os aplicativos podem presumir que um endereço é atual, a menos que diga explicitamente que é temporário ou antigo." />
+      <requirements value="Permite que um endereço apropriado seja escolhido em uma lista de muitos." />
       <min value="1" />
     </element>
     <element id="Organization.address.type">
       <path value="Organization.address.type" />
+      <definition value="Distingue entre endereços físicos (aqueles que você pode visitar) e endereços de correspondência (por exemplo, caixas postais e endereços remotos). A maioria dos endereços são ambos." />
+      <comment value="A definição de endereço afirma que &quot;endereço destina-se a descrever endereços postais, não localizações físicas&quot;. No entanto, muitos aplicativos rastreiam se um endereço tem o duplo propósito de ser um local que pode ser visitado, além de ser um destino de entrega válido, e os endereços postais costumam ser usados como proxies para locais físicos (consulte também [Location](location.html#) resource)." />
       <min value="1" />
     </element>
     <element id="Organization.address.text">
       <path value="Organization.address.text" />
+      <short value="Representação de texto do endereço" />
+      <definition value="Especifica o endereço completo como deve ser exibido, por exemplo, em uma etiqueta postal. Isso pode ser fornecido em vez de ou como também as peças específicas." />
+      <comment value="Pode fornecer uma representação de texto e partes. Os aplicativos que atualizam um endereço DEVERÃO garantir que, quando o texto e as partes estiverem presentes, nenhum conteúdo seja incluído no texto que não seja encontrado em uma parte." />
+      <requirements value="Um formulário não codificado e passível de renderização." />
       <min value="1" />
     </element>
     <element id="Organization.address.line">
@@ -199,8 +434,12 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="Nome da rua, número, direção e ponto postal Caixa etc." />
+      <definition value="Este componente contém o número da casa, número do apartamento, nome da rua, direção da rua, P.O. Número da caixa, dicas de entrega e informações de endereço semelhantes." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="5" />
       <max value="5" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.line:streetType">
       <path value="Organization.address.line" />
@@ -209,6 +448,7 @@
       <definition value="Este componente contém informações de endereço referente ao tipo rua do endereço. p.e.: avenida, rua, estrada,etc." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.line:street">
       <path value="Organization.address.line" />
@@ -217,6 +457,7 @@
       <definition value="Este componente contém informações de endereço referente a descrição da rua." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.line:number">
       <path value="Organization.address.line" />
@@ -225,6 +466,7 @@
       <definition value="Este componente contém informações de endereço referente ao número." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.line:complement">
       <path value="Organization.address.line" />
@@ -233,6 +475,7 @@
       <definition value="Este componente contém o complemento referente ao endereço." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.line:neighborhood">
       <path value="Organization.address.line" />
@@ -241,21 +484,34 @@
       <definition value="Este componente contém informações de endereço referente ao bairro." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Organization.address.city">
       <path value="Organization.address.city" />
+      <short value="Nome da cidade, município etc." />
+      <definition value="O nome da cidade, vila, subúrbio, vila ou outra comunidade ou centro de entrega." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
     </element>
     <element id="Organization.address.state">
       <path value="Organization.address.state" />
+      <short value="Estado do país (abreviações ok)" />
+      <definition value="Estado de um país com soberania limitada em um país organizado federalmente. Um código pode ser usado se os códigos forem de uso comum (por exemplo, códigos de estado de 2 letras do Brasil)" />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
     </element>
     <element id="Organization.address.postalCode">
       <path value="Organization.address.postalCode" />
+      <short value="Código postal da área" />
+      <definition value="Um código postal que designa uma região definida pelo serviço postal." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
     </element>
     <element id="Organization.address.country">
       <path value="Organization.address.country" />
+      <short value="País (por exemplo, pode ser um código ISO 3166 de 2 ou 3 letras)" />
+      <definition value="País - uma nação como comumente entendida ou geralmente aceita." />
+      <comment value="Códigos ISO 3166 de 3 letras podem ser usados no lugar de um nome de país legível." />
       <min value="1" />
     </element>
     <element id="Organization.partOf.reference">
