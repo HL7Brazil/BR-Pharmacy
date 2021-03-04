@@ -90,15 +90,7 @@
         </td>
         <td>Composition</td>
         <td></td>
-      </tr>
-      <tr>
-        <td>Cabeçalho da prescrição</td>
-        <td>
-          <a href="StructureDefinition-MedicationPrescriptionComposition.html">Perfil de Cabeçalho da prescrição</a>          
-        </td>
-        <td>Composition</td>
-        <td></td>
-      </tr>
+      </tr>      
       <tr>
         <td>Solicitação de medicamento</td>
         <td>
