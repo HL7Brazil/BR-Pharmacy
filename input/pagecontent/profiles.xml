@@ -1,21 +1,43 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-    <a name="profiles"></a>
-    <h3 id="profiles">BR-Core profiles</h3>
-    
-<p>The following Profiles and have been defined for this implementation guide.</p>
+  <a name="profiles"></a>
+  <h3 id="profiles">Perfis</h3>
 
-<li><a href="StructureDefinition-Patient.html">BR-Pharmacy Patient Profile</a></li>
-<li><a href="StructureDefinition-Practitioner.html">BR-Pharmacy Practitioner Profile</a></li>
-<li><a href="StructureDefinition-Organization.html">BR-Pharmacy Organization Profile</a></li>
-<li><a href="StructureDefinition-MedicationPrescriptionBundle.html">BR-Pharmacy MedicationPrescriptionBundle Profile</a></li>
-<li><a href="StructureDefinition-MedicationPrescriptionComposition.html">BR-Pharmacy MedicationPrescriptionComposition Profile</a></li>
-<li><a href="StructureDefinition-MedicationRequest.html">BR-Pharmacy MedicationRequest Profile</a></li>
+  <p>
+    A lista de perfis deste guia segue abaixo. Cada perfil define um mínimo de elementos obrigatórios, extensões (campos adicionais) e requisitos semânticos que
+    <strong>DEVEM</strong>
+    ser apresentados. Para cada perfil, requisitos e orientações são fornecidos numa narrativa simples. Uma tabela formal e hierárquica é apresentada 
+      contendo uma
+    <a href="http://hl7.org/fhir/R4/formats.html#table">visão lógica</a>
+    do conteúdo em formas diferenciais (em relação ao canônico do FHIR R4)
+      ou resumidas, com referências a terminologias utilizadas e exemplos.
+      Para cada Perfil, uma visão geral dos dados obrigatórios para uma interação de leitura ou escrita
+      é fornecida.
+  </p>
 
-<!--<h3 id="terminologies">Terminologies</h3>
+  <li>
+    <a href="StructureDefinition-Patient.html">Perfil de Paciente</a>
+  </li>
+  <li>
+    <a href="StructureDefinition-Practitioner.html">Perfil do Profissional de Saúde</a>
+  </li>
+  <li>
+    <a href="StructureDefinition-Organization.html">Perfil do Estabelecimento de Sáude</a>
+  </li>
+  <li>
+    <a href="StructureDefinition-MedicationPrescriptionBundle.html">Perfil de Prescrição.</a>
+  </li>
+  <li>
+    <a href="StructureDefinition-MedicationPrescriptionComposition.html">Perfil de Cabeçalho de Prescrição.</a>
+  </li>
+  <li>
+    <a href="StructureDefinition-MedicationRequest.html">Perfil de Solicitação de Medicamento.</a>
+  </li>
+
+  <!--<h3 id="terminologies">Terminologies</h3>
 
 <p> The following Naming Systems have been defined as part of the BR-Core implementation Guide.</p>
 <ul>
 <li><a href="NamingSystem-govbr-receitafederal-pessoajuridica-id.html">Cadastro de Pessoa Jurídica da Receita Federal</a></li>
 </ul>-->
 
-  </div>
+</div>

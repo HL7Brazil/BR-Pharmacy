@@ -58,6 +58,11 @@
       <short value="Metadados sobre o recurso" />
       <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
     </element>
+    <element id="Patient.meta.extension">
+      <path value="Patient.meta.extension" />
+      <short value="Extensões sobre o recurso" />
+      <definition value="Extensões sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
     <element id="Patient.meta.id">
       <path value="Patient.meta.id" />
       <short value="Identificador único para referência entre elementos" />
