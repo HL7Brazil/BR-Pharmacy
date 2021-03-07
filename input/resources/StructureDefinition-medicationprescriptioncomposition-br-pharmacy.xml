@@ -7,6 +7,9 @@
   <title value="MedicationPrescriptionComposition" />
   <status value="draft" />
   <fhirVersion value="4.0.1" />
+  <date value="2021-01-26" />
+  <publisher value="HL7 Brasil" />
+  <description value="Perfil de cabeçalho de prescrição." />
   <mapping>
     <identity value="workflow" />
     <uri value="http://hl7.org/fhir/workflow" />

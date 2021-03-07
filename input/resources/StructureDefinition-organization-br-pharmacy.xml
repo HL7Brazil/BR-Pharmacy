@@ -6,8 +6,9 @@
   <name value="Organization" />
   <title value="Organization" />
   <status value="draft" />
-  <date value="2021-02-02" />
+  <date value="2021-01-26" />
   <publisher value="HL7 Brasil" />
+  <description value="Perfil de estabelecimento de saúde." />
   <copyright value="Copyright 2021 Instituto HL7 Brasil.&#xD;&#xA;&#xD;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;&#xA;you may not use this file except in compliance with the License.&#xD;&#xA;You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;    http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing, software&#xD;&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;&#xA;See the License for the specific language governing permissions and&#xD;&#xA;limitations under the License." />
   <fhirVersion value="4.0.1" />
   <mapping>
