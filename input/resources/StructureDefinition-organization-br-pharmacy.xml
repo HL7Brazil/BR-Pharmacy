@@ -37,6 +37,11 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Organization" />
   <derivation value="constraint" />
   <differential>
+    <element id="Organization">
+      <path value="Organization" />
+      <short value="Um agrupamento de pessoas ou organizações com um propósito comum" />
+      <definition value="Um agrupamento formalmente ou informalmente reconhecido de pessoas ou organizações formadas com a finalidade de alcançar alguma forma de ação coletiva. Inclui empresas, instituições, corporações, departamentos, grupos comunitários, grupos de prática de saúde, pagador / segurador, etc." />
+    </element>
     <element id="Organization.meta">
       <path value="Organization.meta" />
       <short value="Metadados sobre o recurso" />
@@ -481,8 +486,12 @@
     </element>
     <element id="Organization.identifier:cnes.use">
       <path value="Organization.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um contexto específico de uso seja selecionado entre um conjunto de identificadores." />
       <min value="1" />
       <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
     </element>
     <element id="Organization.identifier:cnes.system">
       <path value="Organization.identifier.system" />
@@ -496,11 +505,17 @@
     <element id="Organization.identifier:professionalBoard">
       <path value="Organization.identifier" />
       <sliceName value="professionalBoard" />
+      <short value="Identificação do Profissional" />
+      <definition value="Informação do Conselho Regional do Profissional Emissor" />
     </element>
     <element id="Organization.identifier:professionalBoard.use">
       <path value="Organization.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um contexto específico de uso seja selecionado entre um conjunto de identificadores." />
       <min value="1" />
       <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
     </element>
     <element id="Organization.identifier:professionalBoard.system">
       <path value="Organization.identifier.system" />
@@ -831,6 +846,262 @@
     <element id="Organization.partOf.type">
       <path value="Organization.partOf.type" />
       <min value="1" />
+    </element>
+    <element id="Organization.contact">
+      <path value="Organization.contact" />
+      <definition value="Contato para a organização para uma determinada finalidade." />
+      <comment value="Quando vários contatos para o mesmo propósito são fornecidos, há uma extensão padrão que pode ser usada para determinar qual é o contato preferencial a ser usado." />
+      <requirements value="Precisa acompanhar os pontos de contato atribuídos dentro da organização maior." />
+    </element>
+    <element id="Organization.contact.purpose">
+      <path value="Organization.contact.purpose" />
+      <short value="O tipo de contato" />
+      <definition value="Indica uma finalidade para a qual o contato pode ser alcançado." />
+      <comment value="Nem todos os usos terminológicos se encaixam neste padrão geral. Em alguns casos, os modelos não devem usar o CedeAbleconcept e usar codificação diretamente e fornecer sua própria estrutura para gerenciar texto, codificações, traduções e relação entre elementos e pré e pós-coordenação." />
+      <requirements value="Precisa distinguir entre múltiplas pessoas de contato." />
+    </element>
+    <element id="Organization.contact.purpose.coding">
+      <path value="Organization.contact.purpose.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos muito casualmente em enumerações, ou listas de códigos, até definições muito formais, como o Snomed CT - veja os Princípios Core HL7 V3 para mais informações. A encomenda de codificações é indefinida e não deve ser usada para inferir significado. Geralmente, no máximo, apenas um dos valores de codificação será rotulado como Userelected = TRUE." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Organization.contact.purpose.coding.system">
+      <path value="Organization.contact.purpose.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (URN: OID: ...) ou um UUID (UUID: UUID: ...). OIDS e UUIDs devem ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista de URIs especiais definidos pela HL7 ou deve referência a alguma definição que estabelece o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a fonte da definição do símbolo." />
+    </element>
+    <element id="Organization.contact.purpose.coding.version">
+      <path value="Organization.contact.purpose.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usada ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre versões. No entanto, isso não pode ser consistentemente assegurado, e quando o significado não é garantido para ser consistente, a versão deve ser trocada." />
+      <comment value="Onde a terminologia não define claramente qual string deve ser usada para identificar versões do sistema de código, a recomendação é usar a data (expressa no formato de data do FHIR) na qual a versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Organization.contact.purpose.coding.code">
+      <path value="Organization.contact.purpose.coding.code" />
+      <short value="Símbolo em sintaxe definida pelo sistema" />
+      <definition value="Um símbolo em sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+      <requirements value="Precisa se referir a um determinado código no sistema." />
+    </element>
+    <element id="Organization.contact.purpose.coding.display">
+      <path value="Organization.contact.purpose.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível por humanos do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Organization.contact.purpose.coding.userSelected">
+      <path value="Organization.contact.purpose.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - e. fora de uma lista de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código diretamente escolhido é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente &quot;diretamente escolhido&quot; implica, e o acordo de parceiros comerciais pode ser necessário para esclarecer o uso desse elemento e suas conseqüências mais completamente." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que este par de sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Organization.contact.purpose.text">
+      <path value="Organization.contact.purpose.text" />
+      <short value="Representação de texto simples do conceito" />
+      <definition value="Uma representação da linguagem humana do conceito como visto / selecionado / proferido pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um nome de exibição de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances dos humanos usando-os, ou às vezes não há código apropriado. Nestes casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Organization.contact.name">
+      <path value="Organization.contact.name" />
+      <short value="Um nome associado ao contato" />
+      <definition value="Um nome associado ao contato." />
+      <comment value="Os nomes podem ser alterados ou repudiados, ou as pessoas podem ter nomes diferentes em diferentes contextos. Os nomes podem ser divididos em partes de diferentes tipos que têm significância variável, dependendo do contexto, embora a divisão em partes nem sempre seja importante. Com nomes pessoais, as diferentes partes podem ou não ser imbuídas com algum significado implícito; Várias culturas associam diferentes importância com as partes do nome e o grau em que os sistemas devem se preocupar com as partes nomes em todo o mundo variam amplamente." />
+      <requirements value="Precisa ser capaz de rastrear a pessoa pelo nome." />
+    </element>
+    <element id="Organization.contact.name.use">
+      <path value="Organization.contact.name.use" />
+      <definition value="Identifica o objetivo para esse nome." />
+      <comment value="Os aplicativos podem assumir que um nome é atual, a menos que ele explicitamente diga que é temporário ou velho." />
+      <requirements value="Permite que o nome apropriado para um contexto específico de uso seja selecionado entre um conjunto de nomes." />
+    </element>
+    <element id="Organization.contact.name.text">
+      <path value="Organization.contact.name.text" />
+      <short value="Representação de texto do nome completo" />
+      <definition value="Especifica todo o nome, pois deve ser exibido e. em uma interface do usuário do aplicativo. Isso pode ser fornecido em vez de ou, bem como as partes específicas." />
+      <comment value="Pode fornecer uma representação e peças de texto. APLICAÇÕES A atualização de um nome deve garantir que quando os dois textos e peças estiverem presentes, nenhum conteúdo é incluído no texto que não é encontrado em uma peça." />
+      <requirements value="Um formulário renderizável e unencoded." />
+    </element>
+    <element id="Organization.contact.name.family">
+      <path value="Organization.contact.name.family" />
+      <short value="Nome da família (muitas vezes chamado de 'sobrenome')" />
+      <definition value="A parte de um nome que se liga à genealogia. Em algumas culturas (por exemplo, Eritreia), o nome da família de um filho é o primeiro nome de seu pai." />
+      <comment value="O nome da família pode ser decomposto em partes específicas usando extensões." />
+    </element>
+    <element id="Organization.contact.name.given">
+      <path value="Organization.contact.name.given" />
+      <short value="Dado nomes (nem sempre 'primeiro'). Inclui nomes do meio" />
+      <definition value="Nome dado." />
+      <comment value="Se apenas as iniciais forem registradas, elas podem ser usadas no lugar das partes do nome completo. As iniciais podem ser separadas em vários nomes indicados, mas muitas vezes não são devido a limitações paráculos. Este elemento não é chamado de &quot;primeiro nome&quot;, uma vez que os nomes nem sempre vêm primeiro." />
+    </element>
+    <element id="Organization.contact.name.prefix">
+      <path value="Organization.contact.name.prefix" />
+      <short value="Partes que vêm antes do nome" />
+      <definition value="Parte do nome que é adquirido como um título devido ao status acadêmico, legal, de emprego ou nobreza, etc. e que aparece no início do nome." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.name.suffix">
+      <path value="Organization.contact.name.suffix" />
+      <short value="Partes que vêm depois do nome" />
+      <definition value="Parte do nome que é adquirido como um título devido ao status acadêmico, legal, de emprego ou nobreza, etc. e que aparece no final do nome." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.name.period">
+      <path value="Organization.contact.name.period" />
+      <short value="Período de tempo quando o nome foi / está em uso" />
+      <definition value="Indica o período de tempo em que esse nome foi válido para a pessoa nomeada." />
+      <comment value="Um período especifica um intervalo de tempo; O contexto de uso especificará se o intervalo inteiro se aplica (por exemplo, &quot;o paciente foi um paciente do hospital para este intervalo de tempo&quot;) ou um valor a partir do intervalo se aplica (por exemplo, &quot;dar ao paciente entre essas duas vezes&quot;).&#xA;&#xA;Período não é usado por uma duração (uma medida de tempo decorrido). Veja [Duration] (datatypes.html#Duration)." />
+      <requirements value="Permite que os nomes sejam colocados em contexto histórico." />
+    </element>
+    <element id="Organization.contact.name.period.start">
+      <path value="Organization.contact.name.period.start" />
+      <short value="Tempo de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+    </element>
+    <element id="Organization.contact.name.period.end">
+      <path value="Organization.contact.name.period.end" />
+      <short value="Tempo terminal com limite inclusivo, se não estiver em andamento" />
+      <definition value="O final do período. Se o final do período estiver faltando, significa que nenhum fim foi conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado, e a data final no futuro, o que significa que esse período é esperado / planejado para terminar naquele momento." />
+      <comment value="Exemplo formato: 2012-02-03T10:00:00" />
+    </element>
+    <element id="Organization.contact.telecom">
+      <path value="Organization.contact.telecom" />
+      <short value="Detalhes de contato (telefone, e-mail, etc.) para um contato" />
+      <definition value="Um detalhe de contato (por exemplo, um número de telefone ou um endereço de e-mail) pelo qual a parte pode ser contatada." />
+      <requirements value="As pessoas têm maneiras (primárias) de contatá-las de alguma forma, como telefone, e-mail." />
+    </element>
+    <element id="Organization.contact.telecom.system">
+      <path value="Organization.contact.telecom.system" />
+      <definition value="Formulário de telecomunicações para ponto de contato - Qual sistema de comunicações é necessário para fazer uso do contato." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.telecom.value">
+      <path value="Organization.contact.telecom.value" />
+      <short value="Os detalhes do ponto de contato real" />
+      <definition value="Os detalhes reais do ponto de contato, em um formulário significativo para o sistema de comunicação designado (i.E. número de telefone ou endereço de e-mail)." />
+      <comment value="Dados de texto adicionais, como números de extensão do telefone, ou notas sobre o uso do contato às vezes são incluídos no valor." />
+      <requirements value="Precisa suportar números legados que não estão em um formato firmemente controlado." />
+    </element>
+    <element id="Organization.contact.telecom.use">
+      <path value="Organization.contact.telecom.use" />
+      <definition value="Identifica o propósito para o ponto de contato." />
+      <comment value="Os aplicativos podem assumir que um contato é atual, a menos que ele diga explicitamente que é temporário ou velho." />
+      <requirements value="Precisa rastrear a maneira como uma pessoa usa esse contato, portanto, um usuário pode escolher o que é apropriado para sua finalidade." />
+    </element>
+    <element id="Organization.contact.telecom.rank">
+      <path value="Organization.contact.telecom.rank" />
+      <short value="Especifique a ordem preferida de uso (1 = mais alta)" />
+      <definition value="Especifica uma ordem preferida para usar um conjunto de contatos. Os pontos de contato com os valores de classificação mais baixos são mais preferidos do que aqueles com maiores valores de classificação." />
+      <comment value="Observe que a classificação não segue necessariamente a ordem em que os contatos são representados na instância." />
+    </element>
+    <element id="Organization.contact.address">
+      <path value="Organization.contact.address" />
+      <short value="Endereços postais para o contato" />
+      <definition value="Endereços postais para o contato" />
+      <comment value="Nota: O endereço destina-se a descrever endereços postais para fins administrativos, para não descrever coordenadas geográficas absolutas. Os endereços postais são frequentemente usados como proxies para locais físicos (também consulte o recurso [Location] (location.html #))." />
+      <requirements value="Pode ser necessário acompanhar um endereço da parte de contato para entrar em contato, faturamento ou requisitos de relatório." />
+    </element>
+    <element id="Organization.contact.address.use">
+      <path value="Organization.contact.address.use" />
+      <definition value="O objetivo deste endereço." />
+      <comment value="Os aplicativos podem assumir que um endereço é atual, a menos que ele diga explicitamente que é temporário ou velho." />
+      <requirements value="Permite que um endereço apropriado seja escolhido a partir de uma lista de muitos." />
+    </element>
+    <element id="Organization.contact.address.type">
+      <path value="Organization.contact.address.type" />
+      <definition value="Distingue entre endereços físicos (aqueles que você pode visitar) e endereços de correspondência (por exemplo, caixas Postais). A maioria dos endereços são ambos." />
+      <comment value="A definição de endereço afirma que &quot;o endereço destina-se a descrever endereços postais, não locais físicos&quot;. No entanto, muitos aplicativos rastreiam se um endereço tem um propósito duplo de ser um local que pode ser visitado, além de ser um destino de entrega válido, e endereços postais são geralmente usados como proxies para locais físicos (também veja [Location](location.html#) resource)." />
+    </element>
+    <element id="Organization.contact.address.text">
+      <path value="Organization.contact.address.text" />
+      <short value="Representação de texto do endereço" />
+      <definition value="Especifica todo o endereço, pois deve ser exibido e. em um rótulo postal. Isso pode ser fornecido em vez de ou, bem como as partes específicas." />
+      <comment value="Pode fornecer uma representação e peças de texto. Aplicativos A atualização de um endereço deve garantir que quando ambos os texto e peças estiverem presentes, nenhum conteúdo é incluído no texto que não é encontrado em uma peça." />
+    </element>
+    <element id="Organization.contact.address.line">
+      <path value="Organization.contact.address.line" />
+      <short value="Nome da rua, número, direção e CEP etc." />
+      <definition value="Este componente contém o número da casa, o número do apartamento, o nome da rua, a direção da rua, CEP, sugestões de entrega e informações de endereço semelhantes." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.address.city">
+      <path value="Organization.contact.address.city" />
+      <short value="Nome da cidade" />
+      <definition value="O nome da cidade, subúrbio, aldeia ou outra comunidade ou centro de entrega." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.address.district">
+      <path value="Organization.contact.address.district" />
+      <short value="Nome do distrito" />
+      <definition value="O nome da área administrativa (distrito)." />
+      <comment value="Às vezes, é conhecido como distrito, mas em algumas regiões 'distrito' é usado no lugar da cidade (município), então o nome do distrito deve ser transmitido na cidade." />
+    </element>
+    <element id="Organization.contact.address.state">
+      <path value="Organization.contact.address.state" />
+      <short value="Estados (abreviaturas OK)" />
+      <definition value="Estados de um país com soberania limitada em um país federalmente organizado. Um código pode ser usado se os códigos estiverem em uso comum (por exemplo, códigos de estado utilizando 2 letras)." />
+    </element>
+    <element id="Organization.contact.address.postalCode">
+      <path value="Organization.contact.address.postalCode" />
+      <short value="CEP para área" />
+      <definition value="Um CEP designando uma região definida pelo Serviço Postal." />
+      <comment value="Note que as cadeias de FHIR não devem exceder 1MB de tamanho" />
+    </element>
+    <element id="Organization.contact.address.country">
+      <path value="Organization.contact.address.country" />
+      <short value="País (por exemplo, pode ser o código ISO 3166 2 ou 3 letras)" />
+      <definition value="País - uma nação como comumente compreendida ou geralmente aceita." />
+      <comment value="ISO 3166 3 Códigos de letras podem ser usados no lugar de um nome de país legível por humanos." />
+    </element>
+    <element id="Organization.endpoint">
+      <path value="Organization.endpoint" />
+      <short value="Endpoints técnicos que fornecem acesso aos serviços operados para a organização" />
+      <definition value="Endpoints técnicos que fornecem acesso aos serviços operados para a organização." />
+      <comment value="As referências devem ser uma referência a um recurso real do FHIR, e serão resolutíveis (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser por recuperação do URL ou, quando aplicável pelo tipo de recurso, tratando uma referência absoluta como uma URL canônica: registry/repository." />
+      <requirements value="As organizações têm vários sistemas que fornecem vários serviços e precisam definir os detalhes da conexão técnica para como se conectar a elas e para qual finalidade." />
+    </element>
+    <element id="Organization.endpoint.reference">
+      <path value="Organization.endpoint.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local em que o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que seja em relação ao URL da base de serviços, ou um URL absoluto que resolva o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for para um servidor RESTFUS FHIR, deve ser assumido ser específico da versão. Referências internas do fragmento (começar com '#') referem-se a recursos contidos." />
+      <comment value="Usando URLs absolutas fornece uma abordagem escalável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar entre os limites de eco-sistema fechados. URLs absolutos não precisam apontar para um servidor RESTFUS FHIR, embora esta seja a abordagem preferida. Se o URL estiver em conformidade com a estrutura /[type]/[id]&quot;, deve ser assumido que a referência é para um servidor RESTFUS FHIR." />
+    </element>
+    <element id="Organization.endpoint.type">
+      <path value="Organization.endpoint.type" />
+      <short value="Digite a referência refere-se a (por exemplo, &quot;paciente&quot;)" />
+      <definition value="O tipo esperado do alvo da referência. Se ambos referência.Type e Referência.Reference são preenchidos e referência.Reference é um URL de FHIR, ambos serão consistentes.&#xA;&#xA;O tipo é o URL canônico de definição de recursos que é o tipo que esta referência se refere. As referências são URLs que são relativas a http://hl7.org/fhir/struturedreefinition/ e.g. &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/structuredreefinition/patient. URLs absolutos só são permitidos para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de alvo da referência. Isso pode ser usado que sempre dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, uma URL repousante) ou resolvendo a meta da referência; Se tanto o tipo quanto uma referência for fornecido, a referência deve ser resolvida para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="Organization.endpoint.identifier">
+      <path value="Organization.endpoint.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. Isso é usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que representa não está disponível através de um servidor FHIR, ou porque não há como o autor do recurso converter um identificador conhecido para uma localização real . Não há nenhuma exigência de que uma referência.Identifier aponte para algo que é realmente exposto como uma instância do FHIR, mas deve apontar para um conceito de negócio que seria esperado para ser exposto como uma instância do FHIR, e essa instância precisaria ser de um Tipo de Recurso Fhir permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer processamento do sistema a referência só poderá resolver o identificador para uma referência se ele entender o contexto comercial no qual o identificador é usado. Às vezes isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por esse motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem os servidores devem ser capazes de resolver a referência. Os servidores podem aceitar uma referência baseada no identificador intocada, resolvê-lo e / ou rejeitá-lo - consulte a capacidade de capacitystatement.rest.resource.ReferencePolicy.&#xA;&#xA;Quando ambos um identificador e uma referência literal são fornecidos, a referência literal é preferida. Aplicativos Processamento O recurso é permitido - mas não é necessário - para verificar se o identificador corresponde à referência literal&#xA;&#xA;As aplicações que convertem uma referência lógica a uma referência literal podem optar por deixar a referência lógica presente ou removê-la.&#xA;&#xA;A referência destina-se a apontar para uma estrutura que pode potencialmente expressa como um recurso FHIR, embora não haja necessidade de que existe como uma instância real de recursos do FHIR - exceto em tanto quanto um aplicativo deseja encontrar o destino da referência real . O conteúdo referido é o identificador deve atender às restrições lógicas implícitas por quaisquer limitações em que tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador para uma prescrição de drogas se o tipo fosse referência (observação | Diagnosticreport). Um dos casos de uso para referência.Identifier é a situação em que existe nenhuma representação do FHIR (onde o tipo é referência (qualquer)." />
+    </element>
+    <element id="Organization.endpoint.identifier.use">
+      <path value="Organization.endpoint.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um contexto específico de uso seja selecionado entre um conjunto de identificadores." />
+      <isModifierReason value="Isso é rotulado como &quot;é modificador&quot; porque os aplicativos não devem confundir um ID temporário para um permanente." />
+    </element>
+    <element id="Organization.endpoint.identifier.assigner">
+      <path value="Organization.endpoint.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O identificador.Assignador pode omitir o elemento .Reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização de atribuição." />
+    </element>
+    <element id="Organization.endpoint.display">
+      <path value="Organization.endpoint.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa de texto simples que identifica o recurso além da referência de recursos." />
+      <comment value="Isso geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não para descrevê-lo completamente." />
     </element>
   </differential>
 </StructureDefinition>
