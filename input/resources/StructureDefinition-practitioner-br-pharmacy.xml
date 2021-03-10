@@ -6,8 +6,9 @@
   <name value="Practitioner" />
   <title value="Practitioner" />
   <status value="draft" />
-  <date value="2021-02-02" />
+  <date value="2021-01-26" />
   <publisher value="HL7 Brasil" />
+  <description value="Perfil de profissional de saúde." />
   <copyright value="Copyright 2021 Instituto HL7 Brasil.&#xD;&#xA;&#xD;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;&#xA;you may not use this file except in compliance with the License.&#xD;&#xA;You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;    http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing, software&#xD;&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;&#xA;See the License for the specific language governing permissions and&#xD;&#xA;limitations under the License." />
   <fhirVersion value="4.0.1" />
   <mapping>
@@ -40,6 +41,602 @@
       <path value="Practitioner" />
       <short value="Uma pessoa com uma responsabilidade formal no fornecimento de cuidados de saúde ou serviços relacionados" />
       <definition value="Uma pessoa que está direta ou indiretamente envolvida no fornecimento de cuidados de saúde." />
+    </element>
+    <element id="Practitioner.id">
+      <path value="Practitioner.id" />
+      <short value="Identificação lógica deste artefato" />
+      <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
+      <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+    </element>
+    <element id="Practitioner.meta">
+      <path value="Practitioner.meta" />
+      <short value="Metadados sobre o recurso" />
+      <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
+    <element id="Practitioner.meta.extension">
+      <path value="Practitioner.meta.extension" />
+      <short value="Extensões sobre o recurso" />
+      <definition value="Extensões sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
+    <element id="Practitioner.meta.id">
+      <path value="Practitioner.meta.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.meta.versionId">
+      <path value="Practitioner.meta.versionId" />
+      <short value="Identificador específico da versão" />
+      <definition value="O identificador específico da versão, conforme aparece na parte da versão do URL. Este valor muda quando o recurso é criado, atualizado ou excluído." />
+      <comment value="O servidor atribui esse valor e ignora o que o cliente especifica, exceto no caso de o servidor estar impondo integridade de versão em atualizações / exclusões." />
+    </element>
+    <element id="Practitioner.meta.lastUpdated">
+      <path value="Practitioner.meta.lastUpdated" />
+      <short value="Quando a versão do recurso foi alterada pela última vez" />
+      <definition value="Quando o recurso foi alterado pela última vez - p.e. quando a versão mudou." />
+      <comment value="Este valor é sempre preenchido, exceto quando o recurso é criado pela primeira vez. O servidor / gerenciador de recursos define este valor; o que um cliente fornece é irrelevante. Isso é equivalente ao HTTP Last-Modified e DEVE ter o mesmo valor em uma interação [ler] (http.html # ler)." />
+    </element>
+    <element id="Practitioner.meta.source">
+      <path value="Practitioner.meta.source" />
+      <short value="Identifica de onde vem o recurso" />
+      <definition value="Um uri que identifica o sistema de origem do recurso. Isso fornece uma quantidade mínima de informações de [proveniência] (provenance.html #) que podem ser usadas para rastrear ou diferenciar a fonte de informações no recurso. A fonte pode identificar outro servidor FHIR, documento, mensagem, banco de dados, etc." />
+      <comment value="No recurso de proveniência, corresponde a Provenance.entity.what [x]. O uso exato da fonte (e o Provenance.entity.role implícito) é deixado ao critério do implementador. Apenas uma fonte indicada é permitida; para detalhes adicionais de proveniência, um recurso de proveniência completo deve ser usado.&#xD;&#xA;&#xD;&#xA;Este elemento pode ser usado para indicar onde está a fonte mestre atual de um recurso que possui um URL canônico se o recurso não estiver mais hospedado no URL canônico." />
+    </element>
+    <element id="Practitioner.meta.profile">
+      <path value="Practitioner.meta.profile" />
+      <short value="Perfis que este recurso afirma estar em conformidade com" />
+      <definition value="Uma lista de perfis (referências a recursos [StructureDefinition] (structureefinition.html #)) que este recurso afirma estar em conformidade. O URL é uma referência a [StructureDefinition.url] (Structefinition-settings.html # StructureDefinition.url)." />
+      <comment value="Cabe ao servidor e / ou outra infraestrutura da política determinar se / como essas reivindicações são verificadas e / ou atualizadas ao longo do tempo. A lista de URLs de perfil é um conjunto." />
+    </element>
+    <element id="Practitioner.meta.security">
+      <path value="Practitioner.meta.security" />
+      <short value="Rótulos de segurança aplicadas a este recurso" />
+      <definition value="Rótulos de segurança aplicados a este recurso. Essas marcas conectam recursos específicos à política de segurança geral e à infraestrutura." />
+    </element>
+    <element id="Practitioner.meta.security.id">
+      <path value="Practitioner.meta.security.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.meta.security.system">
+      <path value="Practitioner.meta.security.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.meta.security.version">
+      <path value="Practitioner.meta.security.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.meta.security.code">
+      <path value="Practitioner.meta.security.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.meta.security.display">
+      <path value="Practitioner.meta.security.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.meta.security.userSelected">
+      <path value="Practitioner.meta.security.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.meta.tag">
+      <path value="Practitioner.meta.tag" />
+      <short value="Etiquetas aplicadas a este recurso" />
+      <definition value="Etiquetas aplicadas a este recurso. As etiquetas devem ser usadas para identificar e relacionar recursos ao processo e ao fluxo de trabalho, e os aplicativos não precisam considerar as etiquetas ao interpretar o significado de um recurso." />
+      <comment value="As etiquetas podem ser atualizadas sem alterar a versão declarada do recurso. A lista de tags é um conjunto. A exclusividade é baseada no sistema / código, e a versão e a exibição são ignoradas." />
+    </element>
+    <element id="Practitioner.meta.tag.id">
+      <path value="Practitioner.meta.tag.id" />
+      <short value="Identificação única para referência entre elementos" />
+      <definition value="Identificação única para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.meta.tag.system">
+      <path value="Practitioner.meta.tag.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.meta.tag.version">
+      <path value="Practitioner.meta.tag.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.meta.tag.code">
+      <path value="Practitioner.meta.tag.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.meta.tag.display">
+      <path value="Practitioner.meta.tag.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.meta.tag.userSelected">
+      <path value="Practitioner.meta.tag.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.implicitRules">
+      <path value="Practitioner.implicitRules" />
+      <short value="Um conjunto de regras sob as quais este conteúdo foi criado" />
+      <definition value="Uma referência a um conjunto de regras que foram seguidas quando o recurso foi construído e que devem ser compreendidas no processamento do conteúdo. Freqüentemente, esta é uma referência a um guia de implementação que define as regras especiais junto com outros perfis, etc." />
+      <comment value="A afirmação deste conjunto de regras restringe o conteúdo a ser compreendido apenas por um conjunto limitado de parceiros comerciais. Isso limita inerentemente a utilidade dos dados a longo prazo. No entanto, o ecossistema de saúde existente está altamente fragmentado e ainda não está pronto para definir, coletar e trocar dados em um sentido geralmente computável. Sempre que possível, os implementadores e / ou escritores de especificações devem evitar o uso desse elemento. Freqüentemente, quando usado, o URL é uma referência a um guia de implementação que define essas regras especiais como parte de sua narrativa junto com outros perfis, conjuntos de valores, etc." />
+      <isModifierReason value="Este elemento é rotulado como um modificador porque as regras implícitas podem fornecer conhecimento adicional sobre o recurso que modifica seu significado ou interpretação" />
+    </element>
+    <element id="Practitioner.language">
+      <path value="Practitioner.language" />
+      <short value="Idioma do conteúdo do recurso" />
+      <definition value="O idioma base no qual o recurso está escrito." />
+      <comment value="O idioma é fornecido para oferecer suporte à indexação e acessibilidade (normalmente, serviços como texto para fala usam a tag de idioma). A tag de idioma html na narrativa se aplica à narrativa. A tag de idioma no recurso pode ser usada para especificar o idioma de outras apresentações geradas a partir dos dados no recurso. Nem todo o conteúdo precisa estar no idioma base. Não se deve presumir que Resource.language se aplique à narrativa automaticamente. Se um idioma for especificado, ele também deve ser especificado no elemento div no html (consulte as regras em HTML5 para obter informações sobre a relação entre xml: lang e o atributo html lang)." />
+    </element>
+    <element id="Practitioner.text">
+      <path value="Practitioner.text" />
+      <short value="Resumo do texto do recurso, para interpretação humana" />
+      <definition value="Uma narrativa legível que contém um resumo do recurso e pode ser usada para representar o conteúdo do recurso para uma pessoa. A narrativa não precisa codificar todos os dados estruturados, mas deve conter detalhes suficientes para torná-lo &quot;clinicamente seguro&quot; para um humano apenas ler a narrativa. As definições de recursos podem definir qual conteúdo deve ser representado na narrativa para garantir a segurança clínica." />
+      <comment value="Os recursos contidos não possuem narrativa. Os recursos que não estão contidos DEVEM ter uma narrativa. Em alguns casos, um recurso pode ter apenas texto com poucos ou nenhum dado discreto adicional (desde que todos os elementos minOccurs = 1 sejam satisfeitos). Isso pode ser necessário para dados de sistemas legados onde as informações são capturadas como um &quot;blob de texto&quot; ou onde o texto é adicionalmente inserido bruto ou narrado e as informações codificadas são adicionadas posteriormente." />
+    </element>
+    <element id="Practitioner.text.id">
+      <path value="Practitioner.text.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.text.status">
+      <path value="Practitioner.text.status" />
+      <short value="gerada | extensões | adicional | vazia" />
+      <definition value="O estado da narrativa - se é inteiramente gerada (apenas a partir dos dados definidos ou também das extensões), ou se um ser humano a criou e pode conter dados adicionais." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+    </element>
+    <element id="Practitioner.text.div">
+      <path value="Practitioner.text.div" />
+      <short value="Conteúdo xhtml limitado" />
+      <definition value="O conteúdo narrativo real, uma versão simplificada de XHTML." />
+      <comment value="O conteúdo do elemento html é um fragmento XHTML contendo apenas os elementos básicos de formatação html descritos nos capítulos 7-11 e 15 do padrão HTML 4.0, elementos &lt;a&gt; (seja nome ou href), imagens e folhas de estilo contidas internamente. O conteúdo XHTML NÃO DEVE conter um cabeçalho, um corpo, referências de folhas de estilo externas, scripts, formulários, base / link / xlink, frames, iframes e objetos." />
+    </element>
+    <element id="Practitioner.contained">
+      <path value="Practitioner.contained" />
+      <short value="Recursos contidos em linha" />
+      <definition value="Esses recursos não têm uma existência independente além do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
+      <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, pois uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
+    </element>    
+    <element id="Practitioner.identifier.id">
+      <path value="Practitioner.identifier.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.use">
+      <path value="Practitioner.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <min value="1" />
+      <isModifierReason value="Isso é nomeado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um identificador temporário com um permanente." />
+    </element>
+    <element id="Practitioner.identifier.type">
+      <path value="Practitioner.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Não DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não há uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="Practitioner.identifier.type.id">
+      <path value="Practitioner.identifier.type.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.type.coding">
+      <path value="Practitioner.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordenação das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.id">
+      <path value="Practitioner.identifier.type.coding.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.system">
+      <path value="Practitioner.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.version">
+      <path value="Practitioner.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.code">
+      <path value="Practitioner.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.display">
+      <path value="Practitioner.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.identifier.type.coding.userSelected">
+      <path value="Practitioner.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.identifier.type.text">
+      <path value="Practitioner.identifier.type.text" />
+      <short value="Representação do conceito em texto simples." />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / pronunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações" />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Practitioner.identifier.system">
+      <path value="Practitioner.identifier.system" />
+      <short value="O espaço do nome para o valor do identificador" />
+      <definition value="Estabelece o espaço do nome para o valor - ou seja, uma URL que descreve um conjunto de valores que são únicos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores únicos." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.identifier.value">
+      <path value="Practitioner.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.identifier.period">
+      <path value="Practitioner.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Practitioner.identifier.period.id">
+      <path value="Practitioner.identifier.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.period.start">
+      <path value="Practitioner.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Practitioner.identifier.period.end">
+      <path value="Practitioner.identifier.period.end" />
+      <short value="Horário final com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 03/02/2012T10: 00: 00 está em um período que tem um valor final de 03/02/2012" />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Practitioner.identifier.assigner">
+      <path value="Practitioner.identifier.assigner" />
+      <short value="Organização que emitiu o identificador (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display que reflete o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Practitioner.identifier.assigner.id">
+      <path value="Practitioner.identifier.assigner.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.reference">
+      <path value="Practitioner.identifier.assigner.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve-se considerar que é específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+    </element>
+    <element id="Practitioner.identifier.assigner.type">
+      <path value="Practitioner.identifier.assigner.type" />
+      <short value="Tipo de destino da referência (p.e. &quot;Indivíduo&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Indivíduo&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Practitioner. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier">
+      <path value="Practitioner.identifier.assigner.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhum requisito de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que não existe representação FHIR (onde o tipo é Referência (Qualquer)." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.id">
+      <path value="Practitioner.identifier.assigner.identifier.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.use">
+      <path value="Practitioner.identifier.assigner.identifier.use" />
+      <short value="usual | oficial | temporário | secundário | antigo (se conhecido)" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <isModifierReason value="Isso é rotulado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um id temporário com um permanente." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type">
+      <path value="Practitioner.identifier.assigner.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Não DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não há uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.id">
+      <path value="Practitioner.identifier.assigner.identifier.type.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordenação das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.id">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.system">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.version">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.code">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e., pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.display">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.coding.userSelected">
+      <path value="Practitioner.identifier.assigner.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.type.text">
+      <path value="Practitioner.identifier.assigner.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / pronunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName (nome de exibição) de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.system">
+      <path value="Practitioner.identifier.assigner.identifier.system" />
+      <short value="O do espaço do nome para o valor do identificador" />
+      <definition value="Estabelece o espaço do nome para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.value">
+      <path value="Practitioner.identifier.assigner.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.period">
+      <path value="Practitioner.identifier.assigner.identifier.period" />
+      <short value="Período de tempo em que o identificador é / era válido para uso" />
+      <definition value="Período de tempo em que o identificador é / era válido para uso" />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e. &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.period.id">
+      <path value="Practitioner.identifier.assigner.identifier.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.period.start">
+      <path value="Practitioner.identifier.assigner.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.period.end">
+      <path value="Practitioner.identifier.assigner.identifier.period.end" />
+      <short value="Horário final com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner">
+      <path value="Practitioner.identifier.assigner.identifier.assigner" />
+      <short value="Organização que emitiu o identificador (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display que reflete o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.id">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.reference">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve-se considerar que é específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [tipo] / [id]&quot;, deve-se assumir que a referência é para um servidor FHIR RESTful." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.type">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.type" />
+      <short value="Digite a referência a que se refere (p.e.: &quot;Indivíduo&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Indivíduo&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Practitioner. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhum requisito de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (p.e.: um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (p.e.: concatenação, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que não existe representação FHIR (onde o tipo é Referência (Qualquer)." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.id">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.use">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem presumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <isModifierReason value="Isso é rotulado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um o identificador temporário com um permanente." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Não DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não há uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.id">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordenação das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.id">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.id" />
+      <short value="Identificador único para referência entre elementos." />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.system">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.version">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVERÁ ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.code">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e.:, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.display">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.userSelected">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e.:  fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.type.text">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / pronunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.system">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.system" />
+      <short value="A nomenclatura para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.value">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (p.e.: removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.period">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.period" />
+      <short value="Período de tempo em que o identificador é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.period.id">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.period.start">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.period.end">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.period.end" />
+      <short value="Horário final com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 03/02/2012T10: 00: 00 está em um período que tem um valor final de 03/02/2012." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.identifier.assigner">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.identifier.assigner" />
+      <short value="Organização que emitiu identificador (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display que reflete o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Practitioner.identifier.assigner.identifier.assigner.display">
+      <path value="Practitioner.identifier.assigner.identifier.assigner.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa em texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
+    </element>
+    <element id="Practitioner.identifier.assigner.display">
+      <path value="Practitioner.identifier.assigner.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa em texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
     </element>
     <element id="Practitioner.identifier">
       <path value="Practitioner.identifier" />
@@ -118,104 +715,173 @@
     </element>
     <element id="Practitioner.name">
       <path value="Practitioner.name" />
-      <short value="Nome do Profissional" />
-      <definition value="Nome(s) associado(s) ao profissional." />
+      <short value="Nome do indivíduo" />
+      <definition value="Um nome associado ao indivíduo." />
+      <comment value="Um indivíduo pode ter vários nomes com diferentes usos ou períodos aplicáveis. Para animais, o nome é um &quot;HumanName&quot; no sentido que é atribuído e usado por humanos e tem os mesmos padrões." />
+      <requirements value="Precisa ser capaz de rastrear o indivíduo por vários nomes. Exemplos são seu nome oficial e um nome de parceiro." />
       <min value="1" />
+    </element>
+    <element id="Practitioner.name.id">
+      <path value="Practitioner.name.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.name.use">
       <path value="Practitioner.name.use" />
-      <short value="Tipo de Nome" />
-      <definition value="official: nome oficial atual, conforme registrado na certidão de registro civil mais atual do profissional. maiden: nome oficial de solteiro(a), quando houve uma alteração de nome decorrente de uma união de qualquer tipo. old: nome oficial anterior, quando houve uma alteração de nome em uma certidão de registro civil ou decisão judicial decorrente de qualquer outra situação que não seja uma união. usual: nome social. temp: nome temporário, como aqueles utilizados em programas de proteção a testemunhas. anonymous: uso exclusivo para anonimização de registros de profissionais.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
+      <definition value="Identifica a finalidade desse nome." />
+      <comment value="Os aplicativos podem assumir que um nome é atual, a menos que diga explicitamente que é temporário ou antigo." />
+      <requirements value="Permite que o nome apropriado para um determinado contexto de uso seja selecionado entre um conjunto de nomes." />
       <min value="1" />
-      <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um nome temporário ou antigo etc. com um atual / permanente" />
     </element>
     <element id="Practitioner.name.text">
       <path value="Practitioner.name.text" />
-      <short value="Nome Completo" />
-      <definition value="Nome completo do profissional, composto pelo nome próprio, que pode ser mais de um quando trata-se de um nome composto, pelo sobrenome e pelo sufixo (Filho, Neto, Júnior etc.) quando aplicável." />
+      <short value="Representação de texto do nome completo" />
+      <definition value="Especifica o nome completo como deve ser exibido, p.e.: em uma IU do aplicativo. Isso pode ser fornecido em vez de ou como também as peças específicas." />
+      <comment value="Pode fornecer uma representação de texto e partes. Os aplicativos que atualizam um nome DEVERÃO garantir que, quando o texto e as partes estiverem presentes, nenhum conteúdo seja incluído no texto que não seja encontrado em uma parte." />
+      <requirements value="Um formulário renderizável e não codificado." />
       <min value="1" />
     </element>
     <element id="Practitioner.name.family">
       <path value="Practitioner.name.family" />
       <short value="Sobrenome" />
-      <definition value="O(s) sobrenome(s) do indivíduo, quando é possível coletar esta informação desagregada." />
+      <definition value="A parte de um nome que se vincula à genealogia. Em algumas culturas (p.e.: Eritréia), o sobrenome de um filho é o primeiro nome de seu pai." />
+      <comment value="O nome da família pode ser decomposto em partes específicas usando extensões (de, nl, es culturas relacionadas)." />
       <mustSupport value="true" />
     </element>
     <element id="Practitioner.name.given">
       <path value="Practitioner.name.given" />
-      <short value="Nome Próprio" />
-      <definition value="O nome próprio do indivíduo, incluindo todos aqueles que não são o sobrenome no caso de nomes compostos, quando é possível coletar esta informação desagregada." />
+      <short value="Nome do meio" />
+      <definition value="Nomes próprios (nem sempre 'primeiro'). Inclui nomes do meio" />
+      <comment value="Se apenas as iniciais forem registradas, elas podem ser usadas no lugar das partes do nome completo. As iniciais podem ser separadas em vários nomes, mas geralmente não são devido a limitações paráticas. Este elemento não é chamado de &quot;nome&quot;, pois os nomes dados nem sempre vêm em primeiro lugar." />
+      <orderMeaning value="Os nomes dados aparecem na ordem correta para apresentar o nome" />
       <mustSupport value="true" />
     </element>
     <element id="Practitioner.name.prefix">
       <path value="Practitioner.name.prefix" />
-      <short value="Prefixo do Nome" />
-      <definition value="Prefixo do nome tipicamente utilizado quando se adquire títulos acadêmicos (Prof. ou Dr.), estados maritais (Sr., Sra., Srta.) etc., e é possível coletar esta informação." />
+      <short value="Prefixo do nome" />
+      <definition value="Parte do nome que é adquirido como título devido ao status acadêmico, jurídico, de emprego ou nobreza, etc. e que aparece no início do nome." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <orderMeaning value="Os prefixos aparecem na ordem correta para apresentar o nome" />
     </element>
     <element id="Practitioner.name.suffix">
       <path value="Practitioner.name.suffix" />
-      <short value="Sufixo do Nome" />
-      <definition value="Sufixo do nome, tipicamente utilizado para identificar a geração do indivíduo (Filho, Neto, Júnior etc.), quando é possível coletar esta informação desagregada." />
+      <short value="Sufixo do nome" />
+      <definition value="Parte do nome que é adquirido como título devido ao status acadêmico, jurídico, de emprego ou nobreza, etc. e que aparece no final do nome." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <orderMeaning value="Os sufixos aparecem na ordem correta para apresentar o nome" />
     </element>
     <element id="Practitioner.name.period">
       <path value="Practitioner.name.period" />
-      <short value="Período de Uso do Nome" />
-      <definition value="Indica a data inicial e final do uso do nome." />
+      <short value="Período de tempo em que o nome estava / está em uso" />
+      <definition value="Indica o período de tempo em que este nome era válido para a pessoa nomeada." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (p.e.: &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+      <requirements value="Permite que os nomes sejam colocados no contexto histórico." />
+    </element>
+    <element id="Practitioner.name.period.id">
+      <path value="Practitioner.name.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.name.period.start">
       <path value="Practitioner.name.period.start" />
-      <short value="Data Inicial" />
-      <definition value="Quando o uso do nome iniciou." />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
     </element>
     <element id="Practitioner.name.period.end">
       <path value="Practitioner.name.period.end" />
-      <short value="Data Final" />
-      <definition value="Quando o uso do nome terminou." />
+      <short value="Horário final com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
     </element>
     <element id="Practitioner.telecom">
       <path value="Practitioner.telecom" />
-      <short value="Meio de Contato" />
-      <definition value="Informações do(s) meio(s) de contato com o profissional. Não devem ser informados meios de contato pessoais, apenas profissionais." />
-      <min value="1" />
+      <short value="Contato do indivíduo" />
+      <definition value="Um detalhe de contato (p.e.: um número de telefone ou um endereço de e-mail) pelo qual o indivíduo pode ser contatado" />
+      <comment value="Um indivíduo pode ter várias maneiras de ser contatado com diferentes usos ou períodos aplicáveis. Pode ser necessário ter opções para entrar em contato com a pessoa com urgência e também para ajudar na identificação. O endereço pode não ir diretamente para o indivíduo, mas pode chegar a outra pessoa que possa representar o indivíduo (p.e.: telefone residencial ou telefone do dono do animal)." />
+      <requirements value="As pessoas têm opções de contato, como telefone, e-mail." />
+    </element>
+    <element id="Practitioner.telecom.id">
+      <path value="Practitioner.telecom.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.telecom.system">
       <path value="Practitioner.telecom.system" />
-      <short value="Tipo de Meio de Contato" />
-      <definition value="sms: número de telefone celular. phone: número de telefone fixo. fax: número de fax. email: endereço de correio eletrônico (e-mail). pager: número de pager/bip. url: endereço do sítio eletrônico na internet, inclusive redes sociais. other: outros meios de contato, inserir no value uma descrição, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao).&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
+      <definition value="Formulário de telecomunicações para ponto de contato - qual sistema de comunicação é necessário para fazer uso do contato." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
-      <fixedCode value="phone" />
     </element>
     <element id="Practitioner.telecom.value">
       <path value="Practitioner.telecom.value" />
-      <short value="Contato" />
-      <definition value="O número do telefone (preferencialmente em formato internacional +CC DDD XXXXX-XXXX, onde CC é o código do país, DDD código da cidade/localidade e XXXXX-XXXX é o número do telefone propriamente dito), endereço de correio eletrônico (ex.: fulano@provedor.br), URL ou outro valor que identifique o contato. Quando utilizar &quot;other&quot; no system, inserir uma descrição do meio de contato, seguida do caractere : e espaço, seguido do contato propriamente dito (ex.: Jabber: fulano@organizacao)." />
+      <short value="Os detalhes reais do ponto de contato" />
+      <definition value="Os detalhes reais do ponto de contato, em uma forma que seja significativa para o sistema de comunicação designado (ou seja, número de telefone ou endereço de e-mail)." />
+      <comment value="Dados de texto adicionais, como números de ramais de telefone ou notas sobre o uso do contato, às vezes são incluídos no valor." />
+      <requirements value="Precisa oferecer suporte a números legados que não estão em um formato rigidamente controlado." />
       <min value="1" />
     </element>
     <element id="Practitioner.telecom.use">
       <path value="Practitioner.telecom.use" />
-      <short value="Uso do Meio de Contato" />
-      <definition value="work: comercial. temp: temporário ou de recado. mobile: dispositivo móvel, como um telefone celular.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
+      <definition value="Identifica a finalidade do ponto de contato." />
+      <comment value="Os aplicativos podem presumir que um contato é atual, a menos que diga explicitamente que é temporário ou antigo." />
+      <requirements value="Precisa rastrear a forma como uma pessoa usa esse contato, para que o usuário possa escolher qual é apropriado para sua finalidade." />
       <min value="1" />
+      <isModifierReason value="Isso é rotulado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um contato temporário ou antigo etc. com um atual / permanente" />
     </element>
     <element id="Practitioner.telecom.rank">
       <path value="Practitioner.telecom.rank" />
-      <short value="Ordem de Preferência" />
-      <definition value="Especifica uma ordem preferencial entre vários contatos do mesmo tipo, sendo o de valor 1 o preferido." />
+      <short value="Especifique a ordem de uso preferencial (1=prioritário)" />
+      <definition value="Especifica uma ordem preferencial para usar um conjunto de contatos. ContactPoints com valores de classificação mais baixos são mais preferidos do que aqueles com valores de classificação mais altos." />
+      <comment value="Observe que a classificação não segue necessariamente a ordem em que os contatos são representados na instância." />
     </element>
     <element id="Practitioner.telecom.period">
       <path value="Practitioner.telecom.period" />
-      <short value="Período do Meio de Contato" />
-      <definition value="Período em que o meio de contato foi utilizado pelo profisisonal." />
+      <short value="Período de tempo em que o ponto de contato estava / está em uso" />
+      <definition value="Período de tempo em que o ponto de contato estava / está em uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (p.e.:&quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Practitioner.telecom.period.id">
+      <path value="Practitioner.telecom.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.telecom.period.start">
       <path value="Practitioner.telecom.period.start" />
-      <short value="Data de Início do Meio de Contato" />
-      <definition value="Data em que o meio de contato foi cadastrado ou começou a ser utilizado pelo profissional." />
+      <short value="Hora de início com limite incluso" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
     </element>
     <element id="Practitioner.telecom.period.end">
       <path value="Practitioner.telecom.period.end" />
-      <short value="Data da Término do Meio de Contato" />
-      <definition value="Data em que o meio de contato foi desativado ou parou de ser utilizado pelo profissional." />
+      <short value="Horário final com limite incluso, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Practitioner.gender">
+      <path value="Practitioner.gender" />
+      <definition value="Gênero administrativo - o gênero que o indivíduo é considerado ter para fins de administração e manutenção de registros." />
+      <comment value="O gênero pode não corresponder ao sexo biológico, conforme determinado pela genética ou pela identificação preferida do indivíduo. Observe que, tanto para os humanos quanto para os animais, existem outras possibilidades legítimas além do macho e da fêmea, embora a vasta maioria dos sistemas e contextos apóie somente o macho e a fêmea. Os sistemas que fornecem suporte à decisão ou aplicam regras de negócios devem idealmente fazer isso com base nas Observações que tratam do sexo específico ou aspecto de gênero de interesse (anatômico, cromossômico, social, etc.) No entanto, porque essas observações são raramente registradas, assumindo o padrão administrativo gênero é uma prática comum. Onde tal inadimplência ocorrer, a aplicação das regras deve permitir a variação entre aspectos administrativos e biológicos, cromossômicos e outros aspectos de gênero. Por exemplo, um alerta sobre uma histerectomia em um homem deve ser tratado como um aviso ou erro substituível, não como um erro &quot;grave&quot;. Consulte a seção Sexo e sexo do indivíduo para obter informações adicionais sobre como comunicar o sexo e o sexo do indivíduo." />
+      <requirements value="Necessário para a identificação do indivíduo, em combinação com (pelo menos) nome e data de nascimento." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.birthDate">
+      <path value="Practitioner.birthDate" />
+      <short value="A data de nascimento do indivíduo." />
+      <definition value="A data de nascimento do indivíduo." />
+      <comment value="Pelo menos um ano estimado deve ser fornecido como um palpite se o data de nascimento real for desconhecido. Há uma extensão padrão &quot;tempo de nascimento do indivíduo&quot; disponível que deve ser usado onde o tempo é necessário (como em sistemas de cuidados maternos / infantis)." />
+      <requirements value="A idade do indivíduo impulsiona muitos processos clínicos." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.deceased[x]">
+      <path value="Practitioner.deceased[x]" />
+      <short value="Indica se o indivíduo é falecido ou não" />
+      <definition value="Indica se o indivíduo é falecido ou não" />
+      <comment value="Se não houver valor na instância, significa que não há nenhuma declaração sobre se o indivíduo faleceu ou não. A maioria dos sistemas interpretará a ausência de um valor como um sinal de que a pessoa está viva." />
+      <requirements value="O fato de um indivíduo ser falecido influencia o processo clínico. Além disso, na comunicação humana e na gestão das relações é necessário saber se a pessoa está viva." />
+      <isModifierReason value="Este elemento é rotulado como um modificador porque, uma vez que um indivíduo é marcado como falecido, as ações que são apropriadas para executar no indivíduo podem ser significativamente diferentes." />
     </element>
     <element id="Practitioner.address">
       <path value="Practitioner.address" />
@@ -226,25 +892,37 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-      <short value="Dados de Endereçamento" />
-      <definition value="Dados do(s) endereço(s) onde o profissional pode ser localizado. Não devem ser informados endereços pessoais, apenas profissionais." />
+      <short value="Endereço" />
+      <definition value="Um endereço para o indivíduo" />
+      <comment value="O indivíduo pode ter vários endereços com diferentes usos ou períodos aplicáveis." />
+      <requirements value="Pode ser necessário manter o controle dos endereços dos indivíduos para contato, faturamento ou requisitos de relatórios e também para ajudar na identificação." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.address.id">
+      <path value="Practitioner.address.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.address.use">
       <path value="Practitioner.address.use" />
-      <short value="Uso do Endereço" />
-      <definition value="work: endereço comercial ou de trabalho atual. temp: endereço temporário, como uma instalação/edificação de trabalho provisória, etc. old: endereço anterior.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
+      <definition value="O objetivo deste endereço." />
+      <comment value="Os aplicativos podem assumir que um endereço é atual, a menos que diga explicitamente que é temporário ou antigo." />
+      <requirements value="Permite que um endereço apropriado seja escolhido em uma lista de muitos." />
       <min value="1" />
+      <isModifierReason value="Isso é rotulado como &quot;Is Modifier&quot; porque os aplicativos não devem confundir um endereço temporário ou antigo, etc. com um atual / permanente" />
     </element>
     <element id="Practitioner.address.type">
       <path value="Practitioner.address.type" />
-      <short value="Tipo de Endereço" />
-      <definition value="physical: um endereço físico de um edificação ou espaço geográfico real, como de uma casa, prédio, loja, galpão, lote, etc. postal: um endereço virtual, como de uma Caixa Postal ou serviço de logística de mercadorias, p.ex.&#xD;&#xA;&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
+      <definition value="Distingue entre endereços físicos (aqueles que você pode visitar) e endereços de correspondência (p.e.:, caixas postais e endereços temporários). A maioria dos endereços são utilizados para ambas finalidades." />
+      <comment value="A definição de Endereço afirma que &quot;endereço destina-se a descrever endereços postais, não localizações físicas&quot;. No entanto, muitos aplicativos rastreiam se um endereço tem o duplo propósito de ser um local que pode ser visitado, além de ser um destino de entrega válido, e os endereços postais costumam ser usados como proxies para locais físicos (consulte também [Local] (local). html #) resource)." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.text">
       <path value="Practitioner.address.text" />
-      <short value="Endereço" />
-      <definition value="Endereço completo" />
+      <short value="Representação de texto do endereço" />
+      <definition value="Especifica o endereço completo como deve ser exibido, por exemplo, em uma etiqueta postal. Isso pode ser fornecido em vez de ou como também as peças específicas." />
+      <comment value="Pode fornecer uma representação de texto e partes. Os aplicativos que atualizam um endereço DEVERÃO garantir que, quando o texto e as partes estiverem presentes, nenhum conteúdo seja incluído no texto que não seja encontrado em uma parte." />
+      <requirements value="Um formulário renderizável e não codificado." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.line">
@@ -256,77 +934,117 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-      <short value="Endereço" />
-      <definition value="Detalhes do endereço" />
+      <short value="Nome da rua, número, direção e ponto postal Caixa etc." />
+      <definition value="Este componente contém o número da casa, número do apartamento, nome da rua, direção da rua, P.O. Número da caixa, dicas de entrega e informações de endereço semelhantes." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="5" />
       <max value="5" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.line:streetType">
       <path value="Practitioner.address.line" />
       <sliceName value="streetType" />
-      <short value="Tipo de Logradouro" />
-      <definition value="Tipo de logradouro do endereço." />
+      <short value="Tipo de rua" />
+      <definition value="Este componente contém informações de endereço referente ao tipo rua do endereço. p.e.: avenida, rua, estrada,etc." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.line:street">
       <path value="Practitioner.address.line" />
       <sliceName value="street" />
-      <short value="Logradouro" />
-      <definition value="Logradouro do endereço (ex.: Visconde do Rio Branco, das Laranjeiras, QRSW 8 Bloco A-1) . Quando não for possível utilizar o elemento streetType, incluir textualmente no início do nome do logradouro o tipo de logradouro abreviado (ex.: R. Visconde do Rio Branco, Av. das Laranjeiras, Quadra QRSW 8 Bloco A-1)." />
+      <short value="Rua" />
+      <definition value="Este componente contém informações de endereço referente a descrição da rua." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.line:number">
       <path value="Practitioner.address.line" />
       <sliceName value="number" />
       <short value="Número" />
-      <definition value="Número do endereço." />
+      <definition value="Este componente contém informações de endereço referente ao número." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.line:complement">
       <path value="Practitioner.address.line" />
       <sliceName value="complement" />
       <short value="Complemento" />
-      <definition value="Complemento do endereço, como o nome do edifício, bloco, número do apartamento, número da sala etc." />
+      <definition value="Este componente contém informações de endereço referente ao complemento." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.line:neighborhood">
       <path value="Practitioner.address.line" />
       <sliceName value="neighborhood" />
       <short value="Bairro" />
-      <definition value="Bairro do endereço." />
+      <definition value="Este componente contém informações de endereço referente ao bairro." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <max value="1" />
+      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
     </element>
     <element id="Practitioner.address.city">
       <path value="Practitioner.address.city" />
-      <short value="Município" />
-      <definition value="Município do endereço." />
+      <short value="Nome da cidade, município etc." />
+      <definition value="O nome da cidade, vila, bairro, vila ou outra comunidade ou centro de entrega." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
+    </element>
+    <element id="Practitioner.address.district">
+      <path value="Practitioner.address.district" />
+      <short value="Município" />
+      <definition value="O nome da área administrativa (município)." />
+      <comment value="O distrito é às vezes conhecido como condado, mas em algumas regiões, 'condado' é usado no lugar da cidade (município), portanto, o nome do condado deve ser indicado como cidade." />
     </element>
     <element id="Practitioner.address.state">
       <path value="Practitioner.address.state" />
-      <short value="UF" />
-      <definition value="Unidade Federativa (estados ou Distrito Federal) do endereço." />
+      <short value="Unidade Federativa (UF)" />
+      <definition value="Subunidade de um país com soberania limitada em um país organizado federalmente. Um código pode ser usado se houver códigos de uso comum (p.e.: códigos de estado de 2 letras dos EUA)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
     </element>
     <element id="Practitioner.address.postalCode">
       <path value="Practitioner.address.postalCode" />
-      <short value="CEP" />
-      <definition value="Código de Endereçamento Postal. Utilizar a máscara XXXXX-XXXX." />
+      <short value="Código de Endereçamento Postal (CEP)" />
+      <definition value="Um código postal que designa uma região definida pelo serviço postal." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
     </element>
     <element id="Practitioner.address.country">
       <path value="Practitioner.address.country" />
       <short value="País" />
-      <definition value="País do endereço" />
+      <definition value="País - uma nação normalmente entendida ou geralmente aceita.&#xD;&#xA;País (p.e.: pode ser um código ISO 3166 de 2 ou 3 letras)" />
+      <comment value="Códigos ISO 3166 de 3 letras podem ser usados no lugar de um nome de país legível." />
       <min value="1" />
     </element>
-    <element id="Practitioner.gender">
-      <path value="Practitioner.gender" />
-      <short value="Sexo" />
-      <definition value="male: masculino. female: feminino. unknown: ignorado." />
-      <min value="1" />
+    <element id="Practitioner.address.period">
+      <path value="Practitioner.address.period" />
+      <short value="Período de tempo em que o endereço estava / está em uso" />
+      <definition value="Período de tempo em que o endereço estava / está em uso" />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+      <requirements value="Permite que os endereços sejam colocados em um contexto histórico." />
     </element>
-    <element id="Practitioner.birthDate">
-      <path value="Practitioner.birthDate" />
-      <short value="Data de Nascimento" />
-      <definition value="Data de nascimento do profissional" />
-      <min value="1" />
+    <element id="Practitioner.address.period.id">
+      <path value="Practitioner.address.period.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
+    <element id="Practitioner.address.period.start">
+      <path value="Practitioner.address.period.start" />
+      <short value="Hora de início com limite incluso" />
+      <definition value="O início do período. O limite é incluso." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Practitioner.address.period.end">
+      <path value="Practitioner.address.period.end" />
+      <short value="Horário final com limite incluso, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>        
     <element id="Practitioner.photo">
       <path value="Practitioner.photo" />
       <short value="Foto" />
@@ -336,68 +1054,90 @@
       <path value="Practitioner.qualification" />
       <short value="Qualificação" />
       <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
-      <max value="1" />
-    </element>
-    <element id="Practitioner.qualification.identifier">
-      <path value="Practitioner.qualification.identifier" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.identifier.use">
-      <path value="Practitioner.qualification.identifier.use" />
-      <min value="1" />
-      <fixedCode value="official" />
-    </element>
-    <element id="Practitioner.qualification.identifier.system">
-      <path value="Practitioner.qualification.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/registro-profissional" />
-    </element>
-    <element id="Practitioner.qualification.identifier.value">
-      <path value="Practitioner.qualification.identifier.value" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.code.coding">
-      <path value="Practitioner.qualification.code.coding" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.code.coding.system">
-      <path value="Practitioner.qualification.code.coding.system" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.code.coding.code">
-      <path value="Practitioner.qualification.code.coding.code" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.code.coding.display">
-      <path value="Practitioner.qualification.code.coding.display" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.issuer">
-      <path value="Practitioner.qualification.issuer" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.issuer.identifier">
-      <path value="Practitioner.qualification.issuer.identifier" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.qualification.issuer.identifier.use">
-      <path value="Practitioner.qualification.issuer.identifier.use" />
-      <min value="1" />
-      <fixedCode value="official" />
-    </element>
-    <element id="Practitioner.qualification.issuer.identifier.system">
-      <path value="Practitioner.qualification.issuer.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/conselho-profissional" />
-    </element>
-    <element id="Practitioner.qualification.issuer.identifier.value">
-      <path value="Practitioner.qualification.issuer.identifier.value" />
-      <min value="1" />
-    </element>
+    </element>    
     <element id="Practitioner.communication">
       <path value="Practitioner.communication" />
-      <short value="Idioma" />
-      <definition value="Idioma utilizado com o paciente" />
+      <short value="Comunicação" />
+      <definition value="Uma linguagem que pode ser usada para comunicar ao paciente sobre sua saúde." />
+      <comment value="Se nenhum idioma for especificado, isso * implica * que o idioma local padrão é falado. Se você precisa transmitir proficiência para vários modos, então você precisa de várias associações Paciente.Comunicação. Para os animais, a linguagem não é um campo relevante e deve estar ausente da instância. Se o paciente não fala o idioma local padrão, o Padrão Requerido do Intérprete pode ser usado para declarar explicitamente que um intérprete é necessário." />
+      <requirements value="Se um paciente não fala o idioma local, podem ser necessários intérpretes, portanto, os idiomas falados e a proficiência são coisas importantes para acompanhar, tanto para o paciente quanto para outras pessoas de interesse" />
+    </element>
+    <element id="Practitioner.communication.id">
+      <path value="Practitioner.communication.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.communication.language">
+      <path value="Practitioner.communication.language" />
+      <short value="A linguagem que pode ser usada para comunicar ao paciente sobre sua saúde" />
+      <definition value="O código ISO-639-1 alfa 2 em minúsculas para o idioma, opcionalmente seguido por um hífen e o código ISO-3166-1 alfa 2 para a região em maiúsculas; &#xD;&#xA;p.e.: &quot;en&quot; para inglês ou &quot;en-US&quot; para inglês americano versus &quot;en-EN&quot; para inglês da Inglaterra." />
+      <comment value="A estrutura aa-BB com esta caixa exata é uma das notações de localidade mais amplamente utilizadas. No entanto, nem todos os sistemas codificam isso, mas sim como texto livre. Daí CodeableConcept em vez de código como o tipo de dados." />
+      <requirements value="A maioria dos sistemas em países multilíngues desejará transmitir o idioma. Nem todos os sistemas realmente precisam do dialeto regional." />
+    </element>
+    <element id="Practitioner.communication.language.id">
+      <path value="Practitioner.communication.language.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.communication.language.coding">
+      <path value="Practitioner.communication.language.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordenação das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Practitioner.communication.language.coding.id">
+      <path value="Practitioner.communication.language.coding.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Practitioner.communication.language.coding.system">
+      <path value="Practitioner.communication.language.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Practitioner.communication.language.coding.version">
+      <path value="Practitioner.communication.language.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVERÁ ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Practitioner.communication.language.coding.code">
+      <path value="Practitioner.communication.language.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e.: pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Necessita referir-se a um código específico no sistema." />
+    </element>
+    <element id="Practitioner.communication.language.coding.display">
+      <path value="Practitioner.communication.language.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema" />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Practitioner.communication.language.coding.userSelected">
+      <path value="Practitioner.communication.language.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Practitioner.communication.language.text">
+      <path value="Practitioner.communication.language.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / pronunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Practitioner.communication.preferred">
+      <path value="Practitioner.communication.preferred" />
+      <short value="Indicador de preferência de idioma" />
+      <definition value="Indica se o paciente prefere ou não esse idioma (em relação a outros idiomas ele domina até um determinado nível)." />
+      <comment value="Esta linguagem é especificamente identificada para comunicar informações de saúde." />
+      <requirements value="Pessoas que dominam vários idiomas até certo nível podem preferir um ou mais, ou seja, sentem-se mais confiantes para se comunicar em um idioma específico, fazendo com que outros idiomas sejam um método alternativo." />
     </element>
   </differential>
 </StructureDefinition>

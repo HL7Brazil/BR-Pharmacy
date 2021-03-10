@@ -34,13 +34,23 @@
         "type": 301
       },
       {
-        "source": "/fhir/StructureDefinition/MedicationRequest",
-        "destination": "/fhir/StructureDefinition-MedicationRequest.html",
+        "source": "/fhir/StructureDefinition/Organization",
+        "destination": "/fhir/StructureDefinition-Organization.html",
         "type": 301
       },
       {
-        "source": "/fhir/StructureDefinition/Organization",
-        "destination": "/fhir/StructureDefinition-Organization.html",
+        "source": "/fhir/StructureDefinition/MedicationPrescriptionBundle",
+        "destination": "/fhir/StructureDefinition-MedicationPrescriptionBundle.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationPrescriptionComposition",
+        "destination": "/fhir/StructureDefinition-MedicationPrescriptionComposition.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationRequest",
+        "destination": "/fhir/StructureDefinition-MedicationRequest.html",
         "type": 301
       }
     ]

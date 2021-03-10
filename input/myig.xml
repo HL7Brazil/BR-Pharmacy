@@ -8,8 +8,8 @@
   <url value="https://br-pharmacy.gointerop.com/fhir/ImplementationGuide/br-pharmacy"/>
   <!-- This version will propagate to all artifacts unless the "propagate-version" extension is overridden -->
   <version value="0.0.1"/>
-  <name value="Guia de implementacao do br-pharmacy"/>
-  <title value="Guia de Implementacao do br-pharmacy"/>
+  <name value="Guia de Implementação do BR-Pharmacy"/>
+  <title value="Guia de Implementação do BR-Pharmacy"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="Instituto HL7 Brasil"/>
@@ -20,7 +20,7 @@
       <value value="http://hl7.com.br"/>
     </telecom>
   </contact>
-  <description value="O Guia de Implementacao do br-pharmacy e baseado no FHIR na versao R4 e define o minimo de requisitos de conformidade para acessar dados do paciente em territorio brasileiro."/>
+  <description value="O Guia de Implementação do BR-Pharmacy e baseado no FHIR na versao R4 e define o minimo de requisitos de conformidade para intercambiar dados de farmacologia em territorio brasileiro."/>
   <jurisdiction>
     <!-- This will drive SNOMED release used -->
     <coding>
@@ -44,32 +44,27 @@
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>
-      <title value="Table of contents"/>
+      <title value="Índice"/>
       <generation value="html"/>
       <page>
         <nameUrl value="index.html"/>
-        <title value="Home"/>
+        <title value="Início"/>
         <generation value="html"/>
       </page>
       <page>
         <nameUrl value="general-guidance.html"/>
-        <title value="General guidance"/>
+        <title value="Orientações gerais"/>
         <generation value="html"/>
       </page>
       <page>
         <nameUrl value="artifacts.html"/>
-        <title value="FHIR artifacts"/>
+        <title value="Artefatos FHIR"/>
         <generation value="html"/>
         <page>
           <nameUrl value="profiles.html"/>
-          <title value="Profiles and Extensions"/>
+          <title value="Perfis e Extensões"/>
           <generation value="html"/>
         </page>
-      </page>
-      <page>
-        <nameUrl value="security.html"/>
-        <title value="Security"/>
-        <generation value="html"/>
       </page>
       <page>
         <nameUrl value="downloads.html"/>
