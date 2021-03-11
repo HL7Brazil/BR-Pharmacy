@@ -6,10 +6,10 @@
   <name value="MedicationPrescriptionComposition" />
   <title value="MedicationPrescriptionComposition" />
   <status value="draft" />
-  <fhirVersion value="4.0.1" />
   <date value="2021-01-26" />
   <publisher value="HL7 Brasil" />
   <description value="Perfil de cabeçalho de prescrição." />
+  <fhirVersion value="4.0.1" />
   <mapping>
     <identity value="workflow" />
     <uri value="http://hl7.org/fhir/workflow" />
@@ -41,26 +41,324 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
   <derivation value="constraint" />
   <differential>
+    <element id="Composition">
+      <path value="Composition" />
+      <short value="Um conjunto de recursos composto em uma única declaração clínica coerente com atestado clínico" />
+      <definition value="Um conjunto de informações relacionadas à saúde reunidas em um único pacote lógico que fornece uma única declaração coerente de significado, estabelece seu próprio contexto e tem atestado clínico a respeito de quem está fazendo a declaração. Uma composição define a estrutura e o conteúdo narrativo necessários para um documento. No entanto, uma composição por si só não constitui um documento. Em vez disso, a Composição deve ser a primeira entrada em um Pacote onde Bundle.type = document, e quaisquer outros recursos referenciados na Composição devem ser incluídos como entradas subsequentes no Pacote (por exemplo, Paciente, Praticante, Encontro, etc.)." />
+      <comment value="Embora o foco desta especificação seja em declarações clínicas específicas do paciente, este recurso também pode se aplicar a outras declarações relacionadas à saúde, como projetos de protocolo de estudo, faturas de saúde e outras atividades que não são necessariamente específicas do paciente ou clínicas." />
+    </element>
+    <element id="Composition.id">
+      <path value="Composition.id" />
+      <short value="Identificação lógica deste artefato" />
+      <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
+      <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+    </element>
+    <element id="Composition.meta">
+      <path value="Composition.meta" />
+      <short value="Metadados sobre o recurso" />
+      <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
+    <element id="Composition.meta.id">
+      <path value="Composition.meta.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Composition.meta.versionId">
+      <path value="Composition.meta.versionId" />
+      <short value="Identificador específico da versão" />
+      <definition value="O identificador específico da versão, conforme aparece na parte da versão do URL. Este valor muda quando o recurso é criado, atualizado ou excluído." />
+      <comment value="O servidor atribui esse valor e ignora o que o cliente especifica, exceto no caso de o servidor estar impondo integridade de versão em atualizações / exclusões." />
+    </element>
+    <element id="Composition.meta.lastUpdated">
+      <path value="Composition.meta.lastUpdated" />
+      <short value="Quando a versão do recurso foi alterada pela última vez" />
+      <definition value="Quando o recurso foi alterado pela última vez - p.e. quando a versão mudou." />
+      <comment value="Este valor é sempre preenchido, exceto quando o recurso é criado pela primeira vez. O servidor / gerenciador de recursos define este valor; o que um cliente fornece é irrelevante. Isso é equivalente ao HTTP Last-Modified e DEVE ter o mesmo valor em uma interação [ler] (http.html # ler)." />
+    </element>
+    <element id="Composition.meta.source">
+      <path value="Composition.meta.source" />
+      <short value="Identifica de onde vem o recurso" />
+      <definition value="Um uri que identifica o sistema de origem do recurso. Isso fornece uma quantidade mínima de informações de [proveniência] (provenance.html #) que podem ser usadas para rastrear ou diferenciar a fonte de informações no recurso. A fonte pode identificar outro servidor FHIR, documento, mensagem, banco de dados, etc." />
+      <comment value="No recurso de proveniência, corresponde a Provenance.entity.what [x]. O uso exato da fonte (e o Provenance.entity.role implícito) é deixado ao critério do implementador. Apenas uma fonte indicada é permitida; para detalhes adicionais de proveniência, um recurso de proveniência completo deve ser usado.&#xD;&#xA;&#xD;&#xA;Este elemento pode ser usado para indicar onde está a fonte mestre atual de um recurso que possui um URL canônico se o recurso não estiver mais hospedado no URL canônico." />
+    </element>
+    <element id="Composition.meta.profile">
+      <path value="Composition.meta.profile" />
+      <short value="Perfis que este recurso afirma estar em conformidade com" />
+      <definition value="Uma lista de perfis (referências a recursos [StructureDefinition] (structureefinition.html #)) que este recurso afirma estar em conformidade. O URL é uma referência a [StructureDefinition.url] (Structefinition-settings.html # StructureDefinition.url)." />
+      <comment value="Cabe ao servidor e / ou outra infraestrutura da política determinar se / como essas reivindicações são verificadas e / ou atualizadas ao longo do tempo. A lista de URLs de perfil é um conjunto." />
+    </element>
+    <element id="Composition.meta.security">
+      <path value="Composition.meta.security" />
+      <short value="Rótulos de segurança aplicadas a este recurso" />
+      <definition value="Rótulos de segurança aplicados a este recurso. Essas marcas conectam recursos específicos à política de segurança geral e à infraestrutura." />
+    </element>
+    <element id="Composition.meta.security.id">
+      <path value="Composition.meta.security.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Composition.meta.security.system">
+      <path value="Composition.meta.security.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Composition.meta.security.version">
+      <path value="Composition.meta.security.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Composition.meta.security.code">
+      <path value="Composition.meta.security.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Composition.meta.security.display">
+      <path value="Composition.meta.security.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Composition.meta.security.userSelected">
+      <path value="Composition.meta.security.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Composition.meta.tag">
+      <path value="Composition.meta.tag" />
+      <short value="Etiquetas aplicadas a este recurso" />
+      <definition value="Etiquetas aplicadas a este recurso. As etiquetas devem ser usadas para identificar e relacionar recursos ao processo e ao fluxo de trabalho, e os aplicativos não precisam considerar as etiquetas ao interpretar o significado de um recurso." />
+      <comment value="As etiquetas podem ser atualizadas sem alterar a versão declarada do recurso. A lista de tags é um conjunto. A exclusividade é baseada no sistema / código, e a versão e a exibição são ignoradas." />
+    </element>
+    <element id="Composition.meta.tag.id">
+      <path value="Composition.meta.tag.id" />
+      <short value="Identificação única para referência entre elementos" />
+      <definition value="Identificação única para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="Composition.meta.tag.system">
+      <path value="Composition.meta.tag.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Composition.meta.tag.version">
+      <path value="Composition.meta.tag.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Composition.meta.tag.code">
+      <path value="Composition.meta.tag.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Composition.meta.tag.display">
+      <path value="Composition.meta.tag.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Composition.meta.tag.userSelected">
+      <path value="Composition.meta.tag.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Composition.implicitRules">
+      <path value="Composition.implicitRules" />
+      <short value="Um conjunto de regras sob as quais este conteúdo foi criado" />
+      <definition value="Uma referência a um conjunto de regras que foram seguidas quando o recurso foi construído e que devem ser compreendidas no processamento do conteúdo. Freqüentemente, esta é uma referência a um guia de implementação que define as regras especiais junto com outros perfis, etc." />
+      <comment value="A afirmação deste conjunto de regras restringe o conteúdo a ser compreendido apenas por um conjunto limitado de parceiros comerciais. Isso limita inerentemente a utilidade dos dados a longo prazo. No entanto, o ecossistema de saúde existente está altamente fragmentado e ainda não está pronto para definir, coletar e trocar dados em um sentido geralmente computável. Sempre que possível, os implementadores e / ou escritores de especificações devem evitar o uso desse elemento. Freqüentemente, quando usado, o URL é uma referência a um guia de implementação que define essas regras especiais como parte de sua narrativa junto com outros perfis, conjuntos de valores, etc." />
+    </element>
+    <element id="Composition.language">
+      <path value="Composition.language" />
+      <short value="Língua do conteúdo do recurso" />
+      <definition value="O idioma base no qual o recurso foi escrito." />
+      <comment value="O idioma é fornecido para oferecer suporte à indexação e acessibilidade (normalmente, serviços como texto para fala usam a tag de idioma). A tag de idioma html na narrativa se aplica à narrativa. A tag de idioma no recurso pode ser usada para especificar o idioma de outras apresentações geradas a partir dos dados no recurso. Nem todo o conteúdo precisa estar no idioma base. Não se deve presumir que Resource.language se aplique à narrativa automaticamente. Se um idioma for especificado, ele também deve ser especificado no elemento div no html (consulte as regras em HTML5 para obter informações sobre a relação entre xml: lang e o atributo html lang)." />
+    </element>
+    <element id="Composition.text">
+      <path value="Composition.text" />
+      <short value="Resumo do texto do recurso, para interpretação humana" />
+      <definition value="Uma narrativa legível que contém um resumo do recurso e pode ser usada para representar o conteúdo do recurso para uma pessoa. A narrativa não precisa codificar todos os dados estruturados, mas deve conter detalhes suficientes para tornar &quot;clinicamente seguro&quot; para um humano apenas ler a narrativa. As definições de recursos podem definir qual conteúdo deve ser representado na narrativa para garantir a segurança clínica." />
+      <comment value="Os recursos contidos não possuem narrativa. Os recursos que não estão contidos DEVEM ter uma narrativa. Em alguns casos, um recurso pode ter apenas texto com poucos ou nenhum dado discreto adicional (desde que todos os elementos minOccurs = 1 sejam satisfeitos). Isso pode ser necessário para dados de sistemas legados onde as informações são capturadas como um &quot;blob de texto&quot; ou onde o texto é adicionalmente inserido bruto ou narrado e as informações codificadas são adicionadas posteriormente." />
+    </element>
+    <element id="Composition.contained">
+      <path value="Composition.contained" />
+      <short value="Recursos contidos em linha" />
+      <definition value="Esses recursos não têm uma existência independente do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
+      <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Os recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
+    </element>
     <element id="Composition.identifier">
       <path value="Composition.identifier" />
+      <short value="Identificador independente de versão para a composição" />
+      <definition value="Um identificador independente de versão para a composição. Esse identificador permanece constante à medida que a composição é alterada ao longo do tempo." />
+      <comment value="Semelhante a ClinicalDocument / setId no CDA. Veja a discussão na definição de recursos para saber como eles se relacionam." />
       <min value="1" />
     </element>
     <element id="Composition.identifier.use">
       <path value="Composition.identifier.use" />
+      <definition value="O objetivo deste identificador." />
       <min value="1" />
       <fixedCode value="official" />
     </element>
+    <element id="Composition.identifier.type">
+      <path value="Composition.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+    </element>
     <element id="Composition.identifier.system">
       <path value="Composition.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
       <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescription" />
     </element>
     <element id="Composition.identifier.value">
       <path value="Composition.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
       <min value="1" />
+    </element>
+    <element id="Composition.identifier.period">
+      <path value="Composition.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Veja [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Composition.identifier.period.start">
+      <path value="Composition.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Composition.identifier.period.end">
+      <path value="Composition.identifier.period.end" />
+      <short value="Horário de término com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Composition.identifier.assigner">
+      <path value="Composition.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Composition.identifier.assigner.reference">
+      <path value="Composition.identifier.assigner.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+    </element>
+    <element id="Composition.identifier.assigner.type">
+      <path value="Composition.identifier.assigner.type" />
+      <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="Composition.identifier.assigner.identifier">
+      <path value="Composition.identifier.assigner.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+    </element>
+    <element id="Composition.identifier.assigner.display">
+      <path value="Composition.identifier.assigner.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa de texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
+    </element>
+    <element id="Composition.status">
+      <path value="Composition.status" />
+      <definition value="O fluxo de trabalho / estado clínico desta composição. O status é um marcador para a situação clínica do documento." />
+      <comment value="Se uma composição for marcada como retirada, as composições / documentos da série, ou dados da composição ou série de documentos, nunca devem ser exibidos a um usuário sem serem claramente marcados como não confiáveis. O sinalizador &quot;erro inserido&quot; é o motivo pelo qual esse elemento é rotulado como um modificador de outros elementos.&#xD;&#xA;&#xD;&#xA;Alguns fluxos de trabalho de relatório exigem que a narrativa original de um documento final nunca seja alterada; em vez disso, apenas uma nova narrativa pode ser adicionada. O recurso de composição não tem status explícito para observar explicitamente se esta regra de negócios está em vigor. Isso seria tratado por uma extensão, se necessário." />
+      <requirements value="Precisa ser capaz de marcar composições ou documentos provisórios, alterados ou retirados." />
+      <isModifierReason value="Este elemento é rotulado como um modificador porque é um elemento de status que contém o status inserido com erro, o que significa que o recurso não deve ser tratado como válido" />
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type" />
+      <short value="Tipo de composição (LOINC se possível)" />
+      <definition value="Especifica o tipo particular de composição (por exemplo, histórico e físico, resumo de descarga, nota de progresso). Isso geralmente equivale ao propósito de fazer a composição." />
+      <comment value="Para o tipo de composição, LOINC é onipresente e fortemente endossado por HL7. A maioria dos guias de implementação exigirá um código LOINC específico ou usará LOINC como uma ligação extensível." />
+      <requirements value="Elemento de metadados chave que descreve a composição, usado na pesquisa / filtragem." />
+    </element>
+    <element id="Composition.type.coding">
+      <path value="Composition.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Composition.type.coding.system">
+      <path value="Composition.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Composition.type.coding.version">
+      <path value="Composition.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Composition.type.coding.code">
+      <path value="Composition.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Composition.type.coding.display">
+      <path value="Composition.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Composition.type.coding.userSelected">
+      <path value="Composition.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Composition.type.text">
+      <path value="Composition.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Composition.category">
+      <path value="Composition.category" />
+      <short value="Categorização da composição" />
+      <definition value="Uma categorização para o tipo de composição - ajuda na indexação e na pesquisa. Isso pode estar implícito ou derivado do código especificado no Tipo de Composição." />
+      <comment value="Este é um campo de metadados de [XDS / MHD] (http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_ (MHD))." />
+      <requirements value="Ajuda os humanos a avaliar se a composição é de interesse ao visualizar um índice de composições ou documentos." />
     </element>
     <element id="Composition.subject">
       <path value="Composition.subject" />
+      <short value="Quem e / ou sobre o que é a composição" />
+      <definition value="Quem ou o que é a composição. A composição pode ser sobre uma pessoa (paciente ou profissional de saúde), um dispositivo (por exemplo, uma máquina) ou mesmo um grupo de assuntos (como um documento sobre um rebanho de gado ou um conjunto de pacientes que compartilham uma exposição comum) ." />
+      <comment value="Para documentos clínicos, geralmente é o paciente." />
+      <requirements value="Metadados essenciais para pesquisar a composição. Identifica quem e / ou do que trata a composição / documento." />
       <min value="1" />
       <type>
         <code value="Reference" />
@@ -75,12 +373,58 @@
       <path value="Composition.subject.type" />
       <fixedUri value="Patient" />
     </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter" />
+      <short value="Contexto da Composição" />
+      <definition value="Descreve o encontro clínico ou o tipo de atendimento ao qual esta documentação está associada." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+    </element>
+    <element id="Composition.date">
+      <path value="Composition.date" />
+      <short value="Tempo de edição da composição" />
+      <definition value="O tempo de edição da composição, quando a composição foi alterada logicamente pela última vez pelo autor." />
+      <comment value="A Data da Última Modificação na composição pode ser posterior à data em que o documento foi atestado sem ser alterado." />
+      <requirements value="dateTime é usado para rastrear, organizar versões e pesquisar. Observe que este é o momento da * autoria *. Quando empacotado em um documento, [Bundle.timestamp] (bundle-settings.html # Bundle.timestamp) é a data de empacotamento." />
+    </element>
     <element id="Composition.author">
       <path value="Composition.author" />
+      <short value="Quem e / ou o autor da composição" />
+      <definition value="Identifica quem é responsável pelas informações na composição, não necessariamente quem as digitou." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+      <requirements value="Identifica quem é responsável pelo conteúdo." />
       <type>
         <code value="Reference" />
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
       </type>
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title" />
+      <short value="Nome / título legível por humanos" />
+      <definition value="Rótulo oficial legível para a composição." />
+      <comment value="Para muitas composições, o título é igual ao texto ou um nome de exibição de Composition.type (por exemplo, uma &quot;consulta&quot; ou &quot;nota de progresso&quot;). Observe que o CDA não torna o título obrigatório, mas não há casos conhecidos em que seja útil omitir o título, por isso é obrigatório aqui. Comentários sobre este requisito são bem-vindos durante o período de uso experimental." />
+    </element>
+    <element id="Composition.confidentiality">
+      <path value="Composition.confidentiality" />
+      <short value="Conforme definido pelo domínio de afinidade" />
+      <definition value="O código que especifica o nível de confidencialidade da Composição." />
+      <comment value="O uso exato desse elemento, a aplicação e os problemas relacionados a documentos altamente confidenciais estão fora do escopo da especificação base e são delegados aos perfis de implementação (consulte a seção de segurança). Este elemento é rotulado como um modificador porque documentos altamente confidenciais não devem ser tratados como se não fossem." />
+    </element>
+    <element id="Composition.attester">
+      <path value="Composition.attester" />
+      <short value="Atesta a precisão da composição" />
+      <definition value="Um participante que atestou a veracidade da composição / documento." />
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian" />
+      <short value="Organização que mantém a composição" />
+      <definition value="Identifica a organização ou grupo responsável pela manutenção contínua e acesso às informações de composição / documento." />
+      <comment value="Isso é útil quando os documentos são derivados de uma composição - fornece orientação sobre como obter a versão mais recente do documento. Isso é opcional porque às vezes não é conhecido pelo sistema de autoria e pode ser inferido pelo contexto. No entanto, é importante que essas informações sejam conhecidas ao trabalhar com um documento derivado, portanto, é recomendável fornecer um custodiante." />
+    </element>
+    <element id="Composition.relatesTo">
+      <path value="Composition.relatesTo" />
+      <short value="Relações com outras composições / documentos" />
+      <definition value="Relações que esta composição possui com outras composições ou documentos já existentes." />
+      <comment value="Um documento é uma composição específica da versão." />
     </element>
     <element id="Composition.relatesTo.code">
       <path value="Composition.relatesTo.code" />
@@ -102,6 +446,13 @@
       <min value="1" />
       <fixedUri value="Composition" />
     </element>
+    <element id="Composition.event">
+      <path value="Composition.event" />
+      <short value="O (s) serviço (s) clínico (s) sendo documentado (s)" />
+      <definition value="O serviço clínico, como uma colonoscopia ou apendicectomia, sendo documentado." />
+      <comment value="O evento precisa ser consistente com o elemento de tipo, embora possa fornecer mais informações, se desejado." />
+      <requirements value="Fornece contexto para a composição e cria uma ligação entre um recurso que descreve um evento e a composição criada para descrever o evento." />
+    </element>
     <element id="Composition.section">
       <path value="Composition.section" />
       <slicing>
@@ -111,11 +462,15 @@
         </discriminator>
         <rules value="open" />
       </slicing>
+      <short value="A composição é dividida em seções" />
+      <definition value="A raiz das seções que constituem a composição." />
       <min value="1" />
     </element>
     <element id="Composition.section:sliceSectionMedicationRequests">
       <path value="Composition.section" />
       <sliceName value="sliceSectionMedicationRequests" />
+      <short value="Seção da Solicitação de Medicamentos" />
+      <definition value="Uma seção que descreve a solicitação de um medicamento." />
       <min value="1" />
     </element>
     <element id="Composition.section:sliceSectionMedicationRequests.entry">

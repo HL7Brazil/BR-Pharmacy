@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationRequest" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-request" />
+  <version value="0.0.1" />
+  <name value="MedicationRequest" />
+  <title value="MedicationRequest" />
+  <status value="draft" />
+  <date value="2021-01-26" />
+  <publisher value="HL7 Brasil" />
+  <description value="Perfil de prescrição de medicamentos." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="workflow" />
+    <uri value="http://hl7.org/fhir/workflow" />
+    <name value="Workflow Pattern" />
+  </mapping>
+  <mapping>
+    <identity value="script10.6" />
+    <uri value="http://ncpdp.org/SCRIPT10_6" />
+    <name value="Mapping to NCPDP SCRIPT 10.6" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationRequest" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationRequest">
+      <path value="MedicationRequest" />
+      <short value="Pedido de medicamento para paciente ou grupo" />
+    </element>
+    <element id="MedicationRequest.id">
+      <path value="MedicationRequest.id" />
+      <short value="Identificação lógica deste artefato" />
+      <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
+      <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+    </element>
+    <element id="MedicationRequest.meta">
+      <path value="MedicationRequest.meta" />
+      <short value="Metadados sobre o recurso" />
+      <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
+    <element id="MedicationRequest.meta.id">
+      <path value="MedicationRequest.meta.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.meta.versionId">
+      <path value="MedicationRequest.meta.versionId" />
+      <short value="Identificador específico da versão" />
+      <definition value="O identificador específico da versão, conforme aparece na parte da versão do URL. Este valor muda quando o recurso é criado, atualizado ou excluído." />
+      <comment value="O servidor atribui esse valor e ignora o que o cliente especifica, exceto no caso de o servidor estar impondo integridade de versão em atualizações / exclusões." />
+    </element>
+    <element id="MedicationRequest.meta.lastUpdated">
+      <path value="MedicationRequest.meta.lastUpdated" />
+      <short value="Quando a versão do recurso foi alterada pela última vez" />
+      <definition value="Quando o recurso foi alterado pela última vez - p.e. quando a versão mudou." />
+      <comment value="Este valor é sempre preenchido, exceto quando o recurso é criado pela primeira vez. O servidor / gerenciador de recursos define este valor; o que um cliente fornece é irrelevante. Isso é equivalente ao HTTP Last-Modified e DEVE ter o mesmo valor em uma interação [ler] (http.html # ler)." />
+    </element>
+    <element id="MedicationRequest.meta.source">
+      <path value="MedicationRequest.meta.source" />
+      <short value="Identifica de onde vem o recurso" />
+      <definition value="Um uri que identifica o sistema de origem do recurso. Isso fornece uma quantidade mínima de informações de [proveniência] (provenance.html #) que podem ser usadas para rastrear ou diferenciar a fonte de informações no recurso. A fonte pode identificar outro servidor FHIR, documento, mensagem, banco de dados, etc." />
+      <comment value="No recurso de proveniência, corresponde a Provenance.entity.what [x]. O uso exato da fonte (e o Provenance.entity.role implícito) é deixado ao critério do implementador. Apenas uma fonte indicada é permitida; para detalhes adicionais de proveniência, um recurso de proveniência completo deve ser usado.&#xD;&#xA;&#xD;&#xA;Este elemento pode ser usado para indicar onde está a fonte mestre atual de um recurso que possui um URL canônico se o recurso não estiver mais hospedado no URL canônico." />
+    </element>
+    <element id="MedicationRequest.meta.profile">
+      <path value="MedicationRequest.meta.profile" />
+      <short value="Perfis que este recurso afirma estar em conformidade com" />
+      <definition value="Uma lista de perfis (referências a recursos [StructureDefinition] (structureefinition.html #)) que este recurso afirma estar em conformidade. O URL é uma referência a [StructureDefinition.url] (Structefinition-settings.html # StructureDefinition.url)." />
+      <comment value="Cabe ao servidor e / ou outra infraestrutura da política determinar se / como essas reivindicações são verificadas e / ou atualizadas ao longo do tempo. A lista de URLs de perfil é um conjunto." />
+    </element>
+    <element id="MedicationRequest.meta.security">
+      <path value="MedicationRequest.meta.security" />
+      <short value="Rótulos de segurança aplicadas a este recurso" />
+      <definition value="Rótulos de segurança aplicados a este recurso. Essas marcas conectam recursos específicos à política de segurança geral e à infraestrutura." />
+    </element>
+    <element id="MedicationRequest.meta.security.id">
+      <path value="MedicationRequest.meta.security.id" />
+      <short value="Identificador único para referência entre elementos" />
+      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.meta.security.system">
+      <path value="MedicationRequest.meta.security.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="MedicationRequest.meta.security.version">
+      <path value="MedicationRequest.meta.security.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="MedicationRequest.meta.security.code">
+      <path value="MedicationRequest.meta.security.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="MedicationRequest.meta.security.display">
+      <path value="MedicationRequest.meta.security.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="MedicationRequest.meta.security.userSelected">
+      <path value="MedicationRequest.meta.security.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="MedicationRequest.meta.tag">
+      <path value="MedicationRequest.meta.tag" />
+      <short value="Etiquetas aplicadas a este recurso" />
+      <definition value="Etiquetas aplicadas a este recurso. As etiquetas devem ser usadas para identificar e relacionar recursos ao processo e ao fluxo de trabalho, e os aplicativos não precisam considerar as etiquetas ao interpretar o significado de um recurso." />
+      <comment value="As etiquetas podem ser atualizadas sem alterar a versão declarada do recurso. A lista de tags é um conjunto. A exclusividade é baseada no sistema / código, e a versão e a exibição são ignoradas." />
+    </element>
+    <element id="MedicationRequest.meta.tag.id">
+      <path value="MedicationRequest.meta.tag.id" />
+      <short value="Identificação única para referência entre elementos" />
+      <definition value="Identificação única para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.meta.tag.system">
+      <path value="MedicationRequest.meta.tag.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="MedicationRequest.meta.tag.version">
+      <path value="MedicationRequest.meta.tag.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="MedicationRequest.meta.tag.code">
+      <path value="MedicationRequest.meta.tag.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="MedicationRequest.meta.tag.display">
+      <path value="MedicationRequest.meta.tag.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="MedicationRequest.meta.tag.userSelected">
+      <path value="MedicationRequest.meta.tag.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="MedicationRequest.identifier">
+      <path value="MedicationRequest.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Uma chave de identificação para uma prescrição" />
+      <definition value="Um identificador único para uma dada prescrição." />
+      <min value="2" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier">
+      <path value="MedicationRequest.identifier" />
+      <sliceName value="prescriptionIdentifier" />
+      <short value="Identificador da prescrição" />
+      <definition value="Identifica a prescrição associada a essa solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.use">
+      <path value="MedicationRequest.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.system">
+      <path value="MedicationRequest.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescription" />
+    </element>
+    <element id="MedicationRequest.identifier:prescriptionIdentifier.value">
+      <path value="MedicationRequest.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier">
+      <path value="MedicationRequest.identifier" />
+      <sliceName value="platformIdentifier" />
+      <short value="Identificador da plataforma" />
+      <definition value="Identifica a plataforma associada a esta solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.use">
+      <path value="MedicationRequest.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.system">
+      <path value="MedicationRequest.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
+    </element>
+    <element id="MedicationRequest.identifier:platformIdentifier.value">
+      <path value="MedicationRequest.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.status">
+      <path value="MedicationRequest.status" />
+      <definition value="Um código que especifica o estado atual do pedido. Geralmente, este será o estado ativo ou concluído." />
+      <comment value="Este elemento é rotulado como um modificador porque o status contém códigos que marcam o recurso como não válido no momento." />
+    </element>
+    <element id="MedicationRequest.intent">
+      <path value="MedicationRequest.intent" />
+      <definition value="Se a solicitação é uma proposta, plano ou pedido original." />
+      <comment value="Espera-se que o tipo de solicitante seja restrito a diferentes estágios de um MedicationRequest. Por exemplo, as propostas podem ser criadas por um paciente, pessoa relacionada, médico ou dispositivo. Os planos podem ser criados por Profissionais, Pacientes, Pessoas Relacionadas e Dispositivos. Pedidos originais podem ser criados apenas por um praticante.&#xD;&#xA;&#xD;&#xA;Um pedido de instância é uma instanciação de um pedido ou pedido e pode ser usado para preencher o Registro de Administração de Medicamentos.&#xD;&#xA;&#xD;&#xA;Este elemento é rotulado como um modificador porque a intenção altera quando e como o recurso é realmente aplicável." />
+      <fixedCode value="original-order" />
+    </element>
+    <element id="MedicationRequest.medication[x]">
+      <path value="MedicationRequest.medication[x]" />
+      <short value="Medicação a ser tomada" />
+      <definition value="Identifica o medicamento que está sendo solicitado. Trata-se de um link para um recurso que representa o medicamento que pode ser o detalhamento do medicamento ou simplesmente um atributo portador de um código que identifica o medicamento a partir de uma lista de medicamentos conhecidos." />
+      <comment value="Se apenas um código for especificado, ele precisa ser um código para um produto específico. Caso sejam necessárias mais informações, recomenda-se o uso do recurso Medicação. Por exemplo, se você precisar de formulário ou número de lote ou se o medicamento for composto ou preparado de forma extemporânea, você deve consultar o recurso de Medicamentos." />
+      <type>
+        <code value="CodeableConcept" />
+      </type>
+    </element>
+    <element id="MedicationRequest.medication[x].coding">
+      <path value="MedicationRequest.medication[x].coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition">
+      <path value="MedicationRequest.medication[x].coding" />
+      <sliceName value="comercialOrComposition" />
+      <short value="Código para a composição comercial definida por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.id">
+      <path value="MedicationRequest.medication[x].coding.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.system">
+      <path value="MedicationRequest.medication[x].coding.system" />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+      <min value="1" />
+      <fixedUri value="http://terminologia/fhir/comercialOrComposition" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.version">
+      <path value="MedicationRequest.medication[x].coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.code">
+      <path value="MedicationRequest.medication[x].coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.display">
+      <path value="MedicationRequest.medication[x].coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.userSelected">
+      <path value="MedicationRequest.medication[x].coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier">
+      <path value="MedicationRequest.medication[x].coding" />
+      <sliceName value="supplier" />
+      <short value="Código para fornecedor definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.id">
+      <path value="MedicationRequest.medication[x].coding.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.system">
+      <path value="MedicationRequest.medication[x].coding.system" />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+      <min value="1" />
+      <fixedUri value="http://terminologia/fhir/supplier" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.version">
+      <path value="MedicationRequest.medication[x].coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.code">
+      <path value="MedicationRequest.medication[x].coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.display">
+      <path value="MedicationRequest.medication[x].coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.medication[x].coding:supplier.userSelected">
+      <path value="MedicationRequest.medication[x].coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="MedicationRequest.subject">
+      <path value="MedicationRequest.subject" />
+      <short value="Para quem ou a solicitação de medicamento em grupo é para" />
+      <definition value="Um link para um recurso que representa a pessoa ou conjunto de indivíduos a quem o medicamento será dado." />
+      <comment value="O assunto em uma solicitação de medicamento é obrigatório. Para o caso de uso secundário em que o assunto real não é fornecido, ainda deve haver um assunto anônimo especificado." />
+    </element>
+    <element id="MedicationRequest.subject.id">
+      <path value="MedicationRequest.subject.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.subject.reference">
+      <path value="MedicationRequest.subject.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+    </element>
+    <element id="MedicationRequest.subject.type">
+      <path value="MedicationRequest.subject.type" />
+      <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="MedicationRequest.subject.identifier">
+      <path value="MedicationRequest.subject.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhuma exigência de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.subject.identifier.id">
+      <path value="MedicationRequest.subject.identifier.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.use">
+      <path value="MedicationRequest.subject.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <min value="1" />
+      <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir uma id temporária com uma permanente." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.type">
+      <path value="MedicationRequest.subject.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.type.id">
+      <path value="MedicationRequest.subject.identifier.type.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.type.coding">
+      <path value="MedicationRequest.subject.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.type.text">
+      <path value="MedicationRequest.subject.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.system">
+      <path value="MedicationRequest.subject.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationRequest.subject.identifier.value">
+      <path value="MedicationRequest.subject.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.subject.identifier.period">
+      <path value="MedicationRequest.subject.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Veja [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="MedicationRequest.subject.identifier.assigner">
+      <path value="MedicationRequest.subject.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="MedicationRequest.subject.display">
+      <path value="MedicationRequest.subject.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa de texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
+    </element>
+    <element id="MedicationRequest.encounter">
+      <path value="MedicationRequest.encounter" />
+      <short value="Encontro criado como parte do encontro / admissão / estadia" />
+      <definition value="O Encontro durante o qual este [x] foi criado ou ao qual a criação deste registro está estreitamente associada." />
+      <comment value="Normalmente, será o encontro em que o evento ocorreu, mas algumas atividades podem ser iniciadas antes ou depois da conclusão oficial de um encontro, mas ainda estão vinculadas ao contexto do encontro. &quot;Se houver necessidade de vincular a episódios de atendimento eles serão tratados com uma extensão." />
+    </element>
+    <element id="MedicationRequest.encounter.id">
+      <path value="MedicationRequest.encounter.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.encounter.reference">
+      <path value="MedicationRequest.encounter.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+    </element>
+    <element id="MedicationRequest.encounter.type">
+      <path value="MedicationRequest.encounter.type" />
+      <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier">
+      <path value="MedicationRequest.encounter.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhuma exigência de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.id">
+      <path value="MedicationRequest.encounter.identifier.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.use">
+      <path value="MedicationRequest.encounter.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <min value="1" />
+      <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir uma id temporária com uma permanente." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.type">
+      <path value="MedicationRequest.encounter.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.type.id">
+      <path value="MedicationRequest.encounter.identifier.type.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.type.coding">
+      <path value="MedicationRequest.encounter.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.type.text">
+      <path value="MedicationRequest.encounter.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.system">
+      <path value="MedicationRequest.encounter.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.value">
+      <path value="MedicationRequest.encounter.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.period">
+      <path value="MedicationRequest.encounter.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Veja [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="MedicationRequest.encounter.identifier.assigner">
+      <path value="MedicationRequest.encounter.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="MedicationRequest.encounter.display">
+      <path value="MedicationRequest.encounter.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa de texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
+    </element>
+    <element id="MedicationRequest.supportingInformation">
+      <path value="MedicationRequest.supportingInformation" />
+      <short value="Informações para apoiar a solicitação do medicamento" />
+      <definition value="Inclua informações adicionais (por exemplo, altura e peso do paciente) que apóiem o pedido do medicamento." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+    </element>
+    <element id="MedicationRequest.supportingInformation.reference">
+      <path value="MedicationRequest.supportingInformation.reference" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.supportingInformation.type">
+      <path value="MedicationRequest.supportingInformation.type" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.authoredOn">
+      <path value="MedicationRequest.authoredOn" />
+      <short value="Quando a solicitação foi criada inicialmente" />
+      <definition value="A data (e talvez a hora) em que a receita foi inicialmente escrita ou de autoria." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester">
+      <path value="MedicationRequest.requester" />
+      <short value="Quem / o que solicitou a solicitação" />
+      <definition value="O indivíduo, organização ou dispositivo que iniciou a solicitação e é responsável por sua ativação." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester.identifier">
+      <path value="MedicationRequest.requester.identifier" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.use">
+      <path value="MedicationRequest.requester.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.system">
+      <path value="MedicationRequest.requester.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationRequest.requester.identifier.value">
+      <path value="MedicationRequest.requester.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.performer">
+      <path value="MedicationRequest.performer" />
+      <short value="Realizador da administração" />
+      <definition value="O executor desejado especificado do tratamento de medicação (por exemplo, o executor da administração de medicação)." />
+    </element>
+    <element id="MedicationRequest.performerType">
+      <path value="MedicationRequest.performerType" />
+      <short value="Tipo de executor desejado para a administração de medicamentos" />
+      <definition value="Indica o tipo de realizador da administração do medicamento." />
+      <comment value="Se especificado sem indicar um artista, isso indica que o artista deve ser do tipo especificado. Se especificado com um artista, indica os requisitos do artista se o artista designado não estiver disponível." />
+    </element>
+    <element id="MedicationRequest.recorder">
+      <path value="MedicationRequest.recorder" />
+      <short value="Pessoa que inseriu o pedido" />
+      <definition value="A pessoa que inseriu o pedido em nome de outro indivíduo, por exemplo, no caso de um pedido verbal ou por telefone." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+    </element>
+    <element id="MedicationRequest.reasonCode">
+      <path value="MedicationRequest.reasonCode" />
+      <short value="Motivo ou indicação para pedir ou não pedir o medicamento" />
+      <definition value="O motivo ou a indicação para solicitar ou não o pedido do medicamento." />
+    </element>
+    <element id="MedicationRequest.reasonCode.id">
+      <path value="MedicationRequest.reasonCode.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding">
+      <path value="MedicationRequest.reasonCode.coding" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID">
+      <path value="MedicationRequest.reasonCode.coding" />
+      <sliceName value="CID" />
+      <short value="CID que embasou a solicitação de medicamento" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.system">
+      <path value="MedicationRequest.reasonCode.coding.system" />
+      <min value="1" />
+      <fixedUri value="http://hl7.org/fhir/sid/icd-10" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.code">
+      <path value="MedicationRequest.reasonCode.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.reasonCode.coding:CID.display">
+      <path value="MedicationRequest.reasonCode.coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.reasonCode.text">
+      <path value="MedicationRequest.reasonCode.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="MedicationRequest.reasonReference">
+      <path value="MedicationRequest.reasonReference" />
+      <short value="Condição ou observação que apóia o motivo pelo qual a prescrição está sendo prescrita" />
+      <definition value="Condição ou observação que apóia o motivo pelo qual o medicamento foi solicitado." />
+      <comment value="Esta é uma referência a uma condição ou observação que é o motivo do pedido do medicamento. Se houver apenas um código, use reasonCode." />
+    </element>
+    <element id="MedicationRequest.dosageInstruction">
+      <path value="MedicationRequest.dosageInstruction" />
+      <short value="Como a medicação deve ser tomada" />
+      <definition value="Indica como o medicamento deve ser usado pelo paciente." />
+      <comment value="Existem exemplos em que uma solicitação de medicamento pode incluir a opção de uma dose oral ou intravenosa ou intramuscular. Por exemplo, &quot;Ondansetron 8 mg por via oral ou IV duas vezes ao dia conforme necessário para náuseas&quot; ou &quot;Compazine® (proclorperazina) 5-10 mg PO ou 25 mg PR bid prn náuseas ou vômitos&quot;. Nestes casos, seriam criadas duas solicitações de medicamentos que poderiam ser agrupadas. A decisão sobre qual dose e via de administração usar é baseada na condição do paciente no momento em que a dose é necessária." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.additionalInstruction">
+      <path value="MedicationRequest.dosageInstruction.additionalInstruction" />
+      <short value="Instruções suplementares ou avisos para o paciente - por ex. &quot;às refeições&quot;, &quot;pode causar sonolência&quot;" />
+      <definition value="Instruções suplementares ao paciente sobre como tomar a medicação (por exemplo, &quot;com as refeições&quot; ou &quot;tomar meia hora antes das refeições&quot;) ou advertências para o paciente sobre a medicação (por exemplo, &quot;pode causar sonolência&quot; ou &quot;evitar a exposição da pele a luz solar direta ou lâmpadas solares &quot;)." />
+      <comment value="As informações sobre a administração ou preparação do medicamento (por exemplo, &quot;infundir tão rapidamente quanto possível através da porta intraperitoneal&quot; ou &quot;imediatamente após a droga x&quot;) devem ser preenchidas em dosagem.text." />
+      <requirements value="A instrução adicional deve ser codificada, mas onde não houver código, o elemento pode incluir texto. Por exemplo, &quot;Engula com bastante água&quot;, que pode ou não estar codificado." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.additionalInstruction.text">
+      <path value="MedicationRequest.dosageInstruction.additionalInstruction.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.patientInstruction">
+      <path value="MedicationRequest.dosageInstruction.patientInstruction" />
+      <short value="Instruções para o paciente ou consumidor" />
+      <definition value="Instruções em termos que são compreendidos pelo paciente ou consumidor." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method">
+      <path value="MedicationRequest.dosageInstruction.method" />
+      <short value="Técnica para administrar medicamentos" />
+      <definition value="Técnica de administração de medicamentos." />
+      <comment value="As terminologias usadas freqüentemente pré-coordenam este termo com a rota e / ou forma de administração." />
+      <requirements value="Um valor codificado que indica o método pelo qual o medicamento é introduzido no corpo ou sobre ele. Mais comumente usado para injeções. Por exemplo, Slow Push; Deep IV." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding">
+      <path value="MedicationRequest.dosageInstruction.method.coding" />
+      <short value="Código da via" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.system">
+      <path value="MedicationRequest.dosageInstruction.method.coding.system" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.code">
+      <path value="MedicationRequest.dosageInstruction.method.coding.code" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.method.coding.display">
+      <path value="MedicationRequest.dosageInstruction.method.coding.display" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate" />
+      <short value="Quantidade de medicamento administrado" />
+      <definition value="A quantidade de medicamento administrado." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x]">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x]" />
+      <short value="Quantidade de medicamento por dose" />
+      <definition value="Quantidade de medicamento por dose." />
+      <comment value="Observe que isso especifica a quantidade do medicamento especificado, não a quantidade de cada ingrediente (s) ativo (s). Cada quantidade de ingrediente pode ser comunicada no recurso de medicação. Por exemplo, se alguém deseja comunicar que um comprimido era 375 mg, onde a dose era um comprimido, você pode usar o recurso Medicação para documentar que o comprimido era composto por 375 mg do medicamento XYZ. Como alternativa, se a dose foi de 375 mg, talvez você só precise usar o recurso Medicação para indicar que se trata de um comprimido. Se o exemplo fosse um IV como a dopamina e você quisesse comunicar que 400 mg de dopamina foram misturados em 500 ml de alguma solução IV, então tudo seria comunicado no recurso de medicação. Se a administração não se destina a ser instantânea (a taxa está presente ou o tempo tem uma duração), isso pode ser especificado para transmitir a quantidade total a ser administrada ao longo do período de tempo conforme indicado pelo cronograma, por exemplo, 500 ml em dose, com tempo usado para indicar que isso deve ser feito ao longo de 4 horas." />
+      <requirements value="A quantidade de substância terapêutica ou outra dada em um evento de administração." />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value" />
+      <short value="Valor numérico (com precisão implícita)" />
+      <definition value="O valor da quantidade medida. O valor inclui uma precisão implícita na apresentação do valor." />
+      <comment value="A precisão implícita no valor sempre deve ser respeitada. Os valores monetários têm suas próprias regras para lidar com a precisão (consulte os livros de texto de contabilidade padrão)." />
+      <requirements value="A precisão é tratada implicitamente em quase todos os casos de medição." />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit" />
+      <short value="Representação da unidade" />
+      <definition value="Uma forma legível da unidade." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Existem muitas representações para unidades de medida e, em muitos contextos, representações específicas são fixas e necessárias. Ou seja, mcg para microgramas." />
+      <min value="1" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
+      </binding>
+    </element>
+    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system">
+      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system" />
+      <short value="Sistema que define a forma de unidade codificada" />
+      <definition value="A identificação do sistema que fornece a forma codificada da unidade." />
+      <comment value="consulte http://en.wikipedia.org/wiki/Uniform_resource_identifier" />
+      <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
+      <min value="1" />
+      <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+  </differential>
+</StructureDefinition>
