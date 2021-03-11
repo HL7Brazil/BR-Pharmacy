@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationPrescriptionBundle" />
-  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-prescription-bundle" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionBundle" />
   <version value="0.0.1" />
   <name value="MedicationPrescriptionBundle" />
   <title value="MedicationPrescriptionBundle" />
@@ -45,131 +45,13 @@
     <element id="Bundle.id">
       <path value="Bundle.id" />
       <short value="Identificação lógica deste artefato" />
-      <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
-      <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+      <definition value="O id lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
+      <comment value="A única vez em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
     </element>
     <element id="Bundle.meta">
       <path value="Bundle.meta" />
       <short value="Metadados sobre o recurso" />
       <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>
-    <element id="Bundle.meta.id">
-      <path value="Bundle.meta.id" />
-      <short value="ID exclusivo para referência entre elementos" />
-      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Bundle.meta.versionId">
-      <path value="Bundle.meta.versionId" />
-      <short value="Identificador específico da versão" />
-      <definition value="O identificador específico da versão, conforme aparece na parte da versão do URL. Este valor muda quando o recurso é criado, atualizado ou excluído." />
-      <comment value="O servidor atribui esse valor e ignora o que o cliente especifica, exceto no caso de o servidor estar impondo integridade de versão em atualizações / exclusões." />
-    </element>
-    <element id="Bundle.meta.lastUpdated">
-      <path value="Bundle.meta.lastUpdated" />
-      <short value="Quando a versão do recurso foi alterada pela última vez" />
-      <definition value="Quando o recurso foi alterado pela última vez - p.e. quando a versão mudou." />
-      <comment value="Este valor é sempre preenchido, exceto quando o recurso é criado pela primeira vez. O servidor / gerenciador de recursos define este valor; o que um cliente fornece é irrelevante. Isso é equivalente ao HTTP Last-Modified e DEVE ter o mesmo valor em uma interação [ler] (http.html # ler)." />
-    </element>
-    <element id="Bundle.meta.source">
-      <path value="Bundle.meta.source" />
-      <short value="Identifica de onde vem o recurso" />
-      <definition value="Um uri que identifica o sistema de origem do recurso. Isso fornece uma quantidade mínima de informações de [proveniência] (provenance.html #) que podem ser usadas para rastrear ou diferenciar a fonte de informações no recurso. A fonte pode identificar outro servidor FHIR, documento, mensagem, banco de dados, etc." />
-      <comment value="No recurso de proveniência, corresponde a Provenance.entity.what [x]. O uso exato da fonte (e o Provenance.entity.role implícito) é deixado ao critério do implementador. Apenas uma fonte indicada é permitida; para detalhes adicionais de proveniência, um recurso de proveniência completo deve ser usado.&#xD;&#xA;&#xD;&#xA;Este elemento pode ser usado para indicar onde está a fonte mestre atual de um recurso que possui um URL canônico se o recurso não estiver mais hospedado no URL canônico." />
-    </element>
-    <element id="Bundle.meta.profile">
-      <path value="Bundle.meta.profile" />
-      <short value="Perfis que este recurso afirma estar em conformidade com" />
-      <definition value="Uma lista de perfis (referências a recursos [StructureDefinition] (structureefinition.html #)) que este recurso afirma estar em conformidade. O URL é uma referência a [StructureDefinition.url] (Structefinition-settings.html # StructureDefinition.url)." />
-      <comment value="Cabe ao servidor e / ou outra infraestrutura da política determinar se / como essas reivindicações são verificadas e / ou atualizadas ao longo do tempo. A lista de URLs de perfil é um conjunto." />
-    </element>
-    <element id="Bundle.meta.security">
-      <path value="Bundle.meta.security" />
-      <short value="Rótulos de segurança aplicadas a este recurso" />
-      <definition value="Rótulos de segurança aplicados a este recurso. Essas marcas conectam recursos específicos à política de segurança geral e à infraestrutura." />
-    </element>
-    <element id="Bundle.meta.security.id">
-      <path value="Bundle.meta.security.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Bundle.meta.security.system">
-      <path value="Bundle.meta.security.system" />
-      <short value="Identidade do sistema de terminologia" />
-      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-    </element>
-    <element id="Bundle.meta.security.version">
-      <path value="Bundle.meta.security.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="Bundle.meta.security.code">
-      <path value="Bundle.meta.security.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-    </element>
-    <element id="Bundle.meta.security.display">
-      <path value="Bundle.meta.security.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-    </element>
-    <element id="Bundle.meta.security.userSelected">
-      <path value="Bundle.meta.security.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
-    </element>
-    <element id="Bundle.meta.tag">
-      <path value="Bundle.meta.tag" />
-      <short value="Etiquetas aplicadas a este recurso" />
-      <definition value="Etiquetas aplicadas a este recurso. As etiquetas devem ser usadas para identificar e relacionar recursos ao processo e ao fluxo de trabalho, e os aplicativos não precisam considerar as etiquetas ao interpretar o significado de um recurso." />
-      <comment value="As etiquetas podem ser atualizadas sem alterar a versão declarada do recurso. A lista de tags é um conjunto. A exclusividade é baseada no sistema / código, e a versão e a exibição são ignoradas." />
-    </element>
-    <element id="Bundle.meta.tag.id">
-      <path value="Bundle.meta.tag.id" />
-      <short value="Identificação única para referência entre elementos" />
-      <definition value="Identificação única para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Bundle.meta.tag.system">
-      <path value="Bundle.meta.tag.system" />
-      <short value="Identidade do sistema de terminologia" />
-      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-    </element>
-    <element id="Bundle.meta.tag.version">
-      <path value="Bundle.meta.tag.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="Bundle.meta.tag.code">
-      <path value="Bundle.meta.tag.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-    </element>
-    <element id="Bundle.meta.tag.display">
-      <path value="Bundle.meta.tag.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-    </element>
-    <element id="Bundle.meta.tag.userSelected">
-      <path value="Bundle.meta.tag.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
     </element>
     <element id="Bundle.identifier">
       <path value="Bundle.identifier" />
@@ -247,7 +129,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
+      <patternUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-*" />
     </element>
     <element id="Bundle.identifier.value">
       <path value="Bundle.identifier.value" />
@@ -291,6 +173,7 @@
       <short value="Quando o pacote foi montado" />
       <definition value="A data / hora em que o pacote foi montado - ou seja, quando os recursos foram colocados no pacote." />
       <comment value="Para muitos pacotes, o carimbo de data / hora é igual a .meta.lastUpdated, porque eles não são armazenados (por exemplo, resultados de pesquisa). Quando um pacote é colocado em um armazenamento persistente, .meta.lastUpdated geralmente é alterado pelo servidor. Quando o pacote é uma mensagem, um agente de middleware que altera a mensagem (mesmo que não seja armazenada) DEVE atualizar .meta.lastUpdated. .timestamp é usado para rastrear a hora original do pacote e DEVE ser preenchido.&#xD;&#xA;&#xD;&#xA;Uso:&#xD;&#xA;&#xD;&#xA;* documento: a data em que o documento foi criado. Nota: a composição pode ser anterior ao documento ou estar associada a vários documentos. A data da composição - a hora de autoria - pode ser anterior à hora de montagem do documento&#xD;&#xA;* mensagem: a data em que o conteúdo da mensagem foi montado. Esta data não é alterada pelos motores de middleware, a menos que eles adicionem dados adicionais que alterem o significado da hora da mensagem&#xD;&#xA;* história: a data em que a história foi montada. Este tempo seria usado como _desde a hora de solicitar atualizações subsequentes&#xD;&#xA;* conjunto de pesquisa: a hora em que o conjunto de pesquisa foi montado. Observe que páginas diferentes PODEM ter carimbos de data / hora diferentes, mas não precisam. Ter carimbos de data / hora diferentes não significa que as páginas subsequentes representarão ou incluirão as alterações feitas desde a consulta inicial&#xD;&#xA;* transação | transação-resposta | lote | resposta em lote | coleção: nenhum significado particular atribuído&#xD;&#xA;&#xD;&#xA;O valor do carimbo de data / hora deve ser maior que lastUpdated e outros carimbos de data / hora nos recursos do pacote e deve ser igual ou anterior a .meta.lastUpdated no próprio pacote." />
+      <min value="1" />
     </element>
     <element id="Bundle.total">
       <path value="Bundle.total" />
@@ -325,7 +208,7 @@
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-prescription-composition" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition" />
       </type>
     </element>
     <element id="Bundle.entry:sliceMedicationRequest">
@@ -341,7 +224,7 @@
       <min value="1" />
       <type>
         <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-request" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
       </type>
     </element>
     <element id="Bundle.signature">
@@ -442,7 +325,7 @@
       <short value="O formato técnico da assinatura" />
       <definition value="Um tipo mime que indica o formato técnico da assinatura. Tipos importantes de mime são application / signature + xml para X ML DigSig, application / jose para JWS e image / * para uma imagem gráfica de uma assinatura, etc." />
       <min value="1" />
-      <fixedCode value="application/jose" />
+      <fixedCode value="application/pdf" />
     </element>
     <element id="Bundle.signature.data">
       <path value="Bundle.signature.data" />

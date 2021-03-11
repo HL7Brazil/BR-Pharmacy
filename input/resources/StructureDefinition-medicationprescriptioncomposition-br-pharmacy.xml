@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationPrescriptionComposition" />
-  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-prescription-composition" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition" />
   <version value="0.0.1" />
   <name value="MedicationPrescriptionComposition" />
   <title value="MedicationPrescriptionComposition" />
@@ -50,131 +50,12 @@
     <element id="Composition.id">
       <path value="Composition.id" />
       <short value="Identificação lógica deste artefato" />
-      <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
-      <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+      <definition value="O id lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
     </element>
     <element id="Composition.meta">
       <path value="Composition.meta" />
       <short value="Metadados sobre o recurso" />
       <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>
-    <element id="Composition.meta.id">
-      <path value="Composition.meta.id" />
-      <short value="ID exclusivo para referência entre elementos" />
-      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Composition.meta.versionId">
-      <path value="Composition.meta.versionId" />
-      <short value="Identificador específico da versão" />
-      <definition value="O identificador específico da versão, conforme aparece na parte da versão do URL. Este valor muda quando o recurso é criado, atualizado ou excluído." />
-      <comment value="O servidor atribui esse valor e ignora o que o cliente especifica, exceto no caso de o servidor estar impondo integridade de versão em atualizações / exclusões." />
-    </element>
-    <element id="Composition.meta.lastUpdated">
-      <path value="Composition.meta.lastUpdated" />
-      <short value="Quando a versão do recurso foi alterada pela última vez" />
-      <definition value="Quando o recurso foi alterado pela última vez - p.e. quando a versão mudou." />
-      <comment value="Este valor é sempre preenchido, exceto quando o recurso é criado pela primeira vez. O servidor / gerenciador de recursos define este valor; o que um cliente fornece é irrelevante. Isso é equivalente ao HTTP Last-Modified e DEVE ter o mesmo valor em uma interação [ler] (http.html # ler)." />
-    </element>
-    <element id="Composition.meta.source">
-      <path value="Composition.meta.source" />
-      <short value="Identifica de onde vem o recurso" />
-      <definition value="Um uri que identifica o sistema de origem do recurso. Isso fornece uma quantidade mínima de informações de [proveniência] (provenance.html #) que podem ser usadas para rastrear ou diferenciar a fonte de informações no recurso. A fonte pode identificar outro servidor FHIR, documento, mensagem, banco de dados, etc." />
-      <comment value="No recurso de proveniência, corresponde a Provenance.entity.what [x]. O uso exato da fonte (e o Provenance.entity.role implícito) é deixado ao critério do implementador. Apenas uma fonte indicada é permitida; para detalhes adicionais de proveniência, um recurso de proveniência completo deve ser usado.&#xD;&#xA;&#xD;&#xA;Este elemento pode ser usado para indicar onde está a fonte mestre atual de um recurso que possui um URL canônico se o recurso não estiver mais hospedado no URL canônico." />
-    </element>
-    <element id="Composition.meta.profile">
-      <path value="Composition.meta.profile" />
-      <short value="Perfis que este recurso afirma estar em conformidade com" />
-      <definition value="Uma lista de perfis (referências a recursos [StructureDefinition] (structureefinition.html #)) que este recurso afirma estar em conformidade. O URL é uma referência a [StructureDefinition.url] (Structefinition-settings.html # StructureDefinition.url)." />
-      <comment value="Cabe ao servidor e / ou outra infraestrutura da política determinar se / como essas reivindicações são verificadas e / ou atualizadas ao longo do tempo. A lista de URLs de perfil é um conjunto." />
-    </element>
-    <element id="Composition.meta.security">
-      <path value="Composition.meta.security" />
-      <short value="Rótulos de segurança aplicadas a este recurso" />
-      <definition value="Rótulos de segurança aplicados a este recurso. Essas marcas conectam recursos específicos à política de segurança geral e à infraestrutura." />
-    </element>
-    <element id="Composition.meta.security.id">
-      <path value="Composition.meta.security.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Composition.meta.security.system">
-      <path value="Composition.meta.security.system" />
-      <short value="Identidade do sistema de terminologia" />
-      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-    </element>
-    <element id="Composition.meta.security.version">
-      <path value="Composition.meta.security.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="Composition.meta.security.code">
-      <path value="Composition.meta.security.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-    </element>
-    <element id="Composition.meta.security.display">
-      <path value="Composition.meta.security.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-    </element>
-    <element id="Composition.meta.security.userSelected">
-      <path value="Composition.meta.security.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
-    </element>
-    <element id="Composition.meta.tag">
-      <path value="Composition.meta.tag" />
-      <short value="Etiquetas aplicadas a este recurso" />
-      <definition value="Etiquetas aplicadas a este recurso. As etiquetas devem ser usadas para identificar e relacionar recursos ao processo e ao fluxo de trabalho, e os aplicativos não precisam considerar as etiquetas ao interpretar o significado de um recurso." />
-      <comment value="As etiquetas podem ser atualizadas sem alterar a versão declarada do recurso. A lista de tags é um conjunto. A exclusividade é baseada no sistema / código, e a versão e a exibição são ignoradas." />
-    </element>
-    <element id="Composition.meta.tag.id">
-      <path value="Composition.meta.tag.id" />
-      <short value="Identificação única para referência entre elementos" />
-      <definition value="Identificação única para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Composition.meta.tag.system">
-      <path value="Composition.meta.tag.system" />
-      <short value="Identidade do sistema de terminologia" />
-      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-    </element>
-    <element id="Composition.meta.tag.version">
-      <path value="Composition.meta.tag.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="Composition.meta.tag.code">
-      <path value="Composition.meta.tag.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e. pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-    </element>
-    <element id="Composition.meta.tag.display">
-      <path value="Composition.meta.tag.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-    </element>
-    <element id="Composition.meta.tag.userSelected">
-      <path value="Composition.meta.tag.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - p.e. fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
     </element>
     <element id="Composition.implicitRules">
       <path value="Composition.implicitRules" />
@@ -226,7 +107,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescription" />
+      <patternUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-*" />
     </element>
     <element id="Composition.identifier.value">
       <path value="Composition.identifier.value" />
@@ -297,6 +178,9 @@
       <definition value="Especifica o tipo particular de composição (por exemplo, histórico e físico, resumo de descarga, nota de progresso). Isso geralmente equivale ao propósito de fazer a composição." />
       <comment value="Para o tipo de composição, LOINC é onipresente e fortemente endossado por HL7. A maioria dos guias de implementação exigirá um código LOINC específico ou usará LOINC como uma ligação extensível." />
       <requirements value="Elemento de metadados chave que descreve a composição, usado na pesquisa / filtragem." />
+      <binding>
+        <strength value="required" />
+      </binding>
     </element>
     <element id="Composition.type.coding">
       <path value="Composition.type.coding" />
@@ -304,6 +188,8 @@
       <definition value="Uma referência a um código definido por um sistema de terminologia." />
       <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
       <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+      <min value="1" />
+      <max value="1" />
     </element>
     <element id="Composition.type.coding.system">
       <path value="Composition.type.coding.system" />
@@ -311,6 +197,8 @@
       <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
       <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
       <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+      <min value="1" />
+      <fixedUri value="http://loinc.org" />
     </element>
     <element id="Composition.type.coding.version">
       <path value="Composition.type.coding.version" />
@@ -324,6 +212,8 @@
       <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <requirements value="Precisa se referir a um código específico no sistema." />
+      <min value="1" />
+      <fixedCode value="57833-6" />
     </element>
     <element id="Composition.type.coding.display">
       <path value="Composition.type.coding.display" />
@@ -331,6 +221,8 @@
       <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+      <min value="1" />
+      <fixedString value="Prescrição para medicação" />
     </element>
     <element id="Composition.type.coding.userSelected">
       <path value="Composition.type.coding.userSelected" />
@@ -362,16 +254,30 @@
       <min value="1" />
       <type>
         <code value="Reference" />
-        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/patient" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
       </type>
-    </element>
-    <element id="Composition.subject.reference">
-      <path value="Composition.subject.reference" />
-      <min value="1" />
     </element>
     <element id="Composition.subject.type">
       <path value="Composition.subject.type" />
       <fixedUri value="Patient" />
+    </element>
+    <element id="Composition.subject.identifier">
+      <path value="Composition.subject.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Composition.subject.identifier.use">
+      <path value="Composition.subject.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Composition.subject.identifier.system">
+      <path value="Composition.subject.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="Composition.subject.identifier.value">
+      <path value="Composition.subject.identifier.value" />
+      <min value="1" />
     </element>
     <element id="Composition.encounter">
       <path value="Composition.encounter" />
@@ -396,6 +302,19 @@
         <code value="Reference" />
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
       </type>
+    </element>
+    <element id="Composition.author.identifier">
+      <path value="Composition.author.identifier" />
+      <min value="1" />
+    </element>
+    <element id="Composition.author.identifier.use">
+      <path value="Composition.author.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Composition.author.identifier.system">
+      <path value="Composition.author.identifier.system" />
+      <min value="1" />
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />

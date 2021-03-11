@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Practitioner" />
-  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
   <version value="0.1.0" />
   <name value="Practitioner" />
   <title value="Practitioner" />
@@ -52,16 +52,6 @@
       <path value="Practitioner.meta" />
       <short value="Metadados sobre o recurso" />
       <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>
-    <element id="Practitioner.meta.extension">
-      <path value="Practitioner.meta.extension" />
-      <short value="Extensões sobre o recurso" />
-      <definition value="Extensões sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>
-    <element id="Practitioner.meta.id">
-      <path value="Practitioner.meta.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
     </element>
     <element id="Practitioner.meta.versionId">
       <path value="Practitioner.meta.versionId" />
@@ -217,7 +207,20 @@
       <short value="Recursos contidos em linha" />
       <definition value="Esses recursos não têm uma existência independente além do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
       <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, pois uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
-    </element>    
+    </element>
+    <element id="Practitioner.identifier">
+      <path value="Practitioner.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Documento" />
+      <definition value="Documento(s) do profissional" />
+      <min value="1" />
+    </element>
     <element id="Practitioner.identifier.id">
       <path value="Practitioner.identifier.id" />
       <short value="Identificador único para referência entre elementos" />
@@ -225,7 +228,8 @@
     </element>
     <element id="Practitioner.identifier.use">
       <path value="Practitioner.identifier.use" />
-      <definition value="O objetivo deste identificador." />
+      <short value="Uso do Documento" />
+      <definition value="Documentos ativos ou inativos do prescritor&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
       <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
       <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
       <min value="1" />
@@ -306,8 +310,8 @@
     </element>
     <element id="Practitioner.identifier.value">
       <path value="Practitioner.identifier.value" />
-      <short value="O valor que é único" />
-      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <short value="Número do Documento" />
+      <definition value="Número do documento, incluindo letras e outros caracteres utilizados." />
       <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
       <min value="1" />
     </element>
@@ -638,35 +642,6 @@
       <definition value="Narrativa em texto simples que identifica o recurso, além da referência do recurso." />
       <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
     </element>
-    <element id="Practitioner.identifier">
-      <path value="Practitioner.identifier" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <short value="Documento" />
-      <definition value="Documento(s) do profissional" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.identifier.use">
-      <path value="Practitioner.identifier.use" />
-      <short value="Uso do Documento" />
-      <definition value="Documentos ativos ou inativos do prescritor&#xD;&#xA;(https://docs.google.com/spreadsheets/d/1aPh9iFsjyUrw5pt1AkqWzkYTE8s9VKHFlDN7nVvCbQM/edit#gid=0)" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.identifier.system">
-      <path value="Practitioner.identifier.system" />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.identifier.value">
-      <path value="Practitioner.identifier.value" />
-      <short value="Número do Documento" />
-      <definition value="Número do documento, incluindo letras e outros caracteres utilizados." />
-      <min value="1" />
-    </element>
     <element id="Practitioner.identifier:cpf">
       <path value="Practitioner.identifier" />
       <sliceName value="cpf" />
@@ -705,6 +680,24 @@
       <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cns" />
     </element>
     <element id="Practitioner.identifier:cns.value">
+      <path value="Practitioner.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.identifier:registro">
+      <path value="Practitioner.identifier" />
+      <sliceName value="registro" />
+    </element>
+    <element id="Practitioner.identifier:registro.use">
+      <path value="Practitioner.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Practitioner.identifier:registro.system">
+      <path value="Practitioner.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp" />
+    </element>
+    <element id="Practitioner.identifier:registro.value">
       <path value="Practitioner.identifier.value" />
       <min value="1" />
     </element>
@@ -860,29 +853,6 @@
       <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
       <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
     </element>
-    <element id="Practitioner.gender">
-      <path value="Practitioner.gender" />
-      <definition value="Gênero administrativo - o gênero que o indivíduo é considerado ter para fins de administração e manutenção de registros." />
-      <comment value="O gênero pode não corresponder ao sexo biológico, conforme determinado pela genética ou pela identificação preferida do indivíduo. Observe que, tanto para os humanos quanto para os animais, existem outras possibilidades legítimas além do macho e da fêmea, embora a vasta maioria dos sistemas e contextos apóie somente o macho e a fêmea. Os sistemas que fornecem suporte à decisão ou aplicam regras de negócios devem idealmente fazer isso com base nas Observações que tratam do sexo específico ou aspecto de gênero de interesse (anatômico, cromossômico, social, etc.) No entanto, porque essas observações são raramente registradas, assumindo o padrão administrativo gênero é uma prática comum. Onde tal inadimplência ocorrer, a aplicação das regras deve permitir a variação entre aspectos administrativos e biológicos, cromossômicos e outros aspectos de gênero. Por exemplo, um alerta sobre uma histerectomia em um homem deve ser tratado como um aviso ou erro substituível, não como um erro &quot;grave&quot;. Consulte a seção Sexo e sexo do indivíduo para obter informações adicionais sobre como comunicar o sexo e o sexo do indivíduo." />
-      <requirements value="Necessário para a identificação do indivíduo, em combinação com (pelo menos) nome e data de nascimento." />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.birthDate">
-      <path value="Practitioner.birthDate" />
-      <short value="A data de nascimento do indivíduo." />
-      <definition value="A data de nascimento do indivíduo." />
-      <comment value="Pelo menos um ano estimado deve ser fornecido como um palpite se o data de nascimento real for desconhecido. Há uma extensão padrão &quot;tempo de nascimento do indivíduo&quot; disponível que deve ser usado onde o tempo é necessário (como em sistemas de cuidados maternos / infantis)." />
-      <requirements value="A idade do indivíduo impulsiona muitos processos clínicos." />
-      <min value="1" />
-    </element>
-    <element id="Practitioner.deceased[x]">
-      <path value="Practitioner.deceased[x]" />
-      <short value="Indica se o indivíduo é falecido ou não" />
-      <definition value="Indica se o indivíduo é falecido ou não" />
-      <comment value="Se não houver valor na instância, significa que não há nenhuma declaração sobre se o indivíduo faleceu ou não. A maioria dos sistemas interpretará a ausência de um valor como um sinal de que a pessoa está viva." />
-      <requirements value="O fato de um indivíduo ser falecido influencia o processo clínico. Além disso, na comunicação humana e na gestão das relações é necessário saber se a pessoa está viva." />
-      <isModifierReason value="Este elemento é rotulado como um modificador porque, uma vez que um indivíduo é marcado como falecido, as ações que são apropriadas para executar no indivíduo podem ser significativamente diferentes." />
-    </element>
     <element id="Practitioner.address">
       <path value="Practitioner.address" />
       <slicing>
@@ -894,8 +864,8 @@
       </slicing>
       <short value="Endereço" />
       <definition value="Um endereço para o indivíduo" />
-      <comment value="O indivíduo pode ter vários endereços com diferentes usos ou períodos aplicáveis." />
-      <requirements value="Pode ser necessário manter o controle dos endereços dos indivíduos para contato, faturamento ou requisitos de relatórios e também para ajudar na identificação." />
+      <comment value="O profissional pode ter vários endereços com diferentes usos ou períodos aplicáveis." />
+      <requirements value="Pode ser necessário manter o controle dos endereços dos profissionals para contato, faturamento ou requisitos de relatórios e também para ajudar na identificação." />
       <min value="1" />
     </element>
     <element id="Practitioner.address.id">
@@ -1024,7 +994,7 @@
       <path value="Practitioner.address.period" />
       <short value="Período de tempo em que o endereço estava / está em uso" />
       <definition value="Período de tempo em que o endereço estava / está em uso" />
-      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o indivíduo estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao indivíduo entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (p.e.: &quot;o profissional estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao profissional entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duração] (datatypes.html # Duração)." />
       <requirements value="Permite que os endereços sejam colocados em um contexto histórico." />
     </element>
     <element id="Practitioner.address.period.id">
@@ -1044,7 +1014,22 @@
       <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
       <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
       <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
-    </element>        
+    </element>
+    <element id="Practitioner.gender">
+      <path value="Practitioner.gender" />
+      <definition value="Gênero administrativo - o gênero que o indivíduo é considerado ter para fins de administração e manutenção de registros." />
+      <comment value="O gênero pode não corresponder ao sexo biológico, conforme determinado pela genética ou pela identificação preferida do indivíduo. Observe que, tanto para os humanos quanto para os animais, existem outras possibilidades legítimas além do macho e da fêmea, embora a vasta maioria dos sistemas e contextos apóie somente o macho e a fêmea. Os sistemas que fornecem suporte à decisão ou aplicam regras de negócios devem idealmente fazer isso com base nas Observações que tratam do sexo específico ou aspecto de gênero de interesse (anatômico, cromossômico, social, etc.) No entanto, porque essas observações são raramente registradas, assumindo o padrão administrativo gênero é uma prática comum. Onde tal inadimplência ocorrer, a aplicação das regras deve permitir a variação entre aspectos administrativos e biológicos, cromossômicos e outros aspectos de gênero. Por exemplo, um alerta sobre uma histerectomia em um homem deve ser tratado como um aviso ou erro substituível, não como um erro &quot;grave&quot;. Consulte a seção Sexo e sexo do indivíduo para obter informações adicionais sobre como comunicar o sexo e o sexo do indivíduo." />
+      <requirements value="Necessário para a identificação do indivíduo, em combinação com (pelo menos) nome e data de nascimento." />
+      <min value="1" />
+    </element>
+    <element id="Practitioner.birthDate">
+      <path value="Practitioner.birthDate" />
+      <short value="A data de nascimento do indivíduo." />
+      <definition value="A data de nascimento do indivíduo." />
+      <comment value="Pelo menos um ano estimado deve ser fornecido como um palpite se o data de nascimento real for desconhecido. Há uma extensão padrão &quot;tempo de nascimento do indivíduo&quot; disponível que deve ser usado onde o tempo é necessário (como em sistemas de cuidados maternos / infantis)." />
+      <requirements value="A idade do indivíduo impulsiona muitos processos clínicos." />
+      <min value="1" />
+    </element>
     <element id="Practitioner.photo">
       <path value="Practitioner.photo" />
       <short value="Foto" />
@@ -1054,90 +1039,18 @@
       <path value="Practitioner.qualification" />
       <short value="Qualificação" />
       <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
-    </element>    
+    </element>
     <element id="Practitioner.communication">
       <path value="Practitioner.communication" />
       <short value="Comunicação" />
-      <definition value="Uma linguagem que pode ser usada para comunicar ao paciente sobre sua saúde." />
-      <comment value="Se nenhum idioma for especificado, isso * implica * que o idioma local padrão é falado. Se você precisa transmitir proficiência para vários modos, então você precisa de várias associações Paciente.Comunicação. Para os animais, a linguagem não é um campo relevante e deve estar ausente da instância. Se o paciente não fala o idioma local padrão, o Padrão Requerido do Intérprete pode ser usado para declarar explicitamente que um intérprete é necessário." />
-      <requirements value="Se um paciente não fala o idioma local, podem ser necessários intérpretes, portanto, os idiomas falados e a proficiência são coisas importantes para acompanhar, tanto para o paciente quanto para outras pessoas de interesse" />
+      <definition value="Uma linguagem que pode ser usada para comunicar ao profissional sobre sua saúde." />
+      <comment value="Se nenhum idioma for especificado, isso * implica * que o idioma local padrão é falado. Se você precisa transmitir proficiência para vários modos, então você precisa de várias associações Paciente.Comunicação. Para os animais, a linguagem não é um campo relevante e deve estar ausente da instância. Se o profissional não fala o idioma local padrão, o Padrão Requerido do Intérprete pode ser usado para declarar explicitamente que um intérprete é necessário." />
+      <requirements value="Se um profissional não fala o idioma local, podem ser necessários intérpretes, portanto, os idiomas falados e a proficiência são coisas importantes para acompanhar, tanto para o profissional quanto para outras pessoas de interesse" />
     </element>
     <element id="Practitioner.communication.id">
       <path value="Practitioner.communication.id" />
       <short value="Identificador único para referência entre elementos" />
       <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Practitioner.communication.language">
-      <path value="Practitioner.communication.language" />
-      <short value="A linguagem que pode ser usada para comunicar ao paciente sobre sua saúde" />
-      <definition value="O código ISO-639-1 alfa 2 em minúsculas para o idioma, opcionalmente seguido por um hífen e o código ISO-3166-1 alfa 2 para a região em maiúsculas; &#xD;&#xA;p.e.: &quot;en&quot; para inglês ou &quot;en-US&quot; para inglês americano versus &quot;en-EN&quot; para inglês da Inglaterra." />
-      <comment value="A estrutura aa-BB com esta caixa exata é uma das notações de localidade mais amplamente utilizadas. No entanto, nem todos os sistemas codificam isso, mas sim como texto livre. Daí CodeableConcept em vez de código como o tipo de dados." />
-      <requirements value="A maioria dos sistemas em países multilíngues desejará transmitir o idioma. Nem todos os sistemas realmente precisam do dialeto regional." />
-    </element>
-    <element id="Practitioner.communication.language.id">
-      <path value="Practitioner.communication.language.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Practitioner.communication.language.coding">
-      <path value="Practitioner.communication.language.coding" />
-      <short value="Código definido por um sistema de terminologia" />
-      <definition value="Uma referência a um código definido por um sistema de terminologia." />
-      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordenação das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
-      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
-    </element>
-    <element id="Practitioner.communication.language.coding.id">
-      <path value="Practitioner.communication.language.coding.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="Practitioner.communication.language.coding.system">
-      <path value="Practitioner.communication.language.coding.system" />
-      <short value="Identidade do sistema de terminologia" />
-      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro OID HL7. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-    </element>
-    <element id="Practitioner.communication.language.coding.version">
-      <path value="Practitioner.communication.language.coding.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVERÁ ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="Practitioner.communication.language.coding.code">
-      <path value="Practitioner.communication.language.coding.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (p.e.: pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Necessita referir-se a um código específico no sistema." />
-    </element>
-    <element id="Practitioner.communication.language.coding.display">
-      <path value="Practitioner.communication.language.coding.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema" />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-    </element>
-    <element id="Practitioner.communication.language.coding.userSelected">
-      <path value="Practitioner.communication.language.coding.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
-    </element>
-    <element id="Practitioner.communication.language.text">
-      <path value="Practitioner.communication.language.text" />
-      <short value="Representação em texto simples do conceito" />
-      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / pronunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
-      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
-      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
-    </element>
-    <element id="Practitioner.communication.preferred">
-      <path value="Practitioner.communication.preferred" />
-      <short value="Indicador de preferência de idioma" />
-      <definition value="Indica se o paciente prefere ou não esse idioma (em relação a outros idiomas ele domina até um determinado nível)." />
-      <comment value="Esta linguagem é especificamente identificada para comunicar informações de saúde." />
-      <requirements value="Pessoas que dominam vários idiomas até certo nível podem preferir um ou mais, ou seja, sentem-se mais confiantes para se comunicar em um idioma específico, fazendo com que outros idiomas sejam um método alternativo." />
     </element>
   </differential>
 </StructureDefinition>

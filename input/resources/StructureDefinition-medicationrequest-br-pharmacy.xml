@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationRequest" />
-  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medication-request" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
   <version value="0.0.1" />
   <name value="MedicationRequest" />
   <title value="MedicationRequest" />
@@ -210,33 +210,11 @@
       <path value="MedicationRequest.identifier.value" />
       <min value="1" />
     </element>
-    <element id="MedicationRequest.identifier:platformIdentifier">
-      <path value="MedicationRequest.identifier" />
-      <sliceName value="platformIdentifier" />
-      <short value="Identificador da plataforma" />
-      <definition value="Identifica a plataforma associada a esta solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
-      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="MedicationRequest.identifier:platformIdentifier.use">
-      <path value="MedicationRequest.identifier.use" />
-      <min value="1" />
-      <fixedCode value="official" />
-    </element>
-    <element id="MedicationRequest.identifier:platformIdentifier.system">
-      <path value="MedicationRequest.identifier.system" />
-      <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/platform" />
-    </element>
-    <element id="MedicationRequest.identifier:platformIdentifier.value">
-      <path value="MedicationRequest.identifier.value" />
-      <min value="1" />
-    </element>
     <element id="MedicationRequest.status">
       <path value="MedicationRequest.status" />
       <definition value="Um código que especifica o estado atual do pedido. Geralmente, este será o estado ativo ou concluído." />
       <comment value="Este elemento é rotulado como um modificador porque o status contém códigos que marcam o recurso como não válido no momento." />
+      <fixedCode value="completed" />
     </element>
     <element id="MedicationRequest.intent">
       <path value="MedicationRequest.intent" />
@@ -373,6 +351,11 @@
       <short value="Para quem ou a solicitação de medicamento em grupo é para" />
       <definition value="Um link para um recurso que representa a pessoa ou conjunto de indivíduos a quem o medicamento será dado." />
       <comment value="O assunto em uma solicitação de medicamento é obrigatório. Para o caso de uso secundário em que o assunto real não é fornecido, ainda deve haver um assunto anônimo especificado." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
+      </type>
     </element>
     <element id="MedicationRequest.subject.id">
       <path value="MedicationRequest.subject.id" />
@@ -600,6 +583,15 @@
       <definition value="O indivíduo, organização ou dispositivo que iniciou a solicitação e é responsável por sua ativação." />
       <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
       <min value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
     </element>
     <element id="MedicationRequest.requester.identifier">
       <path value="MedicationRequest.requester.identifier" />
