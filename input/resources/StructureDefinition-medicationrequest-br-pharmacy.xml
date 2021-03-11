@@ -694,6 +694,10 @@
       <min value="1" />
       <max value="1" />
     </element>
+    <element id="MedicationRequest.dosageInstruction.text">
+      <path value="MedicationRequest.dosageInstruction.text" />
+      <min value="1" />
+    </element>
     <element id="MedicationRequest.dosageInstruction.additionalInstruction">
       <path value="MedicationRequest.dosageInstruction.additionalInstruction" />
       <short value="Instruções suplementares ou avisos para o paciente - por ex. &quot;às refeições&quot;, &quot;pode causar sonolência&quot;" />

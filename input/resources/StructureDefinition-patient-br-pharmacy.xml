@@ -230,7 +230,6 @@
       <short value="Documento identificador do paciente" />
       <definition value="Um idocumento dentificador para este paciente." />
       <requirements value="Os pacientes quase sempre recebem identificadores numéricos específicos." />
-      <min value="1" />
     </element>
     <element id="Patient.identifier.id">
       <path value="Patient.identifier.id" />
@@ -1373,7 +1372,6 @@
       <definition value="Gênero administrativo - o gênero que o paciente é considerado ter para fins de administração e manutenção de registros." />
       <comment value="O gênero pode não corresponder ao sexo biológico, conforme determinado pela genética ou pela identificação preferida do indivíduo. Observe que, tanto para os humanos quanto para os animais, existem outras possibilidades legítimas além do macho e da fêmea, embora a vasta maioria dos sistemas e contextos apóie somente o macho e a fêmea. Os sistemas que fornecem suporte à decisão ou aplicam regras de negócios devem idealmente fazer isso com base nas Observações que tratam do sexo específico ou aspecto de gênero de interesse (anatômico, cromossômico, social, etc.) No entanto, porque essas observações são raramente registradas, assumindo o padrão administrativo gênero é uma prática comum. Onde tal inadimplência ocorrer, a aplicação das regras deve permitir a variação entre aspectos administrativos e biológicos, cromossômicos e outros aspectos de gênero. Por exemplo, um alerta sobre uma histerectomia em um homem deve ser tratado como um aviso ou erro substituível, não como um erro &quot;grave&quot;. Consulte a seção Sexo e sexo do paciente para obter informações adicionais sobre como comunicar o sexo e o sexo do paciente." />
       <requirements value="Necessário para a identificação do indivíduo, em combinação com (pelo menos) nome e data de nascimento." />
-      <min value="1" />
     </element>
     <element id="Patient.birthDate">
       <path value="Patient.birthDate" />
@@ -1381,7 +1379,6 @@
       <definition value="A data de nascimento do indivíduo." />
       <comment value="Pelo menos um ano estimado deve ser fornecido como um palpite se o data de nascimento real for desconhecido. Há uma extensão padrão &quot;tempo de nascimento do paciente&quot; disponível que deve ser usado onde o tempo é necessário (como em sistemas de cuidados maternos / infantis)." />
       <requirements value="A idade do indivíduo impulsiona muitos processos clínicos." />
-      <min value="1" />
     </element>
     <element id="Patient.deceased[x]">
       <path value="Patient.deceased[x]" />
@@ -1404,7 +1401,6 @@
       <definition value="Um endereço para o indivíduo" />
       <comment value="O paciente pode ter vários endereços com diferentes usos ou períodos aplicáveis." />
       <requirements value="Pode ser necessário manter o controle dos endereços dos pacientes para contato, faturamento ou requisitos de relatórios e também para ajudar na identificação." />
-      <min value="1" />
     </element>
     <element id="Patient.address.id">
       <path value="Patient.address.id" />

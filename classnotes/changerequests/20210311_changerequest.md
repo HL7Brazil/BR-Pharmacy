@@ -1,0 +1,1 @@
+1 - Bundle deveria apontar também para o estabelecimento de saúde onde ocorreu a prescrição.

@@ -303,18 +303,17 @@
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
       </type>
     </element>
-    <element id="Composition.author.identifier">
-      <path value="Composition.author.identifier" />
+    <element id="Composition.author.reference">
+      <path value="Composition.author.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.author.type">
+      <path value="Composition.author.type" />
       <min value="1" />
     </element>
     <element id="Composition.author.identifier.use">
       <path value="Composition.author.identifier.use" />
-      <min value="1" />
       <fixedCode value="official" />
-    </element>
-    <element id="Composition.author.identifier.system">
-      <path value="Composition.author.identifier.system" />
-      <min value="1" />
     </element>
     <element id="Composition.title">
       <path value="Composition.title" />
@@ -383,7 +382,7 @@
       </slicing>
       <short value="A composição é dividida em seções" />
       <definition value="A raiz das seções que constituem a composição." />
-      <min value="1" />
+      <min value="4" />
     </element>
     <element id="Composition.section:sliceSectionMedicationRequests">
       <path value="Composition.section" />
@@ -408,6 +407,70 @@
       <path value="Composition.section.entry.type" />
       <min value="1" />
       <fixedUri value="MedicationRequest" />
+    </element>
+    <element id="Composition.section:slicePatient">
+      <path value="Composition.section" />
+      <sliceName value="slicePatient" />
+      <short value="Dados do paciente da prescrição" />
+      <definition value="Dados demográficos do paciente da prescrição." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:slicePatient.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
+      </type>
+    </element>
+    <element id="Composition.section:slicePatient.entry.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:slicePatient.entry.type">
+      <path value="Composition.section.entry.type" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:sliceOrganization">
+      <path value="Composition.section" />
+      <sliceName value="sliceOrganization" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:sliceOrganization.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="Composition.section:sliceOrganization.entry.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:sliceOrganization.entry.type">
+      <path value="Composition.section.entry.type" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:slicePractitioner">
+      <path value="Composition.section" />
+      <sliceName value="slicePractitioner" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Composition.section:slicePractitioner.entry">
+      <path value="Composition.section.entry" />
+      <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
     </element>
   </differential>
 </StructureDefinition>

@@ -9,8 +9,8 @@
     },
     "identifier": {
         "use": "official",
-        "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-CODIGO_RNDS_ESTABELECIMENTO",
-        "value": "CODIGO_PRESCRICAO_2"
+        "system": "https://emr.prontmed.com",
+        "value": "C5AA6C29"
     },
     "type": "document",
     "timestamp": "2021-03-10T21:21:21Z",
@@ -28,8 +28,8 @@
                 },
                 "identifier": {
                     "use": "official",
-                    "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-CODIGO_RNDS_ESTABELECIMENTO",
-                    "value": "CODIGO_PRESCRICAO_2"
+                    "system": "https://emr.prontmed.com",
+                    "value": "C5AA6C29"
                 },
                 "status": "final",
                 "type": {
@@ -42,20 +42,14 @@
                     ]
                 },
                 "subject": {
-                    "identifier": {
-                        "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
-                        "value": "21419480022"
-                    }
+                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "type": "Patient"
                 },
                 "date": "2021-03-10T21:21:21Z",
                 "author": [
                     {
-                        "identifier": {
-                            "use": "official",
-                            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
-                            "value": "137576"
-                        }
+                        "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                        "type": "Practitioner"
                     }
                 ],
                 "title": "Prescrição de zolpidem",
@@ -63,7 +57,32 @@
                     {
                         "entry": [
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"
+                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                                "type": "Patient"        
+                            }
+                        ]
+                    },
+                    {
+                        "entry": [
+                            {
+                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                                "type": "Practitioner"
+                            }
+                        ]
+                    },
+                    {
+                        "entry": [
+                            {
+                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
+                                "type": "Organization"
+                            }
+                        ]
+                    },
+                    {
+                        "entry": [
+                            {
+                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
+                                "type": "MedicationRequest"
                             }
                         ]
                     }
@@ -72,6 +91,51 @@
         },
         {
             "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+            "resource": {
+                "resourceType": "Patient",
+                "meta": {
+                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "profile": [
+                        "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
+                    ],
+                    "name": [
+                        {
+                            "use": "official",
+                            "text": "Marcos Frota"
+                        }
+                    ]
+                }
+                
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "resource": {
+                "resourceType": "Practitioner",
+                "meta": {
+                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "profile": [
+                        "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"
+                    ]
+                }
+                
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
+            "resource": {
+                "resourceType": "Organization",
+                "meta": {
+                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "profile": [
+                        "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization"
+                    ]
+                }
+                
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -83,8 +147,8 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-CODIGO_RNDS_ESTABELECIMENTO",
-                        "value": "CODIGO_PRESCRICAO_2"
+                        "system": "https://emr.prontmed.com",
+                        "value": "C5AW6C13"
                     }
                 ],
                 "status": "completed",
@@ -92,42 +156,49 @@
                 "medicationCodeableConcept": {
                     "coding": [
                         {
-                            "system": "CODESYSTEM_COMERCIAL_COMPOSITION",
-                            "code": "CODIGO_SOMATROPINA_FRASCO_12_UNI",
-                            "display": "Somatropina Frasco 12 unidades"
+                            "system": "https://terminologia.anvisa.gov.br/dcb",
+                            "code": "08047",
+                            "display": "Somatropina"
                         },
                         {
-                            "system": "CODESYSTEM_SUPPLIER",
-                            "code": "CODIGO_HORMOTROP_12_UNI",
-                            "display": "Hormotrop Frasco 12 unidades"
+                            "system": "https://terminologia.anvisa.gov.br/numero-registro",
+                            "code": "106460137",
+                            "display": "Hormotrop"
+                        }
+                    ],
+                    "text": "Hormotrop (Somatropina), 12 ui"
+                },
+                "subject": {
+                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "type": "Patient"
+                },
+                "requester": {
+                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                    "type": "Practitioner"
+                },
+                "reasonCode": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/sid/icd-10",
+                            "code": "E230",
+                            "display": "Hipopituitarismo"
                         }
                     ]
                 },
-                "subject": {
-                    "identifier": {
-                        "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
-                        "value": "21419480022"
-                    }
-                },
-                "requester": {
-                    "identifier": {
-                        "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
-                        "value": "137576"
-                    }
-                },
                 "patientInstruction": "Aplicar 2ml SC 3x/semana por 30 dias.",
-                "doseAndRate": [
-                    {
-                        "doseQuantity": {
-                            "value": 2,
-                            "unit": "milliliter",
-                            "system": "http://unitsofmeasure.org",
-                            "code": "mL"
+                "dosageInstruction": {
+                    "text": "1 frasco",
+                    "doseAndRate": [
+                        {
+                            "doseQuantity": {
+                                "value": 2,
+                                "unit": "milliliter",
+                                "system": "http://unitsofmeasure.org",
+                                "code": "mL"
+                            }
                         }
-                    }
-                ]
+                    ]
+                }                
             }
         }
     ],

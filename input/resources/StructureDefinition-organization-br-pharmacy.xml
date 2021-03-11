@@ -51,12 +51,7 @@
       <path value="Organization.meta.extension" />
       <short value="Extensões sobre o recurso" />
       <definition value="Extensões sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>
-    <element id="Organization.meta.id">
-      <path value="Organization.meta.id" />
-      <short value="Identificador único para referência entre elementos" />
-      <definition value="Identificador único para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
+    </element>    
     <element id="Organization.meta.versionId">
       <path value="Organization.meta.versionId" />
       <short value="Identificador específico da versão" />
