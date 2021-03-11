@@ -325,7 +325,7 @@
       <short value="O formato técnico da assinatura" />
       <definition value="Um tipo mime que indica o formato técnico da assinatura. Tipos importantes de mime são application / signature + xml para X ML DigSig, application / jose para JWS e image / * para uma imagem gráfica de uma assinatura, etc." />
       <min value="1" />
-      <fixedCode value="application/pdf" />
+      <fixedCode value="application/pkcs7-signature" />
     </element>
     <element id="Bundle.signature.data">
       <path value="Bundle.signature.data" />
