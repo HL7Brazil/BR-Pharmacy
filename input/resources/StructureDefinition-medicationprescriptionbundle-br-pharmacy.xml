@@ -227,6 +227,71 @@
         <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
       </type>
     </element>
+    <element id="Bundle.entry:slicePatient">
+      <path value="Bundle.entry" />
+      <sliceName value="slicePatient" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:slicePatient.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
+      </type>
+    </element>
+    <element id="Bundle.entry:slicePatient.resource.address.line">
+      <path value="Bundle.entry.resource.address.line" />
+      <slicing>
+        <discriminator>
+          <type value="exists" />
+          <path value="value" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="5" />
+    </element>
+    <element id="Bundle.entry:sliceOrganization">
+      <path value="Bundle.entry" />
+      <sliceName value="sliceOrganization" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:sliceOrganization.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="Bundle.entry:slicePractitioner">
+      <path value="Bundle.entry" />
+      <sliceName value="slicePractitioner" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="Bundle.entry:slicePractitioner.resource">
+      <path value="Bundle.entry.resource" />
+      <min value="1" />
+      <type>
+        <code value="Resource" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="Bundle.entry:slicePractitioner.resource.address.line">
+      <path value="Bundle.entry.resource.address.line" />
+      <slicing>
+        <discriminator>
+          <type value="exists" />
+          <path value="value" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <min value="5" />
+    </element>
     <element id="Bundle.signature">
       <path value="Bundle.signature" />
       <short value="Assinatura digital" />
