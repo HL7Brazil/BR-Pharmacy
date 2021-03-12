@@ -686,6 +686,7 @@
     <element id="Practitioner.identifier:registro">
       <path value="Practitioner.identifier" />
       <sliceName value="registro" />
+      <min value="1" />
     </element>
     <element id="Practitioner.identifier:registro.use">
       <path value="Practitioner.identifier.use" />
