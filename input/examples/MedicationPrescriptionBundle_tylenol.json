@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "Prescricao_somatropina",
+    "id": "Prescricao_tylenol",
     "meta": {
         "lastUpdated": "2021-03-10T21:21:21Z",
         "profile": [
@@ -9,11 +9,11 @@
     },
     "identifier": {
         "use": "official",
-        "system": "https://emr.prontmed.com",
-        "value": "C5AA6C29"
+        "system": "https://farmacias.nexodata.com.br/",
+        "value": "NX3VD"
     },
     "type": "document",
-    "timestamp": "2021-03-10T21:21:21Z",
+    "timestamp": "2021-03-12T21:21:21Z",
     "entry": [
         {
             "fullUrl": "https://prescricoes.org.br/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57",
@@ -24,12 +24,12 @@
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition"
                     ],
-                    "lastUpdated": "2021-03-10T21:21:21Z"
+                    "lastUpdated": "2021-03-12T21:21:21Z"
                 },
                 "identifier": {
                     "use": "official",
-                    "system": "https://emr.prontmed.com",
-                    "value": "C5AA6C29"
+                    "system": "https://nexodata.com.br/",
+                    "value": "NX3VD"
                 },
                 "status": "final",
                 "type": {
@@ -45,14 +45,14 @@
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
                     "type": "Patient"
                 },
-                "date": "2021-03-10T21:21:21Z",
+                "date": "2021-03-12T21:21:21Z",
                 "author": [
                     {
                         "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                         "type": "Practitioner"
                     }
                 ],
-                "title": "Prescrição de somatropina",
+                "title": "Prescrição de tylenol",
                 "section": [
                     {
                         "entry": [
@@ -94,14 +94,14 @@
             "resource": {
                 "resourceType": "Patient",
                 "meta": {
-                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "lastUpdated": "2021-03-12T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
                     ],
                     "name": [
                         {
                             "use": "official",
-                            "text": "Marcos Frota"
+                            "text": "João Ceciliano"
                         }
                     ]
                 }
@@ -113,7 +113,7 @@
             "resource": {
                 "resourceType": "Practitioner",
                 "meta": {
-                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "lastUpdated": "2021-03-12T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"
                     ]
@@ -122,35 +122,35 @@
                     {
                         "use": "official",
                         "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
-                        "value": "137576"
+                        "value": "137578"
                     },
                     {
                         "use": "official",
                         "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
-                        "value": "65890365436"
+                        "value": "11688893911"
                     }
                 ],
                 "name": [
                     {
                         "use": "official",
-                        "text": "Samanta Dallagnol"
+                        "text": "Stephanie Watchowski"
                     }
                 ],
                 "address": [
                     {
                         "use": "home",
                         "type": "physical",
-                        "text": "Rua Presidente Alguma Coisa 123",
+                        "text": "Avenida Angelica 696",
                         "line": [
-                            "Rua",
-                            "Rua Presidente Alguma Coisa",
-                            "123",
-                            "Casa",
-                            "Bairro Santa Cecília"
+                            "Avenida",
+                            "Avenida Angelica",
+                            "696",
+                            "Apartamento 131",
+                            "Paulista"
                         ],
                         "city": "50308",
                         "state": "SP",
-                        "postalCode": "1237680",
+                        "postalCode": "13257688",
                         "country": "BRA"
                     }
                 ],
@@ -163,7 +163,7 @@
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
-                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "lastUpdated": "2021-03-12T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest"
                     ]
@@ -172,7 +172,7 @@
                     {
                         "use": "official",
                         "system": "https://emr.prontmed.com",
-                        "value": "C5AW6C13"
+                        "value": "NX3VD"
                     }
                 ],
                 "status": "completed",
@@ -181,16 +181,16 @@
                     "coding": [
                         {
                             "system": "https://terminologia.anvisa.gov.br/dcb",
-                            "code": "08047",
-                            "display": "Somatropina"
+                            "code": "06827",
+                            "display": "Tylenol"
                         },
                         {
                             "system": "https://terminologia.anvisa.gov.br/numero-registro",
-                            "code": "106460137",
-                            "display": "Hormotrop"
+                            "code": "112363326",
+                            "display": "Paracetamol"
                         }
                     ],
-                    "text": "Hormotrop (Somatropina), 12 ui"
+                    "text": "Tylenol 500mg comprimido revestido."
                 },
                 "subject": {
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
@@ -200,25 +200,16 @@
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                     "type": "Practitioner"
                 },
-                "reasonCode": {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/sid/icd-10",
-                            "code": "E230",
-                            "display": "Hipopituitarismo"
-                        }
-                    ]
-                },
-                "patientInstruction": "Aplicar 2ml SC 3x/semana por 30 dias.",
+                "patientInstruction": "Tomar um comprimido via oral de 8 em 8 horas durante 3 dias.",
                 "dosageInstruction": {
-                    "text": "1 frasco",
+                    "text": "1 comprimido",
                     "doseAndRate": [
                         {
                             "doseQuantity": {
-                                "value": 2,
-                                "unit": "milliliter",
+                                "value": 1,
+                                "unit": "tablets",
                                 "system": "http://unitsofmeasure.org",
-                                "code": "mL"
+                                "code": "tbl"
                             }
                         }
                     ]

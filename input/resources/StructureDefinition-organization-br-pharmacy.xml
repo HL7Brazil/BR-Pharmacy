@@ -47,11 +47,6 @@
       <short value="Metadados sobre o recurso" />
       <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
     </element>
-    <element id="Organization.meta.extension">
-      <path value="Organization.meta.extension" />
-      <short value="Extensões sobre o recurso" />
-      <definition value="Extensões sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
-    </element>    
     <element id="Organization.meta.versionId">
       <path value="Organization.meta.versionId" />
       <short value="Identificador específico da versão" />
@@ -528,9 +523,9 @@
     </element>
     <element id="Organization.type">
       <path value="Organization.type" />
-      <min value="1" />
       <short value="Tipo da organização" />
       <definition value="Indica se a organização é governamental, privada, unversitária, etc." />
+      <min value="1" />
     </element>
     <element id="Organization.type.coding">
       <path value="Organization.type.coding" />
@@ -580,17 +575,17 @@
     </element>
     <element id="Organization.name">
       <path value="Organization.name" />
-      <min value="1" />
       <short value="Razão social." />
       <definition value="Razão social da pessoa jurídica." />
+      <min value="1" />
     </element>
     <element id="Organization.alias">
       <path value="Organization.alias" />
-      <min value="1" />
       <short value="Nome fantasia." />
       <definition value="Nome fantasia da pessoa jurídica." />
-    </element>    
+    </element>
     <element id="Organization.telecom">
+      <path value="Organization.telecom" />
       <slicing>
         <discriminator>
           <type value="value" />
@@ -598,12 +593,11 @@
         </discriminator>
         <rules value="open" />
       </slicing>
-      <min value="1" />
-      <path value="Organization.telecom" />
       <short value="Contato do indivíduo" />
       <definition value="Um detalhe de contato (p.e.: um número de telefone ou um endereço de e-mail) pelo qual o indivíduo pode ser contatado" />
       <comment value="Um indivíduo pode ter várias maneiras de ser contatado com diferentes usos ou períodos aplicáveis. Pode ser necessário ter opções para entrar em contato com a pessoa com urgência e também para ajudar na identificação. O endereço pode não ir diretamente para o indivíduo, mas pode chegar a outra pessoa que possa representar o indivíduo (p.e.: telefone residencial ou telefone do dono do animal)." />
       <requirements value="As pessoas têm opções de contato, como telefone, e-mail." />
+      <min value="1" />
     </element>
     <element id="Organization.telecom.id">
       <path value="Organization.telecom.id" />
@@ -671,6 +665,15 @@
       <path value="Organization.telecom.system" />
       <min value="1" />
       <fixedCode value="phone" />
+    </element>
+    <element id="Organization.telecom:phone.value">
+      <path value="Organization.telecom.value" />
+      <min value="1" />
+    </element>
+    <element id="Organization.telecom:phone.use">
+      <path value="Organization.telecom.use" />
+      <min value="1" />
+      <fixedCode value="work" />
     </element>
     <element id="Organization.address">
       <path value="Organization.address" />
