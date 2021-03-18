@@ -227,12 +227,12 @@
                         {
                             "system": "https://terminologia.anvisa.gov.br/dcb",
                             "code": "08016",
-                            "display": "Sinvastatina"
+                            "display": "Sinvaston"
                         },
                         {
                             "system": "https://terminologia.anvisa.gov.br/numero-registro",
                             "code": "107140175",
-                            "display": "Sinvaston"
+                            "display": "Sinvastatina"
                         }
                     ],
                     "text": "Sinvaston (Sinvastatina), 20mg"

@@ -244,7 +244,6 @@
       <definition value="Uma referência a um código definido por um sistema de terminologia." />
       <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
       <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
-      <min value="1" />
     </element>
     <element id="MedicationRequest.medication[x].coding:comercialOrComposition">
       <path value="MedicationRequest.medication[x].coding" />

@@ -182,12 +182,12 @@
                         {
                             "system": "https://terminologia.anvisa.gov.br/dcb",
                             "code": "06827",
-                            "display": "Tylenol"
+                            "display": "Paracetamol"
                         },
                         {
                             "system": "https://terminologia.anvisa.gov.br/numero-registro",
                             "code": "112363326",
-                            "display": "Paracetamol"
+                            "display": "Tylenol"
                         }
                     ],
                     "text": "Tylenol 500mg comprimido revestido."
