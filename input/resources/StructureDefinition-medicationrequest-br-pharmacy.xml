@@ -185,28 +185,28 @@
       </slicing>
       <short value="Uma chave de identificação para uma prescrição" />
       <definition value="Um identificador único para uma dada prescrição." />
-      <min value="2" />
+      <min value="1" />
     </element>
-    <element id="MedicationRequest.identifier:prescriptionIdentifier">
+    <element id="MedicationRequest.identifier:slicePrescricao">
       <path value="MedicationRequest.identifier" />
-      <sliceName value="prescriptionIdentifier" />
+      <sliceName value="slicePrescricao" />
       <short value="Identificador da prescrição" />
       <definition value="Identifica a prescrição associada a essa solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
       <comment value="Este é um identificador de negócios, não um identificador de recurso." />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="MedicationRequest.identifier:prescriptionIdentifier.use">
+    <element id="MedicationRequest.identifier:slicePrescricao.use">
       <path value="MedicationRequest.identifier.use" />
       <min value="1" />
       <fixedCode value="official" />
     </element>
-    <element id="MedicationRequest.identifier:prescriptionIdentifier.system">
+    <element id="MedicationRequest.identifier:slicePrescricao.system">
       <path value="MedicationRequest.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescription" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
     </element>
-    <element id="MedicationRequest.identifier:prescriptionIdentifier.value">
+    <element id="MedicationRequest.identifier:slicePrescricao.value">
       <path value="MedicationRequest.identifier.value" />
       <min value="1" />
     </element>
@@ -264,7 +264,7 @@
       <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
       <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
       <min value="1" />
-      <fixedUri value="http://terminologia/fhir/comercialOrComposition" />
+      <fixedUri value="https://terminologia.anvisa.gov.br/dcb" />
     </element>
     <element id="MedicationRequest.medication[x].coding:comercialOrComposition.version">
       <path value="MedicationRequest.medication[x].coding.version" />
@@ -314,7 +314,7 @@
       <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
       <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
       <min value="1" />
-      <fixedUri value="http://terminologia/fhir/supplier" />
+      <fixedUri value="https://terminologia.anvisa.gov.br/numero-registro" />
     </element>
     <element id="MedicationRequest.medication[x].coding:supplier.version">
       <path value="MedicationRequest.medication[x].coding.version" />
@@ -366,19 +366,21 @@
       <short value="Referência literal, URL relativa, interna ou absoluta" />
       <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
       <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+      <min value="1" />
     </element>
     <element id="MedicationRequest.subject.type">
       <path value="MedicationRequest.subject.type" />
       <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
       <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
       <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+      <min value="1" />
     </element>
     <element id="MedicationRequest.subject.identifier">
       <path value="MedicationRequest.subject.identifier" />
       <short value="Referência lógica, quando a referência literal não é conhecida" />
       <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhuma exigência de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
       <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="MedicationRequest.subject.identifier.id">
       <path value="MedicationRequest.subject.identifier.id" />
@@ -592,9 +594,17 @@
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
       </type>
     </element>
+    <element id="MedicationRequest.requester.reference">
+      <path value="MedicationRequest.requester.reference" />
+      <min value="1" />
+    </element>
+    <element id="MedicationRequest.requester.type">
+      <path value="MedicationRequest.requester.type" />
+      <min value="1" />
+    </element>
     <element id="MedicationRequest.requester.identifier">
       <path value="MedicationRequest.requester.identifier" />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="MedicationRequest.requester.identifier.use">
       <path value="MedicationRequest.requester.identifier.use" />
@@ -703,7 +713,7 @@
       <definition value="Instruções suplementares ao paciente sobre como tomar a medicação (por exemplo, &quot;com as refeições&quot; ou &quot;tomar meia hora antes das refeições&quot;) ou advertências para o paciente sobre a medicação (por exemplo, &quot;pode causar sonolência&quot; ou &quot;evitar a exposição da pele a luz solar direta ou lâmpadas solares &quot;)." />
       <comment value="As informações sobre a administração ou preparação do medicamento (por exemplo, &quot;infundir tão rapidamente quanto possível através da porta intraperitoneal&quot; ou &quot;imediatamente após a droga x&quot;) devem ser preenchidas em dosagem.text." />
       <requirements value="A instrução adicional deve ser codificada, mas onde não houver código, o elemento pode incluir texto. Por exemplo, &quot;Engula com bastante água&quot;, que pode ou não estar codificado." />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="MedicationRequest.dosageInstruction.additionalInstruction.text">
       <path value="MedicationRequest.dosageInstruction.additionalInstruction.text" />
@@ -726,7 +736,7 @@
       <definition value="Técnica de administração de medicamentos." />
       <comment value="As terminologias usadas freqüentemente pré-coordenam este termo com a rota e / ou forma de administração." />
       <requirements value="Um valor codificado que indica o método pelo qual o medicamento é introduzido no corpo ou sobre ele. Mais comumente usado para injeções. Por exemplo, Slow Push; Deep IV." />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="MedicationRequest.dosageInstruction.method.coding">
       <path value="MedicationRequest.dosageInstruction.method.coding" />

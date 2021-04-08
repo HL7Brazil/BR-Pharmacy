@@ -749,8 +749,7 @@
       <short value="O valor que é único" />
       <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
       <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
-      <min value="1" />
-      <patternString value="[0-9]{11}" />
+      <min value="1" />      
     </element>
     <element id="Patient.identifier:cpf.period">
       <path value="Patient.identifier.period" />
@@ -1444,52 +1443,7 @@
       <min value="5" />
       <max value="5" />
       <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Patient.address.line:streetType">
-      <path value="Patient.address.line" />
-      <sliceName value="streetType" />
-      <short value="Tipo de rua" />
-      <definition value="Este componente contém informações de endereço referente ao tipo rua do endereço. p.e.: avenida, rua, estrada,etc." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Patient.address.line:street">
-      <path value="Patient.address.line" />
-      <sliceName value="street" />
-      <short value="Rua" />
-      <definition value="Este componente contém informações de endereço referente a descrição da rua." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Patient.address.line:number">
-      <path value="Patient.address.line" />
-      <sliceName value="number" />
-      <short value="Número" />
-      <definition value="Este componente contém informações de endereço referente ao número." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Patient.address.line:complement">
-      <path value="Patient.address.line" />
-      <sliceName value="complement" />
-      <short value="Complemento" />
-      <definition value="Este componente contém informações de endereço referente ao complemento." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Patient.address.line:neighborhood">
-      <path value="Patient.address.line" />
-      <sliceName value="neighborhood" />
-      <short value="Bairro" />
-      <definition value="Este componente contém informações de endereço referente ao bairro." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
+    </element>    
     <element id="Patient.address.city">
       <path value="Patient.address.city" />
       <short value="Nome da cidade, município etc." />

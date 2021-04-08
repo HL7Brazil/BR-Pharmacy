@@ -129,7 +129,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <patternUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-*" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
     </element>
     <element id="Bundle.identifier.value">
       <path value="Bundle.identifier.value" />
@@ -184,113 +184,47 @@
       <path value="Bundle.entry" />
       <slicing>
         <discriminator>
-          <type value="profile" />
-          <path value="resolve()" />
-        </discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>        
         <rules value="open" />
-      </slicing>
+      </slicing>                 
       <short value="Entrada no pacote - terá um recurso ou informação" />
       <definition value="Uma entrada em um recurso de pacote - conterá um recurso ou informações sobre um recurso (apenas transações e histórico)." />
-      <min value="2" />
+      <min value="4" />
       <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote" />
     </element>
     <element id="Bundle.entry:sliceMedicationPrescriptionComposition">
-      <path value="Bundle.entry" />
-      <sliceName value="sliceMedicationPrescriptionComposition" />
-      <short value="Cabeçalho da prescrição" />
-      <definition value="Entrada que conterá o cabeçalho da prescrição descrevendo as seções desse documento de prescrição." />
-      <min value="1" />
-      <max value="1" />
-      <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote" />
+      <sliceName value="sliceMedicationPrescriptionComposition"/>
+      <path value="Bundle.entry"/>
+      <short value="Cabeçalho da prescrição"/>
+      <definition value="Entrada que conterá o cabeçalho da prescrição descrevendo as seções desse documento de prescrição."/>
+      <min value="1"/>      
+      <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote"/>
     </element>
     <element id="Bundle.entry:sliceMedicationPrescriptionComposition.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
+      <path value="Bundle.entry.resource"/>
+      <min value="1"/>
       <type>
-        <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition" />
+        <code value="Composition"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition"/>
       </type>
-    </element>
-    <element id="Bundle.entry:sliceMedicationRequest">
-      <path value="Bundle.entry" />
-      <sliceName value="sliceMedicationRequest" />
-      <short value="Solicitação de medicamentos" />
-      <definition value="Seção que descreve a solicitação de um medicamento." />
-      <min value="1" />
-      <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote" />
-    </element>
-    <element id="Bundle.entry:sliceMedicationRequest.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
       <type>
-        <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
+        <code value="Patient"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"/>
       </type>
-    </element>
-    <element id="Bundle.entry:slicePatient">
-      <path value="Bundle.entry" />
-      <sliceName value="slicePatient" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Bundle.entry:slicePatient.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
       <type>
-        <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
+        <code value="Practitioner"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"/>
       </type>
-    </element>
-    <element id="Bundle.entry:slicePatient.resource.address.line">
-      <path value="Bundle.entry.resource.address.line" />
-      <slicing>
-        <discriminator>
-          <type value="exists" />
-          <path value="value" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="5" />
-    </element>
-    <element id="Bundle.entry:sliceOrganization">
-      <path value="Bundle.entry" />
-      <sliceName value="sliceOrganization" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Bundle.entry:sliceOrganization.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
       <type>
-        <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+        <code value="Organization"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization"/>
       </type>
-    </element>
-    <element id="Bundle.entry:slicePractitioner">
-      <path value="Bundle.entry" />
-      <sliceName value="slicePractitioner" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Bundle.entry:slicePractitioner.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
       <type>
-        <code value="Resource" />
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+        <code value="MedicationRequest"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest"/>
       </type>
-    </element>
-    <element id="Bundle.entry:slicePractitioner.resource.address.line">
-      <path value="Bundle.entry.resource.address.line" />
-      <slicing>
-        <discriminator>
-          <type value="exists" />
-          <path value="value" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <min value="5" />
     </element>
     <element id="Bundle.signature">
       <path value="Bundle.signature" />
@@ -305,6 +239,7 @@
       <short value="Indicação do motivo pelo qual a entidade assinou o (s) objeto (s)" />
       <definition value="Uma indicação do motivo pelo qual a entidade assinou este documento. Isso pode ser explicitamente incluído como parte das informações de assinatura e pode ser usado para determinar a responsabilidade por várias ações relativas ao documento." />
       <comment value="Os exemplos incluem atestar: autoria, transcrição correta e testemunho de evento específico. Também conhecido como &amp; quot; Indicação de tipo de compromisso &amp; quot ;." />
+      <min value="1"/>
     </element>
     <element id="Bundle.signature.type.system">
       <path value="Bundle.signature.type.system" />
@@ -313,8 +248,7 @@
     </element>
     <element id="Bundle.signature.type.version">
       <path value="Bundle.signature.type.version" />
-      <min value="1" />
-      <fixedString value="4.0.1" />
+      <min value="0" />      
     </element>
     <element id="Bundle.signature.type.code">
       <path value="Bundle.signature.type.code" />
@@ -336,10 +270,11 @@
       <short value="Quem assinou" />
       <definition value="Uma referência a uma descrição utilizável por aplicativo da identidade que assinou (por exemplo, a assinatura usou sua chave privada)." />
       <comment value="Isso deve estar de acordo com as informações na assinatura." />
+      <min value="1"/>
     </element>
     <element id="Bundle.signature.who.identifier">
       <path value="Bundle.signature.who.identifier" />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="Bundle.signature.who.identifier.use">
       <path value="Bundle.signature.who.identifier.use" />
@@ -359,11 +294,11 @@
       <path value="Bundle.signature.onBehalfOf" />
       <short value="O partido representado" />
       <definition value="Uma referência a uma descrição utilizável por aplicativo da identidade representada pela assinatura." />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="Bundle.signature.onBehalfOf.identifier">
       <path value="Bundle.signature.onBehalfOf.identifier" />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="Bundle.signature.onBehalfOf.identifier.use">
       <path value="Bundle.signature.onBehalfOf.identifier.use" />

@@ -1,0 +1,59 @@
+{
+    "id": "example",
+    "resourceType": "MedicationRequest",
+    "meta": {
+        "lastUpdated": "2021-03-10T21:21:21Z",
+        "profile": [
+            "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest"
+        ]
+    },
+    "identifier": [
+        {
+            "use": "official",
+            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+            "value": "MXQ8F71"
+        }
+    ],
+    "status": "completed",
+    "intent": "original-order",
+    "authoredOn": "2021-03-10T21:21:21Z",
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "https://terminologia.anvisa.gov.br/dcb",
+                "code": "08016",
+                "display": "Sinvaston"
+            },
+            {
+                "system": "https://terminologia.anvisa.gov.br/numero-registro",
+                "code": "107140175",
+                "display": "Sinvastatina"
+            }
+        ],
+        "text": "Sinvaston (Sinvastatina), 20mg"
+    },
+    "subject": {
+        "reference": "Patient/example",
+        "type": "Patient"
+    },
+    "requester": {
+        "reference": "Practitioner/example",
+        "type": "Practitioner"
+    },    
+    "dosageInstruction": [
+        {
+            "patientInstruction": "Tomar um comprimido via oral uma vez ao dia.",
+            "text": "1 caixa",
+            "doseAndRate": [
+                {
+                    "doseQuantity": {
+                        "value": 1,
+                        "unit": "tablets",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "tbl"
+                    }
+                }
+            ]
+        }
+    ]
+}

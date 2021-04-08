@@ -661,8 +661,7 @@
     </element>
     <element id="Practitioner.identifier:cpf.value">
       <path value="Practitioner.identifier.value" />
-      <min value="1" />
-      <patternString value="[0-9]{11}" />
+      <min value="1" />      
     </element>
     <element id="Practitioner.identifier:cns">
       <path value="Practitioner.identifier" />
@@ -911,52 +910,7 @@
       <min value="5" />
       <max value="5" />
       <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Practitioner.address.line:streetType">
-      <path value="Practitioner.address.line" />
-      <sliceName value="streetType" />
-      <short value="Tipo de rua" />
-      <definition value="Este componente contém informações de endereço referente ao tipo rua do endereço. p.e.: avenida, rua, estrada,etc." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Practitioner.address.line:street">
-      <path value="Practitioner.address.line" />
-      <sliceName value="street" />
-      <short value="Rua" />
-      <definition value="Este componente contém informações de endereço referente a descrição da rua." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Practitioner.address.line:number">
-      <path value="Practitioner.address.line" />
-      <sliceName value="number" />
-      <short value="Número" />
-      <definition value="Este componente contém informações de endereço referente ao número." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Practitioner.address.line:complement">
-      <path value="Practitioner.address.line" />
-      <sliceName value="complement" />
-      <short value="Complemento" />
-      <definition value="Este componente contém informações de endereço referente ao complemento." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Practitioner.address.line:neighborhood">
-      <path value="Practitioner.address.line" />
-      <sliceName value="neighborhood" />
-      <short value="Bairro" />
-      <definition value="Este componente contém informações de endereço referente ao bairro." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
+    </element>    
     <element id="Practitioner.address.city">
       <path value="Practitioner.address.city" />
       <short value="Nome da cidade, município etc." />

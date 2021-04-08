@@ -9,7 +9,7 @@
     },
     "identifier": {
         "use": "official",
-        "system": "https://emr.prontmed.com",
+        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
         "value": "MXQ8F71"
     },
     "type": "document",
@@ -28,7 +28,7 @@
                 },
                 "identifier": {
                     "use": "official",
-                    "system": "https://emr.prontmed.com",
+                    "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                     "value": "MXQ8F71"
                 },
                 "status": "final",
@@ -58,28 +58,16 @@
                         "entry": [
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
-                                "type": "Patient"        
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                                "type": "Patient"
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                                 "type": "Practitioner"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
                                 "type": "Organization"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
                                 "type": "MedicationRequest"
@@ -97,15 +85,14 @@
                     "lastUpdated": "2021-03-10T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
-                    ],
-                    "name": [
-                        {
-                            "use": "official",
-                            "text": "Nelio Frota"
-                        }
                     ]
-                }
-                
+                },
+                "name": [
+                    {
+                        "use": "official",
+                        "text": "Nelio Frota"
+                    }
+                ]
             }
         },
         {
@@ -154,7 +141,7 @@
                         "country": "BRA"
                     }
                 ],
-                "gender": "female",                
+                "gender": "female",
                 "birthDate": "1970-01-01"
             }
         },
@@ -185,7 +172,7 @@
                 ],
                 "address": [
                     {
-                        "use": "home",
+                        "use": "work",
                         "type": "physical",
                         "text": "Avenida Presidente Dutra 456",
                         "line": [
@@ -201,7 +188,7 @@
                         "country": "BRA"
                     }
                 ]
-            }        
+            }
         },
         {
             "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
@@ -216,12 +203,13 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "https://emr.prontmed.com",
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                         "value": "MXQ8F71"
                     }
                 ],
                 "status": "completed",
                 "intent": "original-order",
+                "authoredOn": "2021-03-10T21:21:21Z",
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -244,21 +232,23 @@
                 "requester": {
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                     "type": "Practitioner"
-                },                
-                "patientInstruction": "Tomar um comprimido via oral uma vez ao dia.",
-                "dosageInstruction": {
-                    "text": "1 caixa",
-                    "doseAndRate": [
-                        {
-                            "doseQuantity": {
-                                "value": 1,
-                                "unit": "tablets",
-                                "system": "http://unitsofmeasure.org",
-                                "code": "tbl"
+                },
+                "dosageInstruction": [
+                    {
+                        "patientInstruction": "Tomar um comprimido via oral uma vez ao dia.",
+                        "text": "1 caixa",
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1,
+                                    "unit": "tablets",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "tbl"
+                                }
                             }
-                        }
-                    ]
-                }                
+                        ]
+                    }
+                ]
             }
         }
     ],

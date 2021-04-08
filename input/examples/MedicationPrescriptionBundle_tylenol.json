@@ -9,7 +9,7 @@
     },
     "identifier": {
         "use": "official",
-        "system": "https://farmacias.nexodata.com.br/",
+        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
         "value": "NX3VD"
     },
     "type": "document",
@@ -28,7 +28,7 @@
                 },
                 "identifier": {
                     "use": "official",
-                    "system": "https://nexodata.com.br/",
+                    "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                     "value": "NX3VD"
                 },
                 "status": "final",
@@ -59,27 +59,11 @@
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
                                 "type": "Patient"        
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                                 "type": "Practitioner"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
-                            {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
-                                "type": "Practitioner"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
                                 "type": "MedicationRequest"
@@ -97,15 +81,14 @@
                     "lastUpdated": "2021-03-12T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
-                    ],
-                    "name": [
-                        {
-                            "use": "official",
-                            "text": "João Ceciliano"
-                        }
                     ]
-                }
-                
+                },                
+                "name": [
+                    {
+                        "use": "official",
+                        "text": "João Ceciliano"
+                    }
+                ]
             }
         },
         {
@@ -171,12 +154,13 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "https://emr.prontmed.com",
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                         "value": "NX3VD"
                     }
                 ],
                 "status": "completed",
                 "intent": "original-order",
+                "authoredOn": "2021-03-10T21:21:21Z",
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -199,21 +183,23 @@
                 "requester": {
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                     "type": "Practitioner"
-                },
-                "patientInstruction": "Tomar um comprimido via oral de 8 em 8 horas durante 3 dias.",
-                "dosageInstruction": {
-                    "text": "1 comprimido",
-                    "doseAndRate": [
-                        {
-                            "doseQuantity": {
-                                "value": 1,
-                                "unit": "tablets",
-                                "system": "http://unitsofmeasure.org",
-                                "code": "tbl"
+                },                
+                "dosageInstruction": [
+                    {
+                        "patientInstruction": "Tomar um comprimido via oral de 8 em 8 horas durante 3 dias.",
+                        "text": "1 comprimido",
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1,
+                                    "unit": "tablets",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "tbl"
+                                }
                             }
-                        }
-                    ]
-                }                
+                        ]
+                    }
+                ]                
             }
         }
     ],

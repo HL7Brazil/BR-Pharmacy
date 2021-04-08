@@ -9,7 +9,7 @@
     },
     "identifier": {
         "use": "official",
-        "system": "https://emr.prontmed.com",
+        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
         "value": "C5AA6C33"
     },
     "type": "document",
@@ -28,7 +28,7 @@
                 },
                 "identifier": {
                     "use": "official",
-                    "system": "https://emr.prontmed.com",
+                    "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                     "value": "C5AA6C33"
                 },
                 "status": "final",
@@ -59,27 +59,11 @@
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
                                 "type": "Patient"        
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                                 "type": "Practitioner"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
-                            {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
-                                "type": "Practitioner"
-                            }
-                        ]
-                    },
-                    {
-                        "entry": [
+                            },
                             {
                                 "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
                                 "type": "MedicationRequest"
@@ -97,15 +81,14 @@
                     "lastUpdated": "2021-03-10T21:21:21Z",
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
-                    ],
-                    "name": [
-                        {
-                            "use": "official",
-                            "text": "Nelio Frota"
-                        }
                     ]
-                }
-                
+                },                
+                "name": [
+                    {
+                        "use": "official",
+                        "text": "Nelio Frota"
+                    }
+                ]
             }
         },
         {
@@ -171,12 +154,13 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "https://emr.prontmed.com",
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
                         "value": "C5AA6C33"
                     }
                 ],
                 "status": "completed",
                 "intent": "original-order",
+                "authoredOn": "2021-03-10T21:21:21Z",
                 "medicationCodeableConcept": {
                     "coding": [
                         {
@@ -199,21 +183,23 @@
                 "requester": {
                     "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
                     "type": "Practitioner"
-                },                
-                "patientInstruction": "Tome 1cp 30 min antes de se deitar por 30 dias.",
-                "dosageInstruction": {
-                    "text": "1 caixa",
-                    "doseAndRate": [
-                        {
-                            "doseQuantity": {
-                                "value": 1,
-                                "unit": "tablets",
-                                "system": "http://unitsofmeasure.org",
-                                "code": "tbl"
+                },                                
+                "dosageInstruction": [
+                    {
+                        "patientInstruction": "Tome 1cp 30 min antes de se deitar por 30 dias.",
+                        "text": "1 caixa",
+                        "doseAndRate": [
+                            {
+                                "doseQuantity": {
+                                    "value": 1,
+                                    "unit": "tablets",
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "tbl"
+                                }
                             }
-                        }
-                    ]
-                }                
+                        ]
+                    }
+                ]                
             }
         }
     ],

@@ -524,8 +524,7 @@
     <element id="Organization.type">
       <path value="Organization.type" />
       <short value="Tipo da organização" />
-      <definition value="Indica se a organização é governamental, privada, unversitária, etc." />
-      <min value="1" />
+      <definition value="Indica se a organização é governamental, privada, unversitária, etc." />      
     </element>
     <element id="Organization.type.coding">
       <path value="Organization.type.coding" />
@@ -732,52 +731,7 @@
       <min value="5" />
       <max value="5" />
       <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Organization.address.line:streetType">
-      <path value="Organization.address.line" />
-      <sliceName value="streetType" />
-      <short value="Tipo de rua" />
-      <definition value="Este componente contém informações de endereço referente ao tipo rua do endereço. p.e.: avenida, rua, estrada,etc." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Organization.address.line:street">
-      <path value="Organization.address.line" />
-      <sliceName value="street" />
-      <short value="Rua" />
-      <definition value="Este componente contém informações de endereço referente a descrição da rua." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Organization.address.line:number">
-      <path value="Organization.address.line" />
-      <sliceName value="number" />
-      <short value="Número" />
-      <definition value="Este componente contém informações de endereço referente ao número." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Organization.address.line:complement">
-      <path value="Organization.address.line" />
-      <sliceName value="complement" />
-      <short value="Complemento" />
-      <definition value="Este componente contém informações de endereço referente ao complemento." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
-    <element id="Organization.address.line:neighborhood">
-      <path value="Organization.address.line" />
-      <sliceName value="neighborhood" />
-      <short value="Bairro" />
-      <definition value="Este componente contém informações de endereço referente ao bairro." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <max value="1" />
-      <orderMeaning value="A ordem em que as linhas devem aparecer em uma etiqueta de endereço" />
-    </element>
+    </element>    
     <element id="Organization.address.city">
       <path value="Organization.address.city" />
       <short value="Nome da cidade, município etc." />

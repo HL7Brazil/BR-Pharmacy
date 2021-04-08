@@ -107,7 +107,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <patternUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/BRRNDS-*" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
     </element>
     <element id="Composition.identifier.value">
       <path value="Composition.identifier.value" />
@@ -257,13 +257,18 @@
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
       </type>
     </element>
+    <element id="Composition.subject.reference">
+      <path value="Composition.subject.reference" />
+      <min value="1" />
+    </element>
     <element id="Composition.subject.type">
       <path value="Composition.subject.type" />
       <fixedUri value="Patient" />
+      <min value="1" />
     </element>
     <element id="Composition.subject.identifier">
       <path value="Composition.subject.identifier" />
-      <min value="1" />
+      <min value="0" />
     </element>
     <element id="Composition.subject.identifier.use">
       <path value="Composition.subject.identifier.use" />
@@ -373,25 +378,23 @@
     </element>
     <element id="Composition.section">
       <path value="Composition.section" />
+      <short value="A composição é dividida em seções" />
+      <definition value="A raiz das seções que constituem a composição." />
+      <min value="1" />
+    </element>
+    <element id="Composition.section.entry">
+      <path value="Composition.section.entry" />
+      <min value="3"/>
       <slicing>
         <discriminator>
-          <type value="value" />
-          <path value="section.entry.type" />
+          <type value="type" />
+          <path value="resolve()" />
         </discriminator>
         <rules value="open" />
       </slicing>
-      <short value="A composição é dividida em seções" />
-      <definition value="A raiz das seções que constituem a composição." />
-      <min value="4" />
     </element>
-    <element id="Composition.section:sliceSectionMedicationRequests">
-      <path value="Composition.section" />
-      <sliceName value="sliceSectionMedicationRequests" />
-      <short value="Seção da Solicitação de Medicamentos" />
-      <definition value="Uma seção que descreve a solicitação de um medicamento." />
-      <min value="1" />
-    </element>
-    <element id="Composition.section:sliceSectionMedicationRequests.entry">
+    <element id="Composition.section.entry:sliceMedicationRequest">
+      <sliceName value="sliceMedicationRequest" />
       <path value="Composition.section.entry" />
       <min value="1" />
       <type>
@@ -399,24 +402,17 @@
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationRequest" />
       </type>
     </element>
-    <element id="Composition.section:sliceSectionMedicationRequests.entry.reference">
+    <element id="Composition.section.entry:sliceMedicationRequest.reference">
       <path value="Composition.section.entry.reference" />
       <min value="1" />
     </element>
-    <element id="Composition.section:sliceSectionMedicationRequests.entry.type">
+    <element id="Composition.section:entrysliceMedicationRequest.type">
       <path value="Composition.section.entry.type" />
       <min value="1" />
       <fixedUri value="MedicationRequest" />
     </element>
-    <element id="Composition.section:slicePatient">
-      <path value="Composition.section" />
+    <element id="Composition.section.entry:slicePatient">
       <sliceName value="slicePatient" />
-      <short value="Dados do paciente da prescrição" />
-      <definition value="Dados demográficos do paciente da prescrição." />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Composition.section:slicePatient.entry">
       <path value="Composition.section.entry" />
       <min value="1" />
       <max value="1" />
@@ -425,60 +421,52 @@
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
       </type>
     </element>
-    <element id="Composition.section:slicePatient.entry.reference">
+    <element id="Composition.section.entry:slicePatient.reference">
       <path value="Composition.section.entry.reference" />
       <min value="1" />
     </element>
-    <element id="Composition.section:slicePatient.entry.type">
+    <element id="Composition.section:entryslicePatient.type">
       <path value="Composition.section.entry.type" />
       <min value="1" />
+      <fixedUri value="Patient" />
     </element>
-    <element id="Composition.section:sliceOrganization">
-      <path value="Composition.section" />
-      <sliceName value="sliceOrganization" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Composition.section:sliceOrganization.entry">
+    <element id="Composition.section.entry:slicePractitioner">
+      <sliceName value="slicePractitioner" />
       <path value="Composition.section.entry" />
       <min value="1" />
+      <max value="1" />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
+      </type>
+    </element>
+    <element id="Composition.section.entry:slicePractitioner.reference">
+      <path value="Composition.section.entry.reference" />
+      <min value="1" />
+    </element>
+    <element id="Composition.section:entryslicePractitioner.type">
+      <path value="Composition.section.entry.type" />
+      <min value="1" />
+      <fixedUri value="Practitioner" />
+    </element>
+    <element id="Composition.section.entry:sliceOrganization">
+      <sliceName value="sliceOrganization" />
+      <path value="Composition.section.entry" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Reference" />
         <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization" />
-        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
       </type>
     </element>
-    <element id="Composition.section:sliceOrganization.entry.reference">
+    <element id="Composition.section.entry:sliceOrganization.reference">
       <path value="Composition.section.entry.reference" />
       <min value="1" />
     </element>
-    <element id="Composition.section:sliceOrganization.entry.type">
+    <element id="Composition.section:entrysliceOrganization.type">
       <path value="Composition.section.entry.type" />
       <min value="1" />
-    </element>
-    <element id="Composition.section:slicePractitioner">
-      <path value="Composition.section" />
-      <sliceName value="slicePractitioner" />
-      <min value="1" />
-      <max value="1" />
-    </element>
-    <element id="Composition.section:slicePractitioner.entry">
-      <path value="Composition.section.entry" />
-      <min value="1" />
-      <max value="1" />
-      <type>
-        <code value="Reference" />
-        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner" />
-      </type>
-    </element>
-    <element id="Composition.section:slicePractitioner.entry.reference">
-      <path value="Composition.section.entry.reference" />
-      <min value="1" />
-    </element>
-    <element id="Composition.section:slicePractitioner.entry.type">
-      <path value="Composition.section.entry.type" />
-      <min value="1" />
+      <fixedUri value="Organization" />
     </element>
   </differential>
 </StructureDefinition>
