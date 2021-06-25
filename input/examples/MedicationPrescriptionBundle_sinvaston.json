@@ -203,8 +203,8 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
-                        "value": "MXQ8F71"
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao",
+                        "value": "MXQ8F71-1"
                     }
                 ],
                 "status": "completed",
@@ -240,10 +240,9 @@
                         "doseAndRate": [
                             {
                                 "doseQuantity": {
-                                    "value": 1,
-                                    "unit": "tablets",
-                                    "system": "http://unitsofmeasure.org",
-                                    "code": "tbl"
+                                    "value": 1,                                    
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
+                                    "code": "COM"                                    
                                 }
                             }
                         ]

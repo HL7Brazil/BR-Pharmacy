@@ -154,8 +154,8 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
-                        "value": "C5AW6C13"
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao",
+                        "value": "C5AW6C13-1"
                     }
                 ],
                 "status": "completed",
@@ -202,10 +202,9 @@
                         "doseAndRate": [
                             {
                                 "doseQuantity": {
-                                    "value": 2,
-                                    "unit": "milliliter",
-                                    "system": "http://unitsofmeasure.org",
-                                    "code": "mL"
+                                    "value": 2,                                    
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
+                                    "code": "ML"
                                 }
                             }
                         ]

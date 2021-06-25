@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispenseBundle" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationDispenseBundle" />
+  <version value="0.0.1" />
+  <name value="MedicationDispenseBundle" />
+  <title value="MedicationDispenseBundle" />
+  <status value="draft" />
+  <date value="2021-01-26" />
+  <publisher value="HL7 Brasil" />
+  <description value="Perfil de dispensação." />
+  <purpose value="Um pacote que contém uma dispensação de medicamentos." />
+  <copyright value="Copyright 2021 Instituto HL7 Brasil.&#xD;&#xA;&#xD;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xD;&#xA;you may not use this file except in compliance with the License.&#xD;&#xA;You may obtain a copy of the License at&#xD;&#xA;&#xD;&#xA;    http://www.apache.org/licenses/LICENSE-2.0&#xD;&#xA;&#xD;&#xA;Unless required by applicable law or agreed to in writing, software&#xD;&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xD;&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xD;&#xA;See the License for the specific language governing permissions and&#xD;&#xA;limitations under the License." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="cda" />
+    <uri value="http://hl7.org/v3/cda" />
+    <name value="CDA (R2)" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Bundle" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Bundle" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Bundle">
+      <path value="Bundle" />
+      <short value="Contém uma coleção de recursos" />
+    </element>
+    <element id="Bundle.id">
+      <path value="Bundle.id" />
+      <short value="Identificação lógica deste artefato" />
+      <definition value="O id lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
+      <comment value="A única vez em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
+    </element>
+    <element id="Bundle.meta">
+      <path value="Bundle.meta" />
+      <short value="Metadados sobre o recurso" />
+      <definition value="Os metadados sobre o recurso. Este é o conteúdo mantido pela infraestrutura. As alterações no conteúdo nem sempre estão associadas às alterações de versão do recurso." />
+    </element>
+    <element id="Bundle.identifier">
+      <path value="Bundle.identifier" />
+      <short value="Uma chave de identificação para uma dispensação" />
+      <definition value="Um identificador único para uma dada dispensação." />
+      <min value="1" />
+    </element>
+    <element id="Bundle.identifier.use">
+      <path value="Bundle.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <min value="1" />
+      <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir uma id temporária com uma permanente." />
+    </element>
+    <element id="Bundle.identifier.type">
+      <path value="Bundle.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+    </element>
+    <element id="Bundle.identifier.type.coding">
+      <path value="Bundle.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="Bundle.identifier.type.coding.system">
+      <path value="Bundle.identifier.type.coding.system" />
+      <short value="Identidade do sistema de terminologia" />
+      <definition value="A identificação do sistema de código que define o significado do símbolo no código." />
+      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
+      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
+    </element>
+    <element id="Bundle.identifier.type.coding.version">
+      <path value="Bundle.identifier.type.coding.version" />
+      <short value="Versão do sistema - se relevante" />
+      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
+      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
+    </element>
+    <element id="Bundle.identifier.type.coding.code">
+      <path value="Bundle.identifier.type.coding.code" />
+      <short value="Símbolo na sintaxe definida pelo sistema" />
+      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa se referir a um código específico no sistema." />
+    </element>
+    <element id="Bundle.identifier.type.coding.display">
+      <path value="Bundle.identifier.type.coding.display" />
+      <short value="Representação definida pelo sistema" />
+      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
+      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
+    </element>
+    <element id="Bundle.identifier.type.coding.userSelected">
+      <path value="Bundle.identifier.type.coding.userSelected" />
+      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
+      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
+      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
+      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
+    </element>
+    <element id="Bundle.identifier.type.text">
+      <path value="Bundle.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="Bundle.identifier.system">
+      <path value="Bundle.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
+    </element>
+    <element id="Bundle.identifier.value">
+      <path value="Bundle.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+      <min value="1" />
+    </element>
+    <element id="Bundle.identifier.period">
+      <path value="Bundle.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Veja [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="Bundle.identifier.period.start">
+      <path value="Bundle.identifier.period.start" />
+      <short value="Hora de início com limite inclusivo" />
+      <definition value="O início do período. O limite é inclusivo." />
+      <comment value="Se o elemento inferior estiver faltando, o significado é que o limite inferior não é conhecido." />
+    </element>
+    <element id="Bundle.identifier.period.end">
+      <path value="Bundle.identifier.period.end" />
+      <short value="Horário de término com limite inclusivo, se não for contínuo" />
+      <definition value="O fim do período. Se o final do período estiver faltando, significa que nenhum final era conhecido ou planejado no momento em que a instância foi criada. O início pode estar no passado e a data de término no futuro, o que significa que o período é esperado / planejado para terminar nessa hora." />
+      <comment value="O valor alto inclui qualquer data / hora correspondente. ou seja, 2012-02-03T10: 00: 00 está em um período que tem um valor final de 2012-02-03." />
+      <meaningWhenMissing value="Se o final do período estiver faltando, significa que o período está em andamento" />
+    </element>
+    <element id="Bundle.identifier.assigner">
+      <path value="Bundle.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="Bundle.type">
+      <path value="Bundle.type" />
+      <definition value="Indica a finalidade deste pacote - como ele deve ser usado." />
+      <comment value="É possível usar um pacote para outros fins (por exemplo, um documento pode ser aceito como uma transação). Isso é definido principalmente para que possa haver regras específicas para alguns dos tipos de pacote." />
+    </element>
+    <element id="Bundle.timestamp">
+      <path value="Bundle.timestamp" />
+      <short value="Quando o pacote foi montado" />
+      <definition value="A data / hora em que o pacote foi montado - ou seja, quando os recursos foram colocados no pacote." />
+      <comment value="Para muitos pacotes, o carimbo de data / hora é igual a .meta.lastUpdated, porque eles não são armazenados (por exemplo, resultados de pesquisa). Quando um pacote é colocado em um armazenamento persistente, .meta.lastUpdated geralmente é alterado pelo servidor. Quando o pacote é uma mensagem, um agente de middleware que altera a mensagem (mesmo que não seja armazenada) DEVE atualizar .meta.lastUpdated. .timestamp é usado para rastrear a hora original do pacote e DEVE ser preenchido.&#xD;&#xA;&#xD;&#xA;Uso:&#xD;&#xA;&#xD;&#xA;* documento: a data em que o documento foi criado. Nota: a composição pode ser anterior ao documento ou estar associada a vários documentos. A data da composição - a hora de autoria - pode ser anterior à hora de montagem do documento&#xD;&#xA;* mensagem: a data em que o conteúdo da mensagem foi montado. Esta data não é alterada pelos motores de middleware, a menos que eles adicionem dados adicionais que alterem o significado da hora da mensagem&#xD;&#xA;* história: a data em que a história foi montada. Este tempo seria usado como _desde a hora de solicitar atualizações subsequentes&#xD;&#xA;* conjunto de pesquisa: a hora em que o conjunto de pesquisa foi montado. Observe que páginas diferentes PODEM ter carimbos de data / hora diferentes, mas não precisam. Ter carimbos de data / hora diferentes não significa que as páginas subsequentes representarão ou incluirão as alterações feitas desde a consulta inicial&#xD;&#xA;* transação | transação-resposta | lote | resposta em lote | coleção: nenhum significado particular atribuído&#xD;&#xA;&#xD;&#xA;O valor do carimbo de data / hora deve ser maior que lastUpdated e outros carimbos de data / hora nos recursos do pacote e deve ser igual ou anterior a .meta.lastUpdated no próprio pacote." />
+      <min value="1" />
+    </element>
+    <element id="Bundle.total">
+      <path value="Bundle.total" />
+      <short value="Se pesquisar, o número total de correspondências" />
+      <definition value="Se um conjunto de pesquisas corresponder, este é o número total de entradas do tipo 'correspondência' em todas as páginas da pesquisa. Não inclui as entradas search.mode = 'include' ou 'result' e não fornece uma contagem do número de entradas no Bundle." />
+    </element>
+    <element id="Bundle.entry">
+      <path value="Bundle.entry" />
+      <slicing>
+        <discriminator>
+          <type value="type" />
+          <path value="$this" />
+        </discriminator>        
+        <rules value="open" />
+      </slicing>                 
+      <short value="Entrada no pacote - terá um recurso ou informação" />
+      <definition value="Uma entrada em um recurso de pacote - conterá um recurso ou informações sobre um recurso (apenas transações e histórico)." />
+      <min value="4" />
+      <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote" />
+    </element>
+    <element id="Bundle.entry:sliceMedicationDispenseComposition">
+      <sliceName value="sliceMedicationDispenseComposition"/>
+      <path value="Bundle.entry"/>
+      <short value="Cabeçalho da dispensação"/>
+      <definition value="Entrada que conterá o cabeçalho da dispensação descrevendo as seções desse documento de dispensação."/>
+      <min value="1"/>      
+      <orderMeaning value="Para pacotes do tipo 'documento' e 'mensagem', o primeiro recurso é especial (deve ser Composição ou MessageHeader respectivamente). Para todos os pacotes, o significado da ordem das entradas depende do tipo de pacote"/>
+    </element>
+    <element id="Bundle.entry:sliceMedicationDispenseComposition.resource">
+      <path value="Bundle.entry.resource"/>
+      <min value="1"/>
+      <type>
+        <code value="Composition"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationDispenseComposition"/>
+      </type>
+      <type>
+        <code value="Patient"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"/>
+      </type>
+      <type>
+        <code value="Practitioner"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"/>
+      </type>
+      <type>
+        <code value="Organization"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization"/>
+      </type>
+      <type>
+        <code value="MedicationDispense"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationDispense"/>
+      </type>
+      <type>
+        <code value="Medication"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Medication"/>
+      </type>
+    </element>
+    <element id="Bundle.signature">
+      <path value="Bundle.signature" />
+      <short value="Assinatura digital" />
+      <definition value="Assinatura digital - codificada em base64. Conteúdo de assinatura no padrão CADES." />
+      <comment value="A assinatura pode ser criada pelo &quot;autor&quot; do pacote ou pelo dispositivo de origem. Os requisitos em torno da inclusão de uma assinatura, verificação de assinaturas e tratamento de pacotes assinados / não assinados são específicos do ambiente de implementação." />
+      <requirements value="Uma assinatura contém uma representação eletrônica de uma assinatura e seu contexto de suporte em um formulário acessível FHIR. A assinatura pode ser um tipo criptográfico (XML DigSig ou JWS), que é capaz de fornecer prova de não repúdio, ou pode ser uma imagem gráfica que representa uma assinatura ou um processo de assinatura. Este elemento permite a captura de assinaturas em documentos, mensagens, transações ou até mesmo respostas de pesquisa, para dar suporte à autenticação de conteúdo, não repúdio ou outros casos de negócios. Isso é principalmente relevante quando o pacote pode viajar por meio de vários saltos ou por meio de outros mecanismos em que o não-repúdio de HTTPS é insuficiente." />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.type">
+      <path value="Bundle.signature.type" />
+      <short value="Indicação do motivo pelo qual a entidade assinou o (s) objeto (s)" />
+      <definition value="Uma indicação do motivo pelo qual a entidade assinou este documento. Isso pode ser explicitamente incluído como parte das informações de assinatura e pode ser usado para determinar a responsabilidade por várias ações relativas ao documento." />
+      <comment value="Os exemplos incluem atestar: autoria, transcrição correta e testemunho de evento específico. Também conhecido como &amp; quot; Indicação de tipo de compromisso &amp; quot ;." />
+      <min value="1"/>
+    </element>
+    <element id="Bundle.signature.type.system">
+      <path value="Bundle.signature.type.system" />
+      <min value="1" />
+      <fixedUri value="urn:iso-astm:E1762-95:2013" />
+    </element>
+    <element id="Bundle.signature.type.version">
+      <path value="Bundle.signature.type.version" />
+      <min value="0" />      
+    </element>
+    <element id="Bundle.signature.type.code">
+      <path value="Bundle.signature.type.code" />
+      <min value="1" />
+      <fixedCode value="1.2.840.10065.1.12.1.1" />
+    </element>
+    <element id="Bundle.signature.type.display">
+      <path value="Bundle.signature.type.display" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.when">
+      <path value="Bundle.signature.when" />
+      <short value="Quando a assinatura foi criada" />
+      <definition value="Quando a assinatura digital foi assinada." />
+      <comment value="Isso deve estar de acordo com as informações na assinatura." />
+    </element>
+    <element id="Bundle.signature.who">
+      <path value="Bundle.signature.who" />
+      <short value="Quem assinou" />
+      <definition value="Uma referência a uma descrição utilizável por aplicativo da identidade que assinou (por exemplo, a assinatura usou sua chave privada)." />
+      <comment value="Isso deve estar de acordo com as informações na assinatura." />
+      <min value="1"/>
+    </element>
+    <element id="Bundle.signature.who.identifier">
+      <path value="Bundle.signature.who.identifier" />
+      <min value="0" />
+    </element>
+    <element id="Bundle.signature.who.identifier.use">
+      <path value="Bundle.signature.who.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Bundle.signature.who.identifier.system">
+      <path value="Bundle.signature.who.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="Bundle.signature.who.identifier.value">
+      <path value="Bundle.signature.who.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf">
+      <path value="Bundle.signature.onBehalfOf" />
+      <short value="O partido representado" />
+      <definition value="Uma referência a uma descrição utilizável por aplicativo da identidade representada pela assinatura." />
+      <min value="0" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier">
+      <path value="Bundle.signature.onBehalfOf.identifier" />
+      <min value="0" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.use">
+      <path value="Bundle.signature.onBehalfOf.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.system">
+      <path value="Bundle.signature.onBehalfOf.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://www.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
+    </element>
+    <element id="Bundle.signature.onBehalfOf.identifier.value">
+      <path value="Bundle.signature.onBehalfOf.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="Bundle.signature.targetFormat">
+      <path value="Bundle.signature.targetFormat" />
+      <short value="O formato técnico dos recursos assinados" />
+      <definition value="Um tipo mime que indica o formato técnico dos recursos de destino assinados pela assinatura." />
+      <comment value="&quot;xml&quot;, &quot;json&quot; e &quot;ttl&quot; são permitidos, os quais descrevem as codificações simples descritas na especificação (e implicam em suporte de pacote apropriado). Caso contrário, os tipos MIME são permitidos aqui." />
+    </element>
+    <element id="Bundle.signature.sigFormat">
+      <path value="Bundle.signature.sigFormat" />
+      <short value="O formato técnico da assinatura" />
+      <definition value="Um tipo mime que indica o formato técnico da assinatura. Tipos importantes de mime são application / signature + xml para X ML DigSig, application / jose para JWS e image / * para uma imagem gráfica de uma assinatura, etc." />
+      <min value="1" />
+      <fixedCode value="application/pkcs7-signature" />
+    </element>
+    <element id="Bundle.signature.data">
+      <path value="Bundle.signature.data" />
+      <short value="O conteúdo da assinatura real (XML DigSig. JWS, imagem, etc.)" />
+      <definition value="A codificação base64 do conteúdo da Assinatura. Quando a assinatura não é registrada eletronicamente, este elemento estaria vazio.&#xD;&#xA;&#xD;&#xA;O Signature.data é codificado em base64 padrão CADES compatível com o ITI.gov" />
+      <min value="1" />
+    </element>
+  </differential>
+</StructureDefinition>

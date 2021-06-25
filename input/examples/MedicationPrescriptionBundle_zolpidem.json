@@ -154,8 +154,8 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
-                        "value": "C5AA6C33"
+                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao",
+                        "value": "C5AA6C33-1"
                     }
                 ],
                 "status": "completed",
@@ -191,10 +191,9 @@
                         "doseAndRate": [
                             {
                                 "doseQuantity": {
-                                    "value": 1,
-                                    "unit": "tablets",
-                                    "system": "http://unitsofmeasure.org",
-                                    "code": "tbl"
+                                    "value": 2,                                    
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
+                                    "code": "ML"
                                 }
                             }
                         ]

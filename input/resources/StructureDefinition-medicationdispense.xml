@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispense" />
+  <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationDispense" />
+  <version value="0.0.1" />
+  <name value="MedicationDispense" />
+  <title value="MedicationDispense" />
+  <status value="draft" />
+  <date value="2021-01-26" />
+  <publisher value="HL7 Brasil" />
+  <description value="Perfil de dispensação de medicamentos." />
+  <fhirVersion value="4.0.1" />
+  <mapping>
+    <identity value="workflow" />
+    <uri value="http://hl7.org/fhir/workflow" />
+    <name value="Workflow Pattern" />
+  </mapping>
+  <mapping>
+    <identity value="script10.6" />
+    <uri value="http://ncpdp.org/SCRIPT10_6" />
+    <name value="Mapping to NCPDP SCRIPT 10.6" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="MedicationDispense" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationDispense" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="MedicationDispense">
+      <path value="MedicationDispense" />
+      <short value="Dispensação de medicamento para paciente" />
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+      <short value="Uma chave de identificação para uma prescrição" />
+      <definition value="Um identificador único para uma dada prescrição." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.identifier:sliceItemPrescricao">
+      <path value="MedicationDispense.identifier" />
+      <sliceName value="sliceItemPrescricao" />
+      <short value="Identificador do item da prescrição" />
+      <definition value="Identifica o item da prescrição associada a essa dispensação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.identifier:slicePrescricao.use">
+      <path value="MedicationDispense.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+    </element>
+    <element id="MedicationDispense.identifier:slicePrescricao.system">
+      <path value="MedicationDispense.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/dispensacao" />
+    </element>
+    <element id="MedicationDispense.identifier:slicePrescricao.value">
+      <path value="MedicationDispense.identifier.value" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.status">
+      <path value="MedicationDispense.status" />
+      <definition value="Um código que especifica o estado atual do pedido. Geralmente, este será o estado ativo ou concluído." />
+      <comment value="Este elemento é rotulado como um modificador porque o status contém códigos que marcam o recurso como não válido no momento." />
+      <fixedCode value="completed" />
+    </element>
+    <element id="MedicationDispense.medication[x]">
+      <path value="MedicationDispense.medication[x]" />
+      <short value="Medicação a ser tomada" />
+      <definition value="Identifica o medicamento que está sendo solicitado. Trata-se de um link para um recurso que representa o medicamento que pode ser o detalhamento do medicamento ou simplesmente um atributo portador de um código que identifica o medicamento a partir de uma lista de medicamentos conhecidos." />
+      <comment value="Se apenas um código for especificado, ele precisa ser um código para um produto específico. Caso sejam necessárias mais informações, recomenda-se o uso do recurso Medicação. Por exemplo, se você precisar de formulário ou número de lote ou se o medicamento for composto ou preparado de forma extemporânea, você deve consultar o recurso de Medicamentos." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Medication"/>
+      </type>
+    </element>    
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject" />
+      <short value="Para quem ou a solicitação de medicamento em grupo é para" />
+      <definition value="Um link para um recurso que representa a pessoa ou conjunto de indivíduos a quem o medicamento será dado." />
+      <comment value="O assunto em uma solicitação de medicamento é obrigatório. Para o caso de uso secundário em que o assunto real não é fornecido, ainda deve haver um assunto anônimo especificado." />
+      <type>
+        <code value="Reference" />
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group" />
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient" />
+      </type>
+    </element>
+    <element id="MedicationDispense.subject.id">
+      <path value="MedicationDispense.subject.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationDispense.subject.reference">
+      <path value="MedicationDispense.subject.reference" />
+      <short value="Referência literal, URL relativa, interna ou absoluta" />
+      <definition value="Uma referência a um local onde o outro recurso é encontrado. A referência pode ser uma referência relativa, caso em que é relativa ao URL base do serviço ou um URL absoluto que resolve para o local onde o recurso é encontrado. A referência pode ser específica da versão ou não. Se a referência não for a um servidor FHIR RESTful, deve ser considerado específico da versão. As referências de fragmento interno (começam com '#') referem-se aos recursos contidos." />
+      <comment value="O uso de URLs absolutos fornece uma abordagem escalonável estável adequada para um contexto de nuvem / web, enquanto o uso de referências relativas / lógicas fornece uma abordagem flexível adequada para uso ao negociar em fronteiras fechadas de ecossistema. URLs absolutos não precisam apontar para um servidor FHIR RESTful, embora essa seja a abordagem preferencial. Se a URL estiver de acordo com a estrutura &quot;/ [type] / [id]&quot;, deve-se assumir que a referência é a um servidor FHIR RESTful." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.subject.type">
+      <path value="MedicationDispense.subject.type" />
+      <short value="Digite a referência a que se refere (por exemplo, &quot;Paciente&quot;)" />
+      <definition value="O tipo esperado de destino da referência. Se Reference.type e Reference.reference são preenchidos e Reference.reference é um URL FHIR, ambos DEVEM ser consistentes.&#xD;&#xA;&#xD;&#xA;O tipo é o URL canônico de definição de recurso, que é o tipo ao qual esta referência se refere. As referências são URLs relativos a http://hl7.org/fhir/StructureDefinition/, por exemplo &quot;Paciente&quot; é uma referência a http://hl7.org/fhir/StructureDefinition/Patient. URLs absolutos são permitidos apenas para modelos lógicos (e só podem ser usados em referências em modelos lógicos, não em recursos)." />
+      <comment value="Este elemento é usado para indicar o tipo de destino da referência. Isso pode ser usado qualquer um dos outros elementos são preenchidos (ou não). Em alguns casos, o tipo de alvo pode ser determinado pela inspeção da referência (por exemplo, um URL RESTful) ou resolvendo o alvo da referência; se o tipo e uma referência forem fornecidos, a referência DEVERÁ resolver para um recurso do mesmo tipo que o especificado." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.subject.identifier">
+      <path value="MedicationDispense.subject.identifier" />
+      <short value="Referência lógica, quando a referência literal não é conhecida" />
+      <definition value="Um identificador para o recurso de destino. É usado quando não há como referenciar o outro recurso diretamente, seja porque a entidade que ele representa não está disponível por meio de um servidor FHIR ou porque não há como o autor do recurso converter um identificador conhecido em um local real . Não há nenhuma exigência de que um Reference.identifier aponte para algo que está realmente exposto como uma instância FHIR, mas DEVE apontar para um conceito de negócio que seria esperado ser exposto como uma instância FHIR, e essa instância precisaria ser de um Tipo de recurso FHIR permitido pela referência." />
+      <comment value="Quando um identificador é fornecido no lugar de uma referência, qualquer sistema que processe a referência só será capaz de resolver o identificador para uma referência se entender o contexto de negócios no qual o identificador é usado. Às vezes, isso é global (por exemplo, um identificador nacional), mas muitas vezes não é. Por este motivo, nenhum dos mecanismos úteis descritos para trabalhar com referências (por exemplo, encadeamento, inclui) são possíveis, nem se espera que os servidores sejam capazes de resolver a referência. Os servidores podem aceitar uma referência baseada em identificador intocada, resolvê-la e / ou rejeitá-la - consulte CapabilityStatement.rest.resource.referencePolicy.&#xD;&#xA;&#xD;&#xA;Quando um identificador e uma referência literal são fornecidos, a referência literal é preferida. Os aplicativos que processam o recurso são permitidos - mas não obrigatórios - para verificar se o identificador corresponde à referência literal&#xD;&#xA;&#xD;&#xA;Os aplicativos que convertem uma referência lógica em uma referência literal podem escolher deixar a referência lógica presente ou removê-la.&#xD;&#xA;&#xD;&#xA;A referência destina-se a apontar para uma estrutura que pode ser potencialmente expressa como um recurso FHIR, embora não haja necessidade de que exista como uma instância de recurso FHIR real - exceto na medida em que um aplicativo deseja realmente encontrar o destino da referência . O conteúdo referido como o identificador deve atender às restrições lógicas implícitas em quaisquer limitações sobre quais tipos de recursos são permitidos para a referência. Por exemplo, não seria legítimo enviar o identificador de uma prescrição de medicamento se o tipo fosse Referência (Observação | Relatório de diagnóstico). Um dos casos de uso para Reference.identifier é a situação em que nenhuma representação FHIR existe (onde o tipo é Referência (Qualquer)." />
+      <min value="0" />
+    </element>
+    <element id="MedicationDispense.subject.identifier.id">
+      <path value="MedicationDispense.subject.identifier.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.use">
+      <path value="MedicationDispense.subject.identifier.use" />
+      <definition value="O objetivo deste identificador." />
+      <comment value="Os aplicativos podem assumir que um identificador é permanente, a menos que diga explicitamente que é temporário." />
+      <requirements value="Permite que o identificador apropriado para um determinado contexto de uso seja selecionado entre um conjunto de identificadores." />
+      <min value="1" />
+      <fixedCode value="official" />
+      <isModifierReason value="Isso é rotulado como &quot;É modificador&quot; porque os aplicativos não devem confundir uma id temporária com uma permanente." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.type">
+      <path value="MedicationDispense.subject.identifier.type" />
+      <short value="Descrição do identificador" />
+      <definition value="Um tipo codificado para o identificador que pode ser usado para determinar qual identificador usar para um propósito específico." />
+      <comment value="Este elemento lida apenas com categorias gerais de identificadores. Ele NÃO DEVE ser usado para códigos que correspondem a 1..1 com o Identifier.system. Alguns identificadores podem se enquadrar em várias categorias devido ao uso comum. Onde o sistema é conhecido, um tipo é desnecessário porque o tipo sempre faz parte da definição do sistema. No entanto, os sistemas geralmente precisam lidar com identificadores onde o sistema não é conhecido. Não existe uma relação 1: 1 entre o tipo e o sistema, uma vez que muitos sistemas diferentes têm o mesmo tipo." />
+      <requirements value="Permite que os usuários façam uso de identificadores quando o sistema de identificadores não for conhecido." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.type.id">
+      <path value="MedicationDispense.subject.identifier.type.id" />
+      <short value="ID exclusivo para referência entre elementos" />
+      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.type.coding">
+      <path value="MedicationDispense.subject.identifier.type.coding" />
+      <short value="Código definido por um sistema de terminologia" />
+      <definition value="Uma referência a um código definido por um sistema de terminologia." />
+      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.type.text">
+      <path value="MedicationDispense.subject.identifier.type.text" />
+      <short value="Representação em texto simples do conceito" />
+      <definition value="Uma representação em linguagem humana do conceito visto / selecionado / enunciado pelo usuário que inseriu os dados e / ou que representa o significado pretendido do usuário." />
+      <comment value="Muitas vezes, o texto é o mesmo que um displayName de uma das codificações." />
+      <requirements value="Os códigos das terminologias nem sempre captam o significado correto com todas as nuances do humano que os usa, ou às vezes não há nenhum código apropriado. Nesses casos, o texto é usado para capturar o significado completo da fonte." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.system">
+      <path value="MedicationDispense.subject.identifier.system" />
+      <short value="O namespace para o valor do identificador" />
+      <definition value="Estabelece o namespace para o valor - ou seja, uma URL que descreve um conjunto de valores que são exclusivos." />
+      <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
+      <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+    </element>
+    <element id="MedicationDispense.subject.identifier.value">
+      <path value="MedicationDispense.subject.identifier.value" />
+      <short value="O valor que é único" />
+      <definition value="A parte do identificador normalmente relevante para o usuário e que é única no contexto do sistema." />
+      <comment value="Se o valor for um URI completo, o sistema DEVE ser urn: ietf: rfc: 3986. O objetivo principal do valor é o mapeamento computacional. Como resultado, pode ser normalizado para fins de comparação (por exemplo, removendo espaços em branco não significativos, travessões, etc.) Um valor formatado para exibição humana pode ser transmitido usando a [extensão Valor renderizado] (extensão-valor renderizado.html). Identifier.value deve ser tratado com distinção entre maiúsculas e minúsculas, a menos que o conhecimento do Identifier.system permita que o processador tenha certeza de que o processamento sem distinção entre maiúsculas e minúsculas é seguro." />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.subject.identifier.period">
+      <path value="MedicationDispense.subject.identifier.period" />
+      <short value="Período de tempo em que o id é / era válido para uso" />
+      <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xD;&#xA;&#xD;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Veja [Duração] (datatypes.html # Duração)." />
+    </element>
+    <element id="MedicationDispense.subject.identifier.assigner">
+      <path value="MedicationDispense.subject.identifier.assigner" />
+      <short value="Organização que emitiu id (pode ser apenas texto)" />
+      <definition value="Organização que emitiu / gerencia o identificador." />
+      <comment value="O Identifier.assigner pode omitir o elemento .reference e conter apenas um elemento .display refletindo o nome ou outras informações textuais sobre a organização atribuidora." />
+    </element>
+    <element id="MedicationDispense.subject.display">
+      <path value="MedicationDispense.subject.display" />
+      <short value="Alternativa de texto para o recurso" />
+      <definition value="Narrativa de texto simples que identifica o recurso, além da referência do recurso." />
+      <comment value="Geralmente não é o mesmo que Resource.text do recurso referenciado. O objetivo é identificar o que está sendo referenciado, não descrevê-lo totalmente." />
+      <max value="0"/>
+    </element>
+    <element id="MedicationDispense.context">
+      <path value="MedicationDispense.context"/>
+      <max value="0"/>
+    </element>
+    <element id="MedicationDispense.supportingInformation">
+      <path value="MedicationDispense.supportingInformation" />
+      <short value="Informações para apoiar a solicitação do medicamento" />
+      <definition value="Inclua informações adicionais (por exemplo, altura e peso do paciente) que apóiem o pedido do medicamento." />
+      <comment value="As referências DEVEM ser uma referência a um recurso FHIR real e DEVEM ser resolvidas (permitindo o controle de acesso, indisponibilidade temporária, etc.). A resolução pode ser recuperada da URL ou, quando aplicável por tipo de recurso, tratando uma referência absoluta como uma URL canônica e procurando-a em um registro / repositório local." />
+      <max value="0"/>
+    </element>
+    <element id="MedicationDispense.supportingInformation.reference">
+      <path value="MedicationDispense.supportingInformation.reference" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.supportingInformation.type">
+      <path value="MedicationDispense.supportingInformation.type" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer" />
+      <short value="Realizador da administração" />
+      <definition value="O executor desejado especificado do tratamento de medicação (por exemplo, o executor da administração de medicação)." />      
+      <min value="2"/>
+    </element>    
+    <element id="MedicationDispense.performer.function">
+      <path value="MedicationDispense.performer.function" />
+      <max value="0"/>
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor" />
+      <min value="1"/>
+      <short value="Farmacêutico responsável pela dispensação." />
+      <definition value="Uma referência para o farmacêutico que tem responsabilidade legal pela dispensação." />
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization"/>
+      </type>      
+    </element>
+    <element id="MedicationDispense.location">
+      <path value="MedicationDispense.location" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.identifier">
+      <path value="MedicationDispense.authorizingPrescription.identifier" />
+      <short value="Identificador da prescrição" />
+      <definition value="Identifica a prescrição associada a essa dispensação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.identifier.use">
+      <path value="MedicationDispense.authorizingPrescription.identifier.use" />
+      <min value="1" />
+      <fixedCode value="official" />
+      <short value="Classifica o identificador da prescrição" />
+      <definition value="Classifica o identificador da prescrição associada a essa dispensação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.identifier.system">
+      <path value="MedicationDispense.authorizingPrescription.identifier.system" />
+      <min value="1" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao" />
+      <short value="URL do Sistema de nomenclatura que mantém os identificadores da prescrição" />
+      <definition value="Espaço de nomes da prescrição associada a essa dispensação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <comment value="Este é um identificador de negócios, não um identificador de recurso." />
+    </element>
+    <element id="MedicationDispense.authorizingPrescription.identifier.value">
+      <path value="MedicationDispense.authorizingPrescription.identifier.value" />
+      <min value="1" />
+      <short value="Identificador único da Prescrição." />
+      <definition value="Sequencial único da Prescrição" />
+    </element>
+    <element id="MedicationDispense.type">
+      <path value="MedicationDispense.type" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.quantity">
+      <path value="MedicationDispense.quantity" />
+      <short value="Quantidade de medicamento por dose" />
+      <definition value="Quantidade de medicamento por dose." />
+      <comment value="Observe que isso especifica a quantidade do medicamento especificado, não a quantidade de cada ingrediente (s) ativo (s). Cada quantidade de ingrediente pode ser comunicada no recurso de medicação. Por exemplo, se alguém deseja comunicar que um comprimido era 375 mg, onde a dose era um comprimido, você pode usar o recurso Medicação para documentar que o comprimido era composto por 375 mg do medicamento XYZ. Como alternativa, se a dose foi de 375 mg, talvez você só precise usar o recurso Medicação para indicar que se trata de um comprimido. Se o exemplo fosse um IV como a dopamina e você quisesse comunicar que 400 mg de dopamina foram misturados em 500 ml de alguma solução IV, então tudo seria comunicado no recurso de medicação. Se a administração não se destina a ser instantânea (a taxa está presente ou o tempo tem uma duração), isso pode ser especificado para transmitir a quantidade total a ser administrada ao longo do período de tempo conforme indicado pelo cronograma, por exemplo, 500 ml em dose, com tempo usado para indicar que isso deve ser feito ao longo de 4 horas." />
+      <requirements value="A quantidade de substância terapêutica ou outra dada em um evento de administração." />
+      <min value="1" />
+      <type>
+        <code value="Quantity" />
+      </type>
+    </element>
+    <element id="MedicationDispense.quantity.value">
+      <path value="MedicationDispense.quantity.value" />
+      <short value="Valor numérico (com precisão implícita)" />
+      <definition value="O valor da quantidade medida. O valor inclui uma precisão implícita na apresentação do valor." />
+      <comment value="A precisão implícita no valor sempre deve ser respeitada. Os valores monetários têm suas próprias regras para lidar com a precisão (consulte os livros de texto de contabilidade padrão)." />
+      <requirements value="A precisão é tratada implicitamente em quase todos os casos de medição." />
+      <min value="1" />
+    </element>    
+    <element id="MedicationDispense.quantity.system">
+      <path value="MedicationDispense.quantity.system" />
+      <short value="Sistema que define a forma de unidade codificada" />
+      <definition value="A identificação do sistema que fornece a forma codificada da unidade." />
+      <comment value="consulte http://en.wikipedia.org/wiki/Uniform_resource_identifier" />
+      <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
+      <min value="1" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida" />
+    </element>
+    <element id="MedicationDispense.daysSupply">
+      <path value="MedicationDispense.daysSupply" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenPrepared">
+      <path value="MedicationDispense.whenPrepared" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.whenHandedOver">
+      <path value="MedicationDispense.whenHandedOver" />
+      <min value="1" />
+    </element>
+    <element id="MedicationDispense.destination">
+      <path value="MedicationDispense.destination" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.receiver">
+      <path value="MedicationDispense.receiver" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.dosageInstruction">
+      <path value="MedicationDispense.dosageInstruction" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.substitution">
+      <path value="MedicationDispense.substitution" />
+      <min value="0" />
+    </element>
+    <element id="MedicationDispense.substitution.wasSubstituted">
+      <path value="MedicationDispense.substitution.wasSubstituted" />
+      <min value="1" />
+      <fixedBoolean value="true"/>
+      <short value="Indica se houve substituição do medicamento prescrito." />
+      <definition value="Um boolean que determina quando houve substituição da medicação prescrita no momento da dispensação." />
+    </element>
+    <element id="MedicationDispense.substitution.reason">
+      <path value="MedicationDispense.substitution.reason" />
+      <min value="1" />
+      <short value="Razão da substituição do medicamento prescrito." />
+      <definition value="Justifica o porquê da substituição da medicação prescrita no momento da dispensação." />
+    </element>
+    <element id="MedicationDispense.substitution.reason.coding">
+      <path value="MedicationDispense.substitution.reason.coding" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.substitution.reason.text">
+      <path value="MedicationDispense.substitution.reason.text" />
+      <min value="1"/>
+      <short value="Descrição textual para a razão da substituição do medicamento prescrito." />
+      <definition value="Descrição textual que justifica o porquê da substituição da medicação prescrita no momento da dispensação." />
+    </element>
+    <element id="MedicationDispense.detectedIssue">
+      <path value="MedicationDispense.detectedIssue" />
+      <max value="0" />
+    </element>
+    <element id="MedicationDispense.eventHistory">
+      <path value="MedicationDispense.eventHistory" />
+      <max value="0" />
+    </element>
+  </differential>
+</StructureDefinition>

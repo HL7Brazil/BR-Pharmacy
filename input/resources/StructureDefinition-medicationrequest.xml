@@ -186,27 +186,27 @@
       <short value="Uma chave de identificação para uma prescrição" />
       <definition value="Um identificador único para uma dada prescrição." />
       <min value="1" />
-    </element>
-    <element id="MedicationRequest.identifier:slicePrescricao">
+    </element>    
+    <element id="MedicationRequest.identifier:sliceItemPrescricao">
       <path value="MedicationRequest.identifier" />
-      <sliceName value="slicePrescricao" />
+      <sliceName value="sliceItemPrescricao" />
       <short value="Identificador da prescrição" />
-      <definition value="Identifica a prescrição associada a essa solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
+      <definition value="Identifica unicamente o item da prescrição dessa solicitação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
       <comment value="Este é um identificador de negócios, não um identificador de recurso." />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="MedicationRequest.identifier:slicePrescricao.use">
+    <element id="MedicationRequest.identifier:sliceItemPrescricao.use">
       <path value="MedicationRequest.identifier.use" />
       <min value="1" />
       <fixedCode value="official" />
     </element>
-    <element id="MedicationRequest.identifier:slicePrescricao.system">
+    <element id="MedicationRequest.identifier:sliceItemPrescricao.system">
       <path value="MedicationRequest.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
+      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao" />
     </element>
-    <element id="MedicationRequest.identifier:slicePrescricao.value">
+    <element id="MedicationRequest.identifier:sliceItemPrescricao.value">
       <path value="MedicationRequest.identifier.value" />
       <min value="1" />
     </element>
@@ -784,19 +784,7 @@
       <comment value="A precisão implícita no valor sempre deve ser respeitada. Os valores monetários têm suas próprias regras para lidar com a precisão (consulte os livros de texto de contabilidade padrão)." />
       <requirements value="A precisão é tratada implicitamente em quase todos os casos de medição." />
       <min value="1" />
-    </element>
-    <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit">
-      <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].unit" />
-      <short value="Representação da unidade" />
-      <definition value="Uma forma legível da unidade." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Existem muitas representações para unidades de medida e, em muitos contextos, representações específicas são fixas e necessárias. Ou seja, mcg para microgramas." />
-      <min value="1" />
-      <binding>
-        <strength value="required" />
-        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
-      </binding>
-    </element>
+    </element>    
     <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system">
       <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system" />
       <short value="Sistema que define a forma de unidade codificada" />
@@ -804,7 +792,7 @@
       <comment value="consulte http://en.wikipedia.org/wiki/Uniform_resource_identifier" />
       <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
       <min value="1" />
-      <fixedUri value="http://unitsofmeasure.org" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida" />
     </element>
   </differential>
 </StructureDefinition>

@@ -47,7 +47,7 @@
         <th>Conceito mapeado</th>
         <th>Perfil</th>
         <th>Recurso FHIR</th>
-        <th></th>
+        <th>Exemplo</th>
       </tr>
     </thead>
     <tbody>
@@ -81,7 +81,9 @@
           <a href="StructureDefinition-MedicationPrescriptionBundle.html">Perfil de Prescrição</a>          
         </td>
         <td>Bundle</td>
-        <td></td>
+        <td>
+          <a href="Bundle-Prescricao_sinvaston.html">Prescrição de Sinvaston</a>
+        </td>
       </tr>
       <tr>
         <td>Cabeçalho da prescrição</td>
@@ -97,6 +99,32 @@
           <a href="StructureDefinition-MedicationRequest.html">Perfil de Solicitação de medicamento</a>          
         </td>
         <td>MedicationRequest</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Dispensação</td>
+        <td>
+          <a href="StructureDefinition-MedicationDispenseBundle.html">Perfil de Dispensação</a>          
+        </td>
+        <td>Bundle</td>
+        <td>
+          <a href="Bundle-Dispensacao_sinvaston.html">Dispensação de Sinvaston</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Dispensação de medicamento</td>
+        <td>
+          <a href="StructureDefinition-MedicationDispense.html">Perfil de Dispensação de medicamento</a>          
+        </td>
+        <td>MedicationDispense</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Medicamento</td>
+        <td>
+          <a href="StructureDefinition-Medication.html">Perfil de Medicamento</a>          
+        </td>
+        <td>Medication</td>
         <td></td>
       </tr>
     </tbody>
