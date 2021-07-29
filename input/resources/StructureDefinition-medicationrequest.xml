@@ -230,6 +230,10 @@
       <type>
         <code value="CodeableConcept" />
       </type>
+      <binding>
+        <strength value="required" />
+        <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/catmat" />
+      </binding>
     </element>
     <element id="MedicationRequest.medication[x].coding">
       <path value="MedicationRequest.medication[x].coding" />

@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="catmat"/>
+    <meta>
+      <lastUpdated value="2020-07-29T18:43:23.180+00:00" />
+    </meta>
+    <language value="pt-BR" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/ValueSet/catmat" />
+    <version value="1.0" />
+    <name value="Domínio de valores da Tabela de CATMAT" />
+    <status value="active" />
+    <experimental value="false" />
+    <date value="2020-03-11T18:43:43.0294815+00:00" />
+    <publisher value="Ministério da Saúde do Brasil" />
+    <description value="Domínio de valores da CATMAT." />
+    <immutable value="false" />
+    <compose>
+      <include>
+        <system value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/catmat" />
+        <version value="*" />
+      </include>
+    </compose>
+  </ValueSet>

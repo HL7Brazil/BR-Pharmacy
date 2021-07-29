@@ -171,10 +171,7 @@
     <a href="http://hl7.org/fhir/R4/references.html">referenciam</a>
     outros recursos FHIR que também são parte .  Compõem, assim, a definição formal dos perfis . Por exemplo,
     <a href="StructureDefinition-MedicationPrescriptionBundle.html">Perfil de Prescrição</a>
-    referencia o <a href="StructureDefinition-Patient.html">Perfil de Paciente</a>. Em alguns casos, não há definição de perfil para um elemento e um recurso do canônico FHIR pode ser referenciado vide
-    <sup id="fnref:2" role="doc-noteref">
-      <a href="#fn:2" class="footnote">1</a>
-    </sup>
+    referencia o <a href="StructureDefinition-Patient.html">Perfil de Paciente</a>. Em alguns casos, não há definição de perfil para um elemento e um recurso do canônico FHIR pode ser referenciado. 
     Enfim, se um elemento é definido propriamente por um perfil no ,
     <strong>é recomendado (SHOULD)</strong>
     que se referencie o perfil desse elemento.  Por exemplo, Condition.asserter não é referenciado pelo , logo
@@ -324,9 +321,7 @@
       que deve fornecê-las (ou não) afim de obter a string de resposta.
       <ul>
         <li>
-          URL base: A URL raíz do serviço FHIR (“
-          <a href="https://fhir-open-api-dstu2.smarthealthit.org">https://fhir-open-api-dstu2.smarthealthit.org</a>
-          ”, por exemplo)
+          URL base: A URL raíz do serviço FHIR (“https://fhir-open-api-dstu2.smarthealthit.org”, por exemplo)
         </li>
         <li>Tipo do recurso: O nome do tipo do recurso que está sendo intercambiado (“Patient”, por exemplo)</li>
         <li>parâmetro: Os parâmetros da busca definidos para uma interação particular (”?patient=Patient/123”, por exemplo busca recurso que referenia o paciente de id 123)</li>
