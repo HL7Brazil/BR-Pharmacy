@@ -44,6 +44,27 @@
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
     <resource>
       <reference>
+        <reference value="Organization/example"/>
+      </reference>
+      <name value="example"/>
+      <description value="Exemplo formato de dados de um estabelecimento de saúde dentro do BR-Pharmacy"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/example"/>
+      </reference>
+      <name value="example"/>
+      <description value="Exemplo formato de dados de um paciente dentro do BR-Pharmacy"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Practitioner/example"/>
+      </reference>
+      <name value="example"/>
+      <description value="Exemplo formato de dados de um profissional de saúde dentro do BR-Pharmacy"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="CodeSystem/amp"/>
       </reference>
       <name value="amp"/>
@@ -62,9 +83,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/catmat"/>
+        <reference value="ValueSet/medication"/>
       </reference>
-      <name value="catmat"/>
+      <name value="medication"/>
     </resource>
     <resource>
       <reference>

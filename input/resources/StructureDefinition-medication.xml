@@ -87,6 +87,10 @@
       <short value="Classifica o medicamento" />
       <definition value="Uma codificação que deve classificar o medicamento" />
       <comment value="Um conceito que Classifica o medicamento" />
+      <binding>
+        <strength value="required" />
+        <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/medication" />
+      </binding>
     </element>
     <element id="Medication.code.coding">
       <path value="Medication.code.coding" />
@@ -222,7 +226,7 @@
       <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
       <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
       <min value="1" />
-      <fixedUri value="https://terminologia.anvisa.gov.br/catmat" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/catmat" />
     </element>
     <element id="Medication.code.coding:CATMAT.version">
       <path value="Medication.code.coding.version" />

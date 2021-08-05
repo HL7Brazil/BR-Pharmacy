@@ -331,7 +331,7 @@
       <path value="Organization.identifier.period" />
       <short value="Período de tempo em que o id é / era válido para uso" />
       <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
-      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duration](datatypes.html#Duration)." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido)." />
     </element>
     <element id="Organization.identifier:cnpj.period.start">
       <path value="Organization.identifier.period.start" />
@@ -442,7 +442,7 @@
       <path value="Organization.identifier.assigner.identifier.period" />
       <short value="Período de tempo em que o id é / era válido para uso" />
       <definition value="Período de tempo durante o qual o identificador é / era válido para uso." />
-      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido). Consulte [Duration](datatypes.html#Duration)." />
+      <comment value="Um período especifica um intervalo de tempo; o contexto de uso irá especificar se toda a faixa se aplica (por exemplo, &quot;o paciente estava internado no hospital para este intervalo de tempo&quot;) ou um valor da faixa se aplica (por exemplo, &quot;dar ao paciente entre esses dois momentos&quot;).&#xA;&#xA;O período não é usado por uma duração (uma medida do tempo decorrido)." />
     </element>
     <element id="Organization.identifier:cnpj.assigner.identifier.period.start">
       <path value="Organization.identifier.assigner.identifier.period.start" />
@@ -908,7 +908,7 @@
       <path value="Organization.contact.name.period" />
       <short value="Período de tempo quando o nome foi / está em uso" />
       <definition value="Indica o período de tempo em que esse nome foi válido para a pessoa nomeada." />
-      <comment value="Um período especifica um intervalo de tempo; O contexto de uso especificará se o intervalo inteiro se aplica (por exemplo, &quot;o paciente foi um paciente do hospital para este intervalo de tempo&quot;) ou um valor a partir do intervalo se aplica (por exemplo, &quot;dar ao paciente entre essas duas vezes&quot;).&#xA;&#xA;Período não é usado por uma duração (uma medida de tempo decorrido). Veja [Duration] (datatypes.html#Duration)." />
+      <comment value="Um período especifica um intervalo de tempo; O contexto de uso especificará se o intervalo inteiro se aplica (por exemplo, &quot;o paciente foi um paciente do hospital para este intervalo de tempo&quot;) ou um valor a partir do intervalo se aplica (por exemplo, &quot;dar ao paciente entre essas duas vezes&quot;).&#xA;&#xA;Período não é usado por uma duração (uma medida de tempo decorrido)." />
       <requirements value="Permite que os nomes sejam colocados em contexto histórico." />
     </element>
     <element id="Organization.contact.name.period.start">
@@ -968,7 +968,7 @@
     <element id="Organization.contact.address.type">
       <path value="Organization.contact.address.type" />
       <definition value="Distingue entre endereços físicos (aqueles que você pode visitar) e endereços de correspondência (por exemplo, caixas Postais). A maioria dos endereços são ambos." />
-      <comment value="A definição de endereço afirma que &quot;o endereço destina-se a descrever endereços postais, não locais físicos&quot;. No entanto, muitos aplicativos rastreiam se um endereço tem um propósito duplo de ser um local que pode ser visitado, além de ser um destino de entrega válido, e endereços postais são geralmente usados como proxies para locais físicos (também veja [Location](location.html#) resource)." />
+      <comment value="A definição de endereço afirma que &quot;o endereço destina-se a descrever endereços postais, não locais físicos&quot;. No entanto, muitos aplicativos rastreiam se um endereço tem um propósito duplo de ser um local que pode ser visitado, além de ser um destino de entrega válido, e endereços postais são geralmente usados como proxies para locais físicos." />
     </element>
     <element id="Organization.contact.address.text">
       <path value="Organization.contact.address.text" />

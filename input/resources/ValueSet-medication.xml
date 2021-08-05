@@ -1,16 +1,16 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="catmat"/>
+  <id value="medication"/>
     <meta>
       <lastUpdated value="2020-07-29T18:43:23.180+00:00" />
     </meta>
     <language value="pt-BR" />
-    <url value="https://br-pharmacy.gointerop.com/fhir/ValueSet/catmat" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/ValueSet/medication" />
     <version value="1.0" />
-    <name value="Domínio de valores da Tabela de CATMAT" />
+    <name value="Domínio de valores de Medicamentos do BR-Pharmacy" />
     <status value="active" />
     <experimental value="false" />
-    <date value="2020-03-11T18:43:43.0294815+00:00" />
-    <publisher value="Ministério da Saúde do Brasil" />
+    <date value="2021-08-05T18:43:43.0294815+00:00" />
+    <publisher value="GOInterop Tecnologia LTDA" />
     <description value="Domínio de valores da CATMAT." />
     <immutable value="false" />
     <compose>
