@@ -178,9 +178,6 @@
       <definition value="Especifica o tipo particular de composição (por exemplo, histórico e físico, resumo de descarga, nota de progresso). Isso geralmente equivale ao propósito de fazer a composição." />
       <comment value="Para o tipo de composição, LOINC é onipresente e fortemente endossado por HL7. A maioria dos guias de implementação exigirá um código LOINC específico ou usará LOINC como uma ligação extensível." />
       <requirements value="Elemento de metadados chave que descreve a composição, usado na pesquisa / filtragem." />
-      <binding>
-        <strength value="required" />
-      </binding>
     </element>
     <element id="Composition.type.coding">
       <path value="Composition.type.coding" />
