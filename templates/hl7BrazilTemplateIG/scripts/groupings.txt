@@ -1,0 +1,92 @@
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_capabilitystatement">
+  <name value="Comportamento: Declaração de capabilidade"/>
+  <description value="Os artefatos a seguir definem os recursos específicos que se espera que diferentes tipos de sistemas tenham para cumprir este guia de implementação. Espera-se que os sistemas em conformidade com este guia de implementação declarem conformidade com uma ou mais das seguintes declarações de capacidade."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_operationdefinition">
+  <name value="Comportamento: Definição de operações"/>
+  <description value="Estas são operações personalizadas que podem ser suportadas e / ou invocadas por sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_messagedefinition">
+  <name value="Comportamento: Definição de mensagens"/>
+  <description value="Estes definem os tipos de mensagens que podem ser enviadas e / ou recebidas por sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_dyn_searchparameter">
+  <name value="Comportamento: Parâmetros de busca"/>
+  <description value="Eles definem as propriedades pelas quais um servidor RESTful pode ser pesquisado. Eles também podem ser usados para classificar e incluir recursos relacionados."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_graphdefinition">
+  <name value="Estruturas: Definições em grafo"/>
+  <description value="Eles definem coleções de recursos inter-relacionados que são úteis para passar como um grupo"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_logicalmodel">
+  <name value="Estruturas: Modelos lógicos"/>
+  <description value="Eles definem modelos de dados que representam o domínio coberto por este guia de implementação em termos mais favoráveis aos negócios do que os recursos FHIR subjacentes."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_questionnaire">
+  <name value="Estruturas: Questionários"/>
+  <description value="Estes definem os formulários usados pelos sistemas em conformidade com este guia de implementação para capturar ou expor dados aos usuários finais"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_abstractprofile">
+  <name value="Estruturas: Perfis Abstratos"/>
+  <description value="Esses são perfis em recursos ou tipos de dados que descrevem padrões usados por outros perfis, mas não podem ser instanciados diretamente. Ou seja, as instâncias podem estar em conformidade com perfis * com base * nesses perfis abstratos, mas não declaram conformidade com os próprios perfis abstratos."/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_profile">
+  <name value="Estruturas: Perfis de Recursos"/>
+  <description value="Estes definem restrições sobre os recursos FHIR para sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_datatype">
+  <name value="Estruturas: perfis de tipo de dados"/>
+  <description value="Estes definem as restrições nos tipos de dados FHIR para sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_str_extension">
+  <name value="Estruturas: Definições de Extensão"/>
+  <description value="Estes definem as restrições nos tipos de dados FHIR para sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_term_namingsystem">
+  <name value="Identificadores: Sistemas de Nomenclatura"/>
+  <description value="Estes definem o identificador e / ou identidades do sistema de código usado pelos sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_term_codesystem">
+  <name value="Semântica: Terminologias"/>
+  <description value="Estes definem terminologias usadas por sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_term_valueset">
+  <name value="Semântica: Domínios de valores"/>
+  <description value="Estes definem conjuntos de códigos usados por sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_map_structuremap">
+  <name value="Semântica: Mapas de Estrutura"/>
+  <description value="Eles definem as transformações a serem convertidas entre as estruturas de dados usadas pelos sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_map_conceptmap">
+  <name value="Terminologia: Mapas de Conceito"/>
+  <description value="Eles definem as transformações a serem convertidas entre códigos por sistemas em conformidade com este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_activitydefinition">
+  <name value="Artefatos de conhecimento: definições de atividades"/>
+  <description value="Estes definem atividades que podem ser realizadas como parte do conteúdo deste guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_plandefinition">
+  <name value="Artefatos de conhecimento: Definições de plano"/>
+  <description value="Eles definem fluxos de trabalho, regras, estratégias ou protocolos como parte do conteúdo deste guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_library">
+  <name value="Artefatos de conhecimento: bibliotecas"/>
+  <description value="Eles definem lógica, coleções de ativos e outras bibliotecas como parte do conteúdo deste guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ka_measure">
+  <name value="Artefatos de Conhecimento: Medir"/>
+  <description value="Eles definem as medidas como parte do conteúdo deste guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ex_examplescenario">
+  <name value="Exemplo: Cenários de Exemplo"/>
+  <description value="Eles definem grupos de exemplos inter-relacionados que demonstram um ou mais dos fluxos de trabalho suportados por este guia de implementação"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_ex_example">
+  <name value="Exemplo: instâncias de exemplo"/>
+  <description value="Estes são exemplos de exemplos que mostram como os dados produzidos e consumidos por sistemas em conformidade com este guia de implementação podem ser"/>
+</grouping>
+<grouping xmlns="http://hl7.org/fhir" id="_other">
+  <name value="Outros"/>
+  <description value="Esses são recursos usados neste guia de implementação que não se enquadram em nenhuma das outras categorias"/>
+</grouping>

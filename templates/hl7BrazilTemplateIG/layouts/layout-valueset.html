@@ -1,0 +1,71 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Publish Box goes here</p><!--EndReleaseHeader-->
+  {% include fragment-base-navtabs.html type='{{[type]}}' id='{{[id]}}' active='content' %}
+  <a name="root"> </a>
+  <h2 id="root">Domínio de valores: {{site.data.pages[page.path].title}}</h2>
+  <p>
+    <b>Summary</b>
+  </p>
+  {%include {{[type]}}-{{[id]}}-summary.xhtml%}
+
+  <p>
+    <b>References</b>
+  </p>
+  {%include {{[type]}}-{{[id]}}-xref.xhtml%}
+
+  <!-- insert intro if present -->
+  {% include fragment-intro.html type='{{[type]}}' id='{{[id]}}' %}
+
+  <a name="definition"> </a>
+
+<!-- Content Logical Definition heading in the fragment -->
+  {%include {{[type]}}-{{[id]}}-cld.xhtml%}
+
+  <p>&#160;</p>
+  <a name="expansion"> </a>
+  <h3 id="expansion">Expansão</h3>
+
+  {%include {{[type]}}-{{[id]}}-expansion.xhtml%}
+
+  <hr/>
+  <p>
+    Explicação das colunas que podem aparecer nesta página:
+  </p>
+  <table class="grid">
+    <tr>
+      <td>Level</td>
+      <td>Alguns códigos são hierárquicos - cada código é atribuído a um nível.
+          Nesse esquema, alguns códigos estão sobre outros códigos e implicam que o código que eles estão sobre também é aplicável ao contexto, mas em um nível mais genérico</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>A fonte da definição do código</td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td>O código que define o conceito propriamente</td>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td>O display de um código conforme elemento <a href="{{site.data.fhir.path}}datatypes.html#Coding">Coding</a>). Se não há display, implementadores não devem mostrar o código, mas o conceito respectivo a esse código em sua aplicação.</td>
+    </tr>
+    <tr>
+      <td>Definition</td>
+      <td>Uma definição formal do conceito.</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td>Comentários adicionais ao conceito referenciado.</td>
+    </tr>
+  </table>
+
+  <!-- insert notes if present -->
+  {% include fragment-notes.html type='{{[type]}}' id='{{[id]}}' %}
+
+  {%include {{[type]}}-{{[id]}}-history.xhtml%}
+
+</div>
+{% include fragment-pageend.html %}

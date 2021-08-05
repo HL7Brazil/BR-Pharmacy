@@ -46,22 +46,57 @@
       <reference>
         <reference value="Organization/example"/>
       </reference>
-      <name value="example"/>
+      <name value="Organization/example"/>
       <description value="Exemplo formato de dados de um estabelecimento de saúde dentro do BR-Pharmacy"/>
     </resource>
     <resource>
       <reference>
         <reference value="Patient/example"/>
       </reference>
-      <name value="example"/>
+      <name value="Patient/example"/>
       <description value="Exemplo formato de dados de um paciente dentro do BR-Pharmacy"/>
-    </resource>
+    </resource>    
     <resource>
       <reference>
         <reference value="Practitioner/example"/>
       </reference>
-      <name value="example"/>
+      <name value="Practitioner/example"/>
       <description value="Exemplo formato de dados de um profissional de saúde dentro do BR-Pharmacy"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/medicationdispensebundle-sinvaston"/>
+      </reference>
+      <name value="Bundle/medicationdispensebundle-sinvaston"/>
+      <description value="Exemplo de dispensação de Sinvaston"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/medicationprescriptionbundle-sinvaston"/>
+      </reference>
+      <name value="Bundle/medicationprescriptionbundle-sinvaston"/>
+      <description value="Exemplo de prescrição de Sinvaston"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/medicationprescriptionbundle-somatropina"/>
+      </reference>
+      <name value="Bundle/medicationprescriptionbundle-somatropina"/>
+      <description value="Exemplo de prescrição de Somatropina"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/medicationprescriptionbundle-tylenol"/>
+      </reference>
+      <name value="Bundle/medicationprescriptionbundle-tylenol"/>
+      <description value="Exemplo de prescrição de Tylenol"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/medicationprescriptionbundle-zolpidem"/>
+      </reference>
+      <name value="Bundle/medicationprescriptionbundle-zolpidem"/>
+      <description value="Exemplo de prescrição de Zolpidem"/>
     </resource>
     <resource>
       <reference>

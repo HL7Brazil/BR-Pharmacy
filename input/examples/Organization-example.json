@@ -1,0 +1,43 @@
+{
+    "id": "example",
+    "resourceType": "Organization",
+    "meta": {
+        "lastUpdated": "2021-03-10T21:21:21Z",
+        "profile": [
+            "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Organization"
+        ]
+    },
+    "identifier": [
+        {
+            "use": "official",
+            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj",
+            "value": "28154160000104"
+        }
+    ],
+    "name": "Santa Casa XPTO",
+    "telecom": [
+        {
+            "use": "work",
+            "system": "phone",
+            "value": "551121010101"
+        }
+    ],
+    "address": [
+        {
+            "use": "work",
+            "type": "physical",
+            "text": "Avenida Presidente Dutra 456",
+            "line": [
+                "Avenida",
+                "Avenida Presidente Dutra",
+                "456",
+                "Edifício",
+                "Jardim Paulista"
+            ],
+            "city": "50308",
+            "state": "SP",
+            "postalCode": "1237680",
+            "country": "BRA"
+        }
+    ]
+}
