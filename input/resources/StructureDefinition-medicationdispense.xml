@@ -300,6 +300,10 @@
       <type>
         <code value="Quantity" />
       </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
     </element>
     <element id="MedicationDispense.quantity.value">
       <path value="MedicationDispense.quantity.value" />
@@ -316,7 +320,7 @@
       <comment value="consulte http://en.wikipedia.org/wiki/Uniform_resource_identifier" />
       <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
       <min value="1" />
-      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida" />
+      <fixedUri value="http://unitsofmeasure.org" />
     </element>
     <element id="MedicationDispense.daysSupply">
       <path value="MedicationDispense.daysSupply" />

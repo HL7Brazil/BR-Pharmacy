@@ -112,9 +112,21 @@
     </resource>
     <resource>
       <reference>
-        <reference value="CodeSystem/tuss-unidademedida"/>
+        <reference value="CodeSystem/ean"/>
       </reference>
-      <name value="tuss-unidademedida"/>
+      <name value="ean"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/catmat"/>
+      </reference>
+      <name value="catmat"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/ean"/>
+      </reference>
+      <name value="ean"/>
     </resource>
     <resource>
       <reference>
@@ -124,9 +136,15 @@
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/tuss-unidademedida"/>
+        <reference value="ConceptMap/ean-catmat"/>
       </reference>
-      <name value="tuss-unidademedida"/>
+      <name value="ean-catmat"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ConceptMap/catmat-ean"/>
+      </reference>
+      <name value="catmat-ean"/>
     </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->

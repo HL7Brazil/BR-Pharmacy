@@ -187,8 +187,8 @@
                             {
                                 "doseQuantity": {
                                     "value": 2,                                    
-                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
-                                    "code": "COM"
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "{Pill}"
                                 }
                             }
                         ]

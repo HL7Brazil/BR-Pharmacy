@@ -246,8 +246,8 @@
                 }],
                 "quantity": {
                     "value": 1,                    
-                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
-                    "code": "COM"                    
+                    "system": "http://unitsofmeasure.org",
+                    "code": "{Pill}"                    
                 },
                 "whenHandedOver": "2021-03-10T21:21:21Z"
             }
@@ -286,7 +286,7 @@
                 "form": {
                     "coding": [{
                         "system": "http://unitsofmeasure.org",
-                        "code": "tbl",
+                        "code": "{tbl}",
                         "display": "tablets"
                     }]
                 },

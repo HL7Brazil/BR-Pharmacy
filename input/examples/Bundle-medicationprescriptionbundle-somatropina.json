@@ -198,8 +198,8 @@
                             {
                                 "doseQuantity": {
                                     "value": 2,                                    
-                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida",
-                                    "code": "ML"
+                                    "system": "http://unitsofmeasure.org",
+                                    "code": "{Ampoule}"
                                 }
                             }
                         ]

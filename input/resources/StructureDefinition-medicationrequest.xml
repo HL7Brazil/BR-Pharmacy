@@ -234,121 +234,7 @@
         <strength value="required" />
         <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/medication" />
       </binding>
-    </element>
-    <element id="MedicationRequest.medication[x].coding">
-      <path value="MedicationRequest.medication[x].coding" />
-      <slicing>
-        <discriminator>
-          <type value="value" />
-          <path value="system" />
-        </discriminator>
-        <rules value="open" />
-      </slicing>
-      <short value="Código definido por um sistema de terminologia" />
-      <definition value="Uma referência a um código definido por um sistema de terminologia." />
-      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
-      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition">
-      <path value="MedicationRequest.medication[x].coding" />
-      <sliceName value="comercialOrComposition" />
-      <short value="Código para a composição comercial definida por um sistema de terminologia" />
-      <definition value="Uma referência a um código definido por um sistema de terminologia." />
-      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
-      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
-      <min value="0" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.id">
-      <path value="MedicationRequest.medication[x].coding.id" />
-      <short value="ID exclusivo para referência entre elementos" />
-      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.system">
-      <path value="MedicationRequest.medication[x].coding.system" />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-      <min value="0" />
-      <fixedUri value="https://terminologia.anvisa.gov.br/dcb" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.version">
-      <path value="MedicationRequest.medication[x].coding.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.code">
-      <path value="MedicationRequest.medication[x].coding.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.display">
-      <path value="MedicationRequest.medication[x].coding.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:comercialOrComposition.userSelected">
-      <path value="MedicationRequest.medication[x].coding.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier">
-      <path value="MedicationRequest.medication[x].coding" />
-      <sliceName value="supplier" />
-      <short value="Código para fornecedor definido por um sistema de terminologia" />
-      <definition value="Uma referência a um código definido por um sistema de terminologia." />
-      <comment value="Os códigos podem ser definidos casualmente em enumerações, ou listas de códigos, até definições muito formais, como SNOMED CT - consulte os Princípios Básicos do HL7 v3 para obter mais informações. A ordem das codificações é indefinida e NÃO DEVE ser usada para inferir significado. Geralmente, no máximo apenas um dos valores de codificação será rotulado como UserSelected = true." />
-      <requirements value="Permite codificações alternativas dentro de um sistema de código e traduções para outros sistemas de código." />
-      <min value="0" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.id">
-      <path value="MedicationRequest.medication[x].coding.id" />
-      <short value="ID exclusivo para referência entre elementos" />
-      <definition value="ID exclusivo para o elemento dentro de um recurso (para referências internas). Pode ser qualquer valor de string que não contenha espaços." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.system">
-      <path value="MedicationRequest.medication[x].coding.system" />
-      <comment value="O URI pode ser um OID (urn: oid: ...) ou um UUID (urn: uuid: ...). OIDs e UUIDs DEVEM ser referências ao registro HL7 OID. Caso contrário, o URI deve vir da lista do HL7 de URIs especiais definidos pelo FHIR ou deve fazer referência a alguma definição que estabeleça o sistema de forma clara e inequívoca." />
-      <requirements value="Precisa ser inequívoco sobre a origem da definição do símbolo." />
-      <min value="1" />
-      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/catmat" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.version">
-      <path value="MedicationRequest.medication[x].coding.version" />
-      <short value="Versão do sistema - se relevante" />
-      <definition value="A versão do sistema de código que foi usado ao escolher este código. Observe que um sistema de código bem mantido não precisa da versão relatada, porque o significado dos códigos é consistente entre as versões. No entanto, isso não pode ser garantido de forma consistente, e quando o significado não é garantido como sendo consistente, a versão DEVE ser trocada." />
-      <comment value="Quando a terminologia não define claramente qual string deve ser usada para identificar as versões do sistema de código, a recomendação é usar a data (expressa no formato de data FHIR) em que essa versão foi publicada oficialmente como a data da versão." />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.code">
-      <path value="MedicationRequest.medication[x].coding.code" />
-      <short value="Símbolo na sintaxe definida pelo sistema" />
-      <definition value="Um símbolo na sintaxe definida pelo sistema. O símbolo pode ser um código predefinido ou uma expressão em uma sintaxe definida pelo sistema de codificação (por exemplo, pós-coordenação)." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa se referir a um código específico no sistema." />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.display">
-      <path value="MedicationRequest.medication[x].coding.display" />
-      <short value="Representação definida pelo sistema" />
-      <definition value="Uma representação do significado do código no sistema, seguindo as regras do sistema." />
-      <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
-      <requirements value="Precisa ser capaz de transportar um significado legível do código para leitores que não conhecem o sistema." />
-      <min value="1" />
-    </element>
-    <element id="MedicationRequest.medication[x].coding:supplier.userSelected">
-      <path value="MedicationRequest.medication[x].coding.userSelected" />
-      <short value="Se esta codificação foi escolhida diretamente pelo usuário" />
-      <definition value="Indica que esta codificação foi escolhida por um usuário diretamente - por exemplo, fora de uma lista de seleção de itens disponíveis (códigos ou exibições)." />
-      <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Existe alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
-      <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
-    </element>
+    </element>      
     <element id="MedicationRequest.subject">
       <path value="MedicationRequest.subject" />
       <short value="Para quem ou a solicitação de medicamento em grupo é para" />
@@ -780,6 +666,10 @@
       <type>
         <code value="Quantity" />
       </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units"/>
+      </binding>
     </element>
     <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value">
       <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].value" />
@@ -796,7 +686,7 @@
       <comment value="consulte http://en.wikipedia.org/wiki/Uniform_resource_identifier" />
       <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
       <min value="1" />
-      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tuss-unidademedida" />
+      <fixedUri value="http://unitsofmeasure.org" />
     </element>
   </differential>
 </StructureDefinition>
