@@ -136,15 +136,15 @@
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/ean-catmat"/>
+        <reference value="ConceptMap/ean"/>
       </reference>
-      <name value="ean-catmat"/>
+      <name value="ean"/>
     </resource>
     <resource>
       <reference>
-        <reference value="ConceptMap/catmat-ean"/>
+        <reference value="ConceptMap/catmat"/>
       </reference>
-      <name value="catmat-ean"/>
+      <name value="catmat"/>
     </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
