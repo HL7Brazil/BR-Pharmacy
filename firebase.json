@@ -52,6 +52,26 @@
         "source": "/fhir/StructureDefinition/MedicationRequest",
         "destination": "/fhir/StructureDefinition-MedicationRequest.html",
         "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationDispenseBundle",
+        "destination": "/fhir/StructureDefinition-MedicationDispenseBundle.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationDispenseComposition",
+        "destination": "/fhir/StructureDefinition-MedicationDispenseComposition.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/MedicationDispense",
+        "destination": "/fhir/StructureDefinition-MedicationDispense.html",
+        "type": 301
+      },
+      {
+        "source": "/fhir/StructureDefinition/Medication",
+        "destination": "/fhir/StructureDefinition-Medication.html",
+        "type": 301
       }
     ]
   }

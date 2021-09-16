@@ -35,6 +35,12 @@
     <li>
       <a href="#search-syntax" id="markdown-toc-search-syntax">Sintaxe de buscas</a>
     </li>
+    <li>
+      <a href="#endpoint" id="endpoint">Endpoint</a>
+    </li>
+    <li>
+      <a href="#collection" id="collection">Coleção do POSTMAN</a>
+    </li>
   </ul>
 
   <hr />
@@ -112,9 +118,17 @@
         </td>
       </tr>
       <tr>
+        <td>Cabeçalho da dispensação</td>
+        <td>
+          <a href="StructureDefinition-MedicationDispenseComposition.html">Perfil de Cabeçalho da prescrição</a>          
+        </td>
+        <td>Composition</td>
+        <td></td>
+      </tr>
+      <tr>
         <td>Dispensação de medicamento</td>
         <td>
-          <a href="StructureDefinition-MedicationDispense.html">Perfil de Dispensação de medicamento</a>          
+          <a href="StructureDefinition-Medicationdispense.html">Perfil de Dispensação de medicamento</a>          
         </td>
         <td>MedicationDispense</td>
         <td></td>
@@ -152,7 +166,7 @@
       <strong>é obrigatório (SHALL)</strong>
       que sejam capazes de processar instâncias de recursos contendo elementos de dados sem gerar erro ou falhas na aplicação.
       <strong>é recomendado (SHOULD)</strong>
-      quee sejam capazes de dispor dos dados para uso, respeitando o livre e esclarecido, para uso humano e de aplicações.
+      que sejam capazes de dispor dos dados para uso, respeitando o livre e esclarecido, para uso humano e de aplicações.
     </li>
     <li>
       NOTE: Tipicamente
@@ -169,25 +183,15 @@
   <p>
     Muitos dos perfis neste guia
     <a href="http://hl7.org/fhir/R4/references.html">referenciam</a>
-    outros recursos FHIR que também são parte .  Compõem, assim, a definição formal dos perfis . Por exemplo,
+    outros recursos.  Essa estrutura de referenciamento, compõe, assim, a definição formal dos perfis. Por exemplo,
     <a href="StructureDefinition-MedicationPrescriptionBundle.html">Perfil de Prescrição</a>
-    referencia o <a href="StructureDefinition-Patient.html">Perfil de Paciente</a>. Em alguns casos, não há definição de perfil para um elemento e um recurso do canônico FHIR pode ser referenciado. 
-    Enfim, se um elemento é definido propriamente por um perfil no ,
-    <strong>é recomendado (SHOULD)</strong>
-    que se referencie o perfil desse elemento.  Por exemplo, Condition.asserter não é referenciado pelo , logo
-    <code class="highlighter-rouge">Condition.asserter</code>
-    não é regrado para este guia. Referencias a Patient e Practitioner, no entanto, 
-    <strong>é recomendado (SHOULD)</strong>
-    que apontem para um perfil válido . Recursos do  na
-    <a href="http://hl7.org/fhir/R4/profiling.html#snapshot">visão diferencial</a>
-    e marcados como "Must Support" (É obrigatório dar suporte ao elemento) seguem a regra <strong>É dever, obrigação dar suporte (SHALL)</strong>.
+    referencia o <a href="StructureDefinition-Patient.html">Perfil de Paciente</a>. Em alguns casos, não há definição de perfil para um elemento e um recurso do canônico FHIR pode ser referenciado. Enfim, se um elemento é definido propriamente por um perfil, <strong>é recomendado (SHOULD)</strong> que se referencie o perfil desse elemento. Outro aspecto importante é que recursos na <a href="http://hl7.org/fhir/R4/profiling.html#snapshot">visão de Snapshot</a> e marcados como <strong>Must Support</strong> (É obrigatório dar suporte ao elemento) seguem a regra <strong>É dever, obrigação dar suporte (SHALL)</strong>. Em resumo, referências que seguem uma regra de perfil precisam que de recursos que passam na validação desse perfil. Elementos Must Support devem ser sempre definidos nos recursos.
   </p>
 
   <a name="using-codes-in-profiles"></a>
-  <h3>Utilizando terminologias no </h3>
+  <h3>Utilizando terminologias no BR-Pharmacy</h3>
 
-  <h4 class="no_toc" id="required-binding-for-codeableconcept-datatype">No FHIR, quando você quer interoperar um conceito codificável, você deve utilizar o recurso 
-    CodeableConcept</h4>
+  <h4 class="no_toc" id="required-binding-for-codeableconcept-datatype">No FHIR, quando você quer interoperar um conceito codificável, você deve utilizar o tipo CodeableConcept</h4>
 
   <p>
     Todo CodeableConcept quando codificado é confrontado dentro do domínio de sua valoração. Por exemplo, um CID10 deve assumir um valor dentro do universo de conceitos codificáveis (CodeableConcept) do CID10. 
@@ -203,36 +207,37 @@
   <div class="highlighter-rouge">
     <div class="highlight">
       <pre class="highlight">
-        <code>    "code": 
-                  {
-                      "coding": 
-                      [
-                        {
-                          "system": "http://loinc.org",  //NOTE:this is the standard concept defined in the value set//
-                          "code": "29463-7",
-                          "display": "Body Weight"
-                        },
-                        //NOTE:this is a translation to a more specific concept
-                        {
-                          "system": "http://loinc.org",
-                          "code": "3141-9",
-                          "display": "Body Weight Measured"
-                        },
-                        //NOTE:this is a translation to a different code system (Snomed CT)
-                        {
-                          "system": "http://snomed.info/sct",
-                          "code":  “364589006”,
-                          "display": "Body Weight"
-                        }
-                        //NOTE:this is a translation to a locally defined code
-                        {
-                          "system": "http://AcmeHealthCare.org",
-                          "code":  “BWT”,
-                          "display": "Body Weight"
-                        }
-                      ],
-                      "text": "weight"
-                  },
+        <code>
+          "code": 
+          {
+              "coding": 
+              [
+                {
+                  "system": "http://loinc.org",  //NOTE:this is the standard concept defined in the value set//
+                  "code": "29463-7",
+                  "display": "Body Weight"
+                },
+                //NOTE:this is a translation to a more specific concept
+                {
+                  "system": "http://loinc.org",
+                  "code": "3141-9",
+                  "display": "Body Weight Measured"
+                },
+                //NOTE:this is a translation to a different code system (Snomed CT)
+                {
+                  "system": "http://snomed.info/sct",
+                  "code":  “364589006”,
+                  "display": "Body Weight"
+                }
+                //NOTE:this is a translation to a locally defined code
+                {
+                  "system": "http://AcmeHealthCare.org",
+                  "code":  “BWT”,
+                  "display": "Body Weight"
+                }
+              ],
+              "text": "weight"
+          }
     </code>
       </pre>
     </div>
@@ -243,11 +248,12 @@
   <div class="highlighter-rouge">
     <div class="highlight">
       <pre class="highlight">
-        <code>"valueQuantity": 
-              {
-                "value": 26.0,
-                "unit": "RR",
-              }
+        <code>
+          "valueQuantity": 
+          {
+            "value": 26.0,
+            "unit": "RR",
+          }
         </code>
       </pre>
     </div>
@@ -260,7 +266,7 @@
 
   <p>
     <strong>
-      <code class="highlighter-rouge">GET [url base da API, ex: http://URL_API_FHIR:PORTA/hapifhir]/[Tipo do recurso, ex: Patient]/[id do Recurso, ex: 12] {parameters}</code>
+      <code class="highlighter-rouge">GET https://api.gointerop.com/fhir/[Tipo do recurso, ex: Patient]/[id do Recurso, ex: 12] {parameters}</code>
     </strong>
   </p>
 
@@ -275,7 +281,7 @@
       <ul>
         <li>
           base: A URL base do serviço (exemplo “
-          <a href="https://fhir-open-api-dstu2.smarthealthit.org">https://fhir-open-api-dstu2.smarthealthit.org</a>
+          <a href="https://api.gointerop.com/fhir/">https://api.gointerop.com/fhir/</a>
           ”)
         </li>
         <li>Resource-type: O nome do tipo do recurso (Patient, por exemplo)</li>
@@ -293,7 +299,7 @@
   </ul>
 
   <p>
-    For more information see the
+    Para mais informações, consulte as diretrizes para uso do HTTP na especificação da
     <a href="http://hl7.org/fhir/R4/http.html">FHIR RESTful API</a>
   </p>
 
@@ -304,7 +310,7 @@
 
   <p>
     <strong>
-      <code class="highlighter-rouge">GET [URL base]/[Tipo do recurso]?[parâmetro1]{:m1|m2|...}={c1|c2|...}[valor1{,valor2,...}]{&amp;[parametro2]{:m1|m2|...}={c1|c2|...}[valor1{,valor2,...}]&amp;...}</code>
+      <code class="highlighter-rouge">https://api.gointerop.com/fhir/[Tipo do recurso]?[parâmetro1]{:m1|m2|...}={c1|c2|...}[valor1{,valor2,...}]{&amp;[parametro2]{:m1|m2|...}={c1|c2|...}[valor1{,valor2,...}]&amp;...}</code>
     </strong>
   </p>
 
@@ -321,7 +327,7 @@
       que deve fornecê-las (ou não) afim de obter a string de resposta.
       <ul>
         <li>
-          URL base: A URL raíz do serviço FHIR (“https://fhir-open-api-dstu2.smarthealthit.org”, por exemplo)
+          URL base: A URL raíz do serviço FHIR (“https://api.gointerop.com/fhir/”, por exemplo)
         </li>
         <li>Tipo do recurso: O nome do tipo do recurso que está sendo intercambiado (“Patient”, por exemplo)</li>
         <li>parâmetro: Os parâmetros da busca definidos para uma interação particular (”?patient=Patient/123”, por exemplo busca recurso que referenia o paciente de id 123)</li>
@@ -345,7 +351,12 @@
               <tr>
                 <td>{:m1</td>
                 <td>m2</td>
-                <td>…}: A lista de modificadores de parâmetros suportados.</td>
+                <td>…}: A lista de modificadores de parâmetros suportados.</td>                
+              </tr>
+              <tr>
+                <td>Exemplo</td>
+                <td>Modificador de busca textual (contém, começa com, termina com), modificador para obter definição textual de elemento conceitual e etc.</td>
+                <td/>
               </tr>
             </tbody>
           </table>
@@ -356,7 +367,12 @@
               <tr>
                 <td>{c1</td>
                 <td>c2</td>
-                <td>…}: A lista de comparadores de parãmetros suportados.</td>
+                <td>…}: A lista de comparadores de parãmetros suportados.</td>                
+              </tr>
+              <tr>
+                <td>Exemplo</td>
+                <td>Maior que, Menor que e etc.</td>
+                <td/>
               </tr>
             </tbody>
           </table>
@@ -370,7 +386,14 @@
                 <td>m2</td>
                 <td>…}={c1</td>
                 <td>c2</td>
-                <td>…}[value1{,value2,…}&amp;…}: Múltiplos parâmetros opcionais do tipo 'AND' (Interseção)</td>
+                <td>…}[value1{,value2,…}&amp;…}: Múltiplos parâmetros opcionais do tipo 'AND' (Interseção)</td>                
+              </tr>
+              <tr>
+                <td>Exemplo</td>
+                <td>Parâmetro com valores separados por vírgula caracterizam a união, múltiplos parâmetros caracterizam a intersecção.</td>
+                <td/>
+                <td/>
+                <td/>
               </tr>
             </tbody>
           </table>
@@ -382,7 +405,7 @@
   <p>Fundamentalmente, uma busca é a realização de uma operação GET detro do ReSTful Framework:</p>
 
   <p>
-    <code class="highlighter-rouge">GET [URL base]/[Tipo do recurso]?nome_do_parametro=valor&amp;...</code>
+    <code class="highlighter-rouge">GET https://api.gointerop.com/fhir/[Tipo do recurso]?nome_do_parametro=valor&amp;...</code>
   </p>
 
   <p>
@@ -397,7 +420,7 @@
   </p>
 
   <p>
-    <code class="highlighter-rouge">GET [URL base]/[Tipo do recurso]{?outros-parâmetros}</code>
+    <code class="highlighter-rouge">GET https://api.gointerop.com/fhir/[Tipo do recurso]{?outros-parâmetros}</code>
   </p>
 
   <p>O serviço FHIR, para operações inválidas:</p>
@@ -417,17 +440,25 @@
     <li>
       <strong>Não deve (SHALL NOT)</strong>
       restringir resultados de busca (aplicar filtros escondidos) para status não encontrados.
-      <ul>
-        <li>
-          <p>
-            Se um sistema não dá suporte a um status específico de um elemento, para os reultados de busca
-            <strong>é recomendado, uma sugestão de boa prática dar suporte (SHOULD)</strong>
-            retornar um status http
-            <code class="highlighter-rouge">200</code>
-            contendo um bundle com os recursos que contemplam os critérios de busca.
-          </p>
-        </li>
-      </ul>
+    </li>
+    <li>
+      <p>
+        Se um sistema não dá suporte a um status específico de um elemento, para os reultados de busca
+        <strong>é recomendado, uma sugestão de boa prática dar suporte (SHOULD)</strong>
+        retornar um status http
+        <code class="highlighter-rouge">200</code>
+        contendo um bundle com os recursos que contemplam os critérios de busca.
+      </p>
     </li>
   </ul>
+
+  <a name="endpoint"></a>
+  <h3 id="endpoint">Endpoint</h3>
+
+  <p>Um serviço FHIR que implementa este pacote está disponível no endpoint <a href="https://api.gointerop.com/fhir/">https://api.gointerop.com/fhir/</a> somente em horário comercial. É uma API pública. Sinta-se à vontade para utilizá-la e validar seu mecanismo de transmissão.</p>
+
+  <a name="collection"></a>
+  <h3 id="collection">Coleção do postman</h3>
+
+  <p>Em breve será disponibilizada uma coleção do postman com exemplos de requisição. Essa coleção irá dispor de mensagens já preparadas para preenchimento no intuito de acelerar a assimilação do padrão pelos desenvolvedores.</p>
 </div>
