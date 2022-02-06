@@ -103,48 +103,91 @@
         <reference value="CodeSystem/amp"/>
       </reference>
       <name value="amp"/>
+      <description value="Terminologia para Actual Medicinal Product (AMP)."/>
     </resource>
     <resource>
       <reference>
         <reference value="CodeSystem/catmat"/>
       </reference>
       <name value="catmat"/>
+      <description value="Terminologia para Catálogo de Materiais (CATMAT)."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/cbo"/>
+      </reference>
+      <name value="catmat"/>
+      <description value="Terminologia da Classificação Brasileira de Ocupações (CBO)."/>
     </resource>
     <resource>
       <reference>
         <reference value="CodeSystem/ean"/>
       </reference>
       <name value="ean"/>
+      <description value="Terminologia para European Article Number (EAN)."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/tipo-receita"/>
+      </reference>
+      <name value="ean"/>
+      <description value="Terminologia para tipos de receita."/>
     </resource>
     <resource>
       <reference>
         <reference value="ValueSet/catmat"/>
       </reference>
       <name value="catmat"/>
+      <description value="Domínio de valores para catálogo de materiais (CATMAT)"/>
     </resource>
     <resource>
       <reference>
         <reference value="ValueSet/ean"/>
       </reference>
       <name value="ean"/>
+      <description value="Domínio de valores para European Article Number (EAN)"/>
     </resource>
     <resource>
       <reference>
         <reference value="ValueSet/medication"/>
       </reference>
       <name value="medication"/>
+      <description value="Domínio de valores para cadastro de medicação."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qualificacao"/>
+      </reference>
+      <name value="qualificacao"/>
+      <description value="Domínio de valores para qualificações profissionais."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/tipo-receita"/>
+      </reference>
+      <name value="tipo-receita"/>
+      <description value="Domínio de valores de tipos de receita."/>
     </resource>
     <resource>
       <reference>
         <reference value="ConceptMap/ean"/>
       </reference>
       <name value="ean"/>
+      <description value="Mapa de conceitos para European Article Number (EAN)"/>
     </resource>
     <resource>
       <reference>
         <reference value="ConceptMap/catmat"/>
       </reference>
       <name value="catmat"/>
+      <description value="Mapa de conceitos para catálogo de materiais."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="NamingSystem/prescricao"/>
+      </reference>
+      <name value="prescricao"/>
+      <description value="Cadastro nacional de prescrições digitais."/>
     </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->

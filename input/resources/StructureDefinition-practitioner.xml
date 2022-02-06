@@ -657,7 +657,7 @@
     <element id="Practitioner.identifier:cpf.system">
       <path value="Practitioner.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="Practitioner.identifier:cpf.value">
       <path value="Practitioner.identifier.value" />
@@ -676,7 +676,7 @@
     <element id="Practitioner.identifier:cns.system">
       <path value="Practitioner.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cns" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cns" />
     </element>
     <element id="Practitioner.identifier:cns.value">
       <path value="Practitioner.identifier.value" />
@@ -695,7 +695,7 @@
     <element id="Practitioner.identifier:registro.system">
       <path value="Practitioner.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/crm-sp" />
     </element>
     <element id="Practitioner.identifier:registro.value">
       <path value="Practitioner.identifier.value" />
@@ -992,8 +992,17 @@
     </element>
     <element id="Practitioner.qualification">
       <path value="Practitioner.qualification" />
+      <short value="Qualificações" />
+      <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
+    </element>
+    <element id="Practitioner.qualification.code">
+      <path value="Practitioner.qualification.code" />
       <short value="Qualificação" />
       <definition value="A(s) qualificação(ões), conforme a formação, certificações ou acreditações que o profissional possui." />
+      <binding>
+        <strength value="required"/>
+        <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/qualificacao"/>
+      </binding>
     </element>
     <element id="Practitioner.communication">
       <path value="Practitioner.communication" />

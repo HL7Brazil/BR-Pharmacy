@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NamingSystem xmlns="http://hl7.org/fhir">
+    <id value="prescricao" />
+    <name value="Cadastro de prescrição do BR-Pharmacy" />
+    <status value="active" />
+    <kind value="identifier" />
+    <date value="2022-02-06" />
+    <publisher value="GOInterop Tecnologia LTDA" />
+    <contact>
+        <name value="url" />
+        <telecom>
+            <system value="url" />
+            <value value="https://gointerop.com" />
+        </telecom>
+    </contact>
+    <responsible value="GOInterop Tecnologia LTDA" />
+    <description value="Cadastro nacional de prescrições eletrônicas" />
+    <usage value="Deve ser utilizado nacionalmente para manter o cadastro único de prescrições eletronicas" />
+    <uniqueId>
+        <type value="uri" />
+        <value value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao" />        
+        <preferred value="true" />
+    </uniqueId>
+</NamingSystem>

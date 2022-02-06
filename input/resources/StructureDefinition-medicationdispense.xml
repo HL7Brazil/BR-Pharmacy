@@ -75,7 +75,7 @@
     <element id="MedicationDispense.identifier:slicePrescricao.system">
       <path value="MedicationDispense.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/dispensacao" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/dispensacao" />
     </element>
     <element id="MedicationDispense.identifier:slicePrescricao.value">
       <path value="MedicationDispense.identifier.value" />
@@ -180,7 +180,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="MedicationDispense.subject.identifier.value">
       <path value="MedicationDispense.subject.identifier.value" />
@@ -275,7 +275,7 @@
     <element id="MedicationDispense.authorizingPrescription.identifier.system">
       <path value="MedicationDispense.authorizingPrescription.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/itemprescricao" />
       <short value="URL do Sistema de nomenclatura que mantém os identificadores da prescrição" />
       <definition value="Espaço de nomes da prescrição associada a essa dispensação de medicamento que é definida por processos de negócios e / ou usada para se referir a ela quando uma referência de URL direta para o próprio recurso não é apropriada. Eles são identificadores de negócios atribuídos a este recurso pelo executor ou outros sistemas e permanecem constantes à medida que o recurso é atualizado e se propaga de servidor para servidor." />
       <comment value="Este é um identificador de negócios, não um identificador de recurso." />

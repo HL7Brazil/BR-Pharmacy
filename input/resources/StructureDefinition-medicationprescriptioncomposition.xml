@@ -46,12 +46,12 @@
       <short value="Um conjunto de recursos composto em uma única declaração clínica coerente com atestado clínico" />
       <definition value="Um conjunto de informações relacionadas à saúde reunidas em um único pacote lógico que fornece uma única declaração coerente de significado, estabelece seu próprio contexto e tem atestado clínico a respeito de quem está fazendo a declaração. Uma composição define a estrutura e o conteúdo narrativo necessários para um documento. No entanto, uma composição por si só não constitui um documento. Em vez disso, a Composição deve ser a primeira entrada em um Pacote onde Bundle.type = document, e quaisquer outros recursos referenciados na Composição devem ser incluídos como entradas subsequentes no Pacote (por exemplo, Paciente, Praticante, Encontro, etc.)." />
       <comment value="Embora o foco desta especificação seja em declarações clínicas específicas do paciente, este recurso também pode se aplicar a outras declarações relacionadas à saúde, como projetos de protocolo de estudo, faturas de saúde e outras atividades que não são necessariamente específicas do paciente ou clínicas." />
-    </element>
+    </element>    
     <element id="Composition.id">
       <path value="Composition.id" />
       <short value="Identificação lógica deste artefato" />
       <definition value="O id lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
-    </element>
+    </element>    
     <element id="Composition.meta">
       <path value="Composition.meta" />
       <short value="Metadados sobre o recurso" />
@@ -81,6 +81,28 @@
       <definition value="Esses recursos não têm uma existência independente do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
       <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Os recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
     </element>
+    
+    <element id="Composition.extension">
+      <path value="Composition.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="open" />
+      </slicing>
+      <min value="1" />
+    </element>
+    <element id="Composition.extension:sliceTipoReceita">
+      <path value="Composition.extension" />
+      <sliceName value="sliceTipoReceita" />
+      <min value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/tipo-receita" />
+      </type>
+    </element>
     <element id="Composition.identifier">
       <path value="Composition.identifier" />
       <short value="Identificador independente de versão para a composição" />
@@ -107,7 +129,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao" />
     </element>
     <element id="Composition.identifier.value">
       <path value="Composition.identifier.value" />
@@ -275,7 +297,7 @@
     <element id="Composition.subject.identifier.system">
       <path value="Composition.subject.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="Composition.subject.identifier.value">
       <path value="Composition.subject.identifier.value" />

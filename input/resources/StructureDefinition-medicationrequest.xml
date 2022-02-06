@@ -40,7 +40,7 @@
   <type value="MedicationRequest" />
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MedicationRequest" />
   <derivation value="constraint" />
-  <differential>
+  <differential>    
     <element id="MedicationRequest">
       <path value="MedicationRequest" />
       <short value="Pedido de medicamento para paciente ou grupo" />
@@ -50,7 +50,7 @@
       <short value="Identificação lógica deste artefato" />
       <definition value="O identificador lógico do recurso, conforme usado na URL do recurso. Uma vez atribuído, esse valor nunca muda." />
       <comment value="O único momento em que um recurso não possui um id é quando está sendo enviado ao servidor por meio de uma operação de criação." />
-    </element>
+    </element>    
     <element id="MedicationRequest.meta">
       <path value="MedicationRequest.meta" />
       <short value="Metadados sobre o recurso" />
@@ -186,7 +186,7 @@
       <short value="Uma chave de identificação para uma prescrição" />
       <definition value="Um identificador único para uma dada prescrição." />
       <min value="1" />
-    </element>    
+    </element>
     <element id="MedicationRequest.identifier:sliceItemPrescricao">
       <path value="MedicationRequest.identifier" />
       <sliceName value="sliceItemPrescricao" />
@@ -204,7 +204,7 @@
     <element id="MedicationRequest.identifier:sliceItemPrescricao.system">
       <path value="MedicationRequest.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/itemprescricao" />
     </element>
     <element id="MedicationRequest.identifier:sliceItemPrescricao.value">
       <path value="MedicationRequest.identifier.value" />
@@ -234,7 +234,7 @@
         <strength value="required" />
         <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/medication" />
       </binding>
-    </element>      
+    </element>
     <element id="MedicationRequest.subject">
       <path value="MedicationRequest.subject" />
       <short value="Para quem ou a solicitação de medicamento em grupo é para" />
@@ -318,7 +318,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="MedicationRequest.subject.identifier.value">
       <path value="MedicationRequest.subject.identifier.value" />
@@ -421,7 +421,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="MedicationRequest.encounter.identifier.value">
       <path value="MedicationRequest.encounter.identifier.value" />
@@ -504,7 +504,7 @@
     <element id="MedicationRequest.requester.identifier.system">
       <path value="MedicationRequest.requester.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="MedicationRequest.requester.identifier.value">
       <path value="MedicationRequest.requester.identifier.value" />
@@ -678,7 +678,7 @@
       <comment value="A precisão implícita no valor sempre deve ser respeitada. Os valores monetários têm suas próprias regras para lidar com a precisão (consulte os livros de texto de contabilidade padrão)." />
       <requirements value="A precisão é tratada implicitamente em quase todos os casos de medição." />
       <min value="1" />
-    </element>    
+    </element>
     <element id="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system">
       <path value="MedicationRequest.dosageInstruction.doseAndRate.dose[x].system" />
       <short value="Sistema que define a forma de unidade codificada" />

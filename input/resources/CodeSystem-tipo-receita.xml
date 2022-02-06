@@ -1,0 +1,81 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<id value="tipo-receita"/>
+	<meta>
+		<versionId value="1"/>
+		<lastUpdated value="2022-02-06T20:18:47.375+00:00"/>
+	</meta>
+	<language value="pt-BR"/>
+	<url value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tipo-receita"/>
+	<version value="202202A"/>
+	<name value="Terminologia de tipo de receita."/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<date value="2021-02-06T20:18:11.6743763+00:00"/>
+	<publisher value="GOInterop Tecnologia LTDA"/>
+	<description value="Terminologia Terminologia de tipo de receita."/>
+	<content value="complete"/>
+	<concept>
+		<code value="SIMP"/>
+		<display value="Simples"/>
+	</concept>
+	<concept>
+		<code value="ANTI"/>
+		<display value="Antibiótico"/>
+	</concept>
+	<concept>
+		<code value="A1"/>
+		<display value="Entorpecentes A1"/>
+	</concept>
+	<concept>
+		<code value="A2"/>
+		<display value="Entorpecentes A2"/>
+	</concept>
+	<concept>
+		<code value="A3"/>
+		<display value="Psicotrópicas A3"/>
+	</concept>
+	<concept>
+		<code value="B1"/>
+		<display value="Psicotrópicas B1"/>
+	</concept>
+	<concept>
+		<code value="B2"/>
+		<display value="Psicotrópicas B2"/>
+	</concept>
+	<concept>
+		<code value="C1"/>
+		<display value="Outras substâncias de controle especial C1"/>
+	</concept>
+	<concept>
+		<code value="C2"/>
+		<display value="Retinóides de Uso Sistêmico"/>
+	</concept>
+	<concept>
+		<code value="C3"/>
+		<display value="Talidomida"/>
+	</concept>
+	<concept>
+		<code value="C4"/>
+		<display value="Substâncias antiretrovirais C4"/>
+	</concept>
+	<concept>
+		<code value="C5"/>
+		<display value="Anabolizantes C5"/>
+	</concept>
+	<concept>
+		<code value="D1"/>
+		<display value="Precursoras"/>
+	</concept>	
+	<concept>
+		<code value="NA1"/>
+		<display value="Notificação de Receita A1"/>
+	</concept>
+	<concept>
+		<code value="NB1"/>
+		<display value="Notificação de Receita B1"/>
+	</concept>
+	<concept>
+		<code value="NB2"/>
+		<display value="Notificação de Receita B2"/>
+	</concept>
+</CodeSystem>

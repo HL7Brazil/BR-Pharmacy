@@ -82,6 +82,14 @@
         <td></td>
       </tr>
       <tr>
+        <td>Pessoa</td>
+        <td>
+          <a href="StructureDefinition-Person.html">Perfil de Pesso</a>          
+        </td>
+        <td>Person</td>
+        <td></td>
+      </tr>
+      <tr>
         <td>Prescrição</td>
         <td>
           <a href="StructureDefinition-MedicationPrescriptionBundle.html">Perfil de Prescrição</a>          
@@ -128,7 +136,7 @@
       <tr>
         <td>Dispensação de medicamento</td>
         <td>
-          <a href="StructureDefinition-Medicationdispense.html">Perfil de Dispensação de medicamento</a>          
+          <a href="StructureDefinition-MedicationDispense.html">Perfil de Dispensação de medicamento</a>          
         </td>
         <td>MedicationDispense</td>
         <td></td>

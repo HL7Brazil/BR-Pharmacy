@@ -318,7 +318,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores exclusivos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnpj" />
     </element>
     <element id="Organization.identifier:cnpj.value">
       <path value="Organization.identifier.value" />
@@ -486,7 +486,7 @@
     <element id="Organization.identifier:cnes.system">
       <path value="Organization.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnes" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnes" />
     </element>
     <element id="Organization.identifier:cnes.value">
       <path value="Organization.identifier.value" />
@@ -510,7 +510,7 @@
     <element id="Organization.identifier:professionalBoard.system">
       <path value="Organization.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/conselho-profissional" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/conselho-profissional" />
     </element>
     <element id="Organization.identifier:professionalBoard.value">
       <path value="Organization.identifier.value" />

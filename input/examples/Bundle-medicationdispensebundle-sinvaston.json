@@ -9,26 +9,26 @@
     },
     "identifier": {
         "use": "official",
-        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao",
         "value": "MXQ8F71"
     },
     "type": "document",
     "timestamp": "2021-03-10T21:21:21Z",
     "entry": [
         {
-            "fullUrl": "https://prescricoes.org.br/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57",
+            "fullUrl": "urn:uuid:a7bdcceb-9c2b-4469-88d3-2ebabbac34ae",
             "resource": {
                 "resourceType": "Composition",
-                "id": "180f219f-97a8-486d-99d9-ed631fe4fc57",
+                "id": "example",
                 "meta": {
                     "profile": [
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationDispenseComposition"
                     ],
                     "lastUpdated": "2021-03-10T21:21:21Z"
-                },
+                },                
                 "identifier": {
                     "use": "official",
-                    "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+                    "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao",
                     "value": "MXQ8F71"
                 },
                 "status": "final",
@@ -42,13 +42,13 @@
                     ]
                 },
                 "subject": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                     "type": "Patient"
                 },
                 "date": "2021-03-10T21:21:21Z",
                 "author": [
                     {
-                        "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                        "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                         "type": "Practitioner"
                     }
                 ],
@@ -57,27 +57,31 @@
                     {
                         "entry": [
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                                "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                                 "type": "Patient"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                                "reference": "urn:uuid:9f791c53-09b0-441f-8f68-7f70efea0a6e",
+                                "type": "Person"
+                            },
+                            {
+                                "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                                 "type": "Practitioner"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
+                                "reference": "urn:uuid:914f1a73-7768-430e-816b-d2bf74b8e6dd",
                                 "type": "Organization"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
+                                "reference": "urn:uuid:bf28a259-c88c-4b43-a512-5abf9c4fef52",
                                 "type": "MedicationDispense"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b85",
+                                "reference": "urn:uuid:4abe5c86-7262-4e0c-a465-8ebe621e45fe",
                                 "type": "Medication"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b86",
+                                "reference": "urn:uuid:dd1239f8-8cda-45fe-8cf9-d3179602fe69",
                                 "type": "Organization"
                             }
                         ]
@@ -86,8 +90,9 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+            "fullUrl": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
             "resource": {
+                "id": "example",
                 "resourceType": "Patient",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -104,8 +109,28 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "fullUrl": "urn:uuid:9f791c53-09b0-441f-8f68-7f70efea0a6e",
             "resource": {
+                "id": "example",
+                "resourceType": "Person",
+                "meta": {
+                    "lastUpdated": "2021-03-10T21:21:21Z",
+                    "profile": [
+                        "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
+                    ]
+                },
+                "name": [
+                    {
+                        "use": "official",
+                        "text": "Nelio Frota"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
+            "resource": {
+                "id": "example",
                 "resourceType": "Practitioner",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -116,12 +141,12 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/crm-sp",
                         "value": "137576"
                     },
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf",
                         "value": "65890365436"
                     }
                 ],
@@ -150,12 +175,26 @@
                     }
                 ],
                 "gender": "female",
-                "birthDate": "1970-01-01"
+                "birthDate": "1970-01-01",
+                "qualification": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/cbo",
+                                    "code": "225125",
+                                    "display": "MEDICO CLINICO"
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
+            "fullUrl": "urn:uuid:914f1a73-7768-430e-816b-d2bf74b8e6dd",
             "resource": {
+                "id": "example",
                 "resourceType": "Organization",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -166,7 +205,7 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnpj",
                         "value": "28154160000104"
                     }
                 ],
@@ -199,8 +238,9 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
+            "fullUrl": "urn:uuid:bf28a259-c88c-4b43-a512-5abf9c4fef52",
             "resource": {
+                "id": "example",
                 "resourceType": "MedicationDispense",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -211,28 +251,28 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/dispensacao",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/dispensacao",
                         "value": "MXQ8F71"
                     }
                 ],
                 "status": "completed",                
                 "medicationReference": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b85",
+                    "reference": "Medication/4abe5c86-7262-4e0c-a465-8ebe621e45fe",
                     "type": "Medication"
                 },
                 "subject": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                     "type": "Patient"
                 },
                 "performer": [{
                     "actor": {
-                        "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                        "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                         "type": "Practitioner"
                     }
                     },
                     {
                         "actor": {
-                            "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b87",
+                            "reference": "urn:uuid:f8d951ee-c544-4510-aad4-85a400c76dd8",
                             "type": "Organization"
                         }
                     }
@@ -240,7 +280,7 @@
                 "authorizingPrescription": [{
                     "identifier": {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/itemprescricao",
                         "value": "MXQ8F71-1"
                     }
                 }],
@@ -253,8 +293,9 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b85",
+            "fullUrl": "urn:uuid:4abe5c86-7262-4e0c-a465-8ebe621e45fe",
             "resource": {
+                "id": "example",
                 "resourceType": "Medication",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -265,7 +306,7 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao",
                         "value": "MXQ8F71"
                     }
                 ],
@@ -280,7 +321,7 @@
                     "text": "Sinvaston (Sinvastatina), 20mg"
                 },
                 "manufacturer": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b86",
+                    "reference": "urn:uuid:dd1239f8-8cda-45fe-8cf9-d3179602fe69",
                     "type": "Organization"
                 },
                 "form": {
@@ -297,8 +338,9 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b86",
+            "fullUrl": "urn:uuid:dd1239f8-8cda-45fe-8cf9-d3179602fe69",
             "resource": {
+                "id": "example",
                 "resourceType": "Organization",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -309,7 +351,7 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnpj",
                         "value": "28154160000105"
                     }
                 ],
@@ -342,8 +384,9 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b87",
+            "fullUrl": "urn:uuid:f8d951ee-c544-4510-aad4-85a400c76dd8",
             "resource": {
+                "id": "example",
                 "resourceType": "Organization",
                 "meta": {
                     "lastUpdated": "2021-03-10T21:21:21Z",
@@ -354,7 +397,7 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnpj",
                         "value": "28154160000106"
                     }
                 ],
@@ -397,11 +440,11 @@
         ],
         "when": "2021-03-10T21:21:21Z",
         "who": {
-            "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
             "type": "Practitioner"
         },
         "onBehalfOf": {
-            "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b83",
+            "reference": "urn:uuid:914f1a73-7768-430e-816b-d2bf74b8e6dd",
             "type": "Organization"
         },
         "sigFormat": "application/pkcs7-signature",

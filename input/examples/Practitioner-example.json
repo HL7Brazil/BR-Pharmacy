@@ -10,12 +10,12 @@
     "identifier": [
         {
             "use": "official",
-            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
+            "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/crm-sp",
             "value": "137576"
         },
         {
             "use": "official",
-            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
+            "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf",
             "value": "65890365436"
         }
     ],

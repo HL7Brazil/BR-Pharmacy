@@ -10,7 +10,7 @@
     "identifier": [
         {
             "use": "official",
-            "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cnpj",
+            "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cnpj",
             "value": "28154160000104"
         }
     ],

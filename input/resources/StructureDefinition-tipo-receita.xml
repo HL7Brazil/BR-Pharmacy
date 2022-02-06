@@ -1,0 +1,68 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="tipo-receita" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/tipo-receita" />
+    <version value="1.0.0" />
+    <name value="Tipo de Receita" />
+    <title value="Tipo de receita" />
+    <status value="active" />
+    <date value="2022-02-06" />
+    <publisher value="GOInterop Tecnologia LTDA" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="https://gointerop.com" />
+        </telecom>
+    </contact>
+    <description value="Extensão para tipo de receita" />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <kind value="complex-type" />
+    <abstract value="false" />
+    <context>
+        <type value="element" />
+        <expression value="Composition" />
+    </context>
+    <type value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Extension">
+            <path value="Extension" />
+            <min value="1" />
+            <max value="1" />
+            <isModifier value="false" />
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/tipo-receita" />
+        </element>
+        <element id="Extension.value[x]">
+            <path value="Extension.value[x]" />
+            <min value="1" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/tipo-receita" />
+            </binding>
+        </element>
+        <element id="Extension.valueCodeableConcept.coding">
+            <path value="Extension.valueCodeableConcept.coding" />
+            <min value="1" />
+        </element>
+        <element id="Extension.valueCodeableConcept.coding.system">
+            <path value="Extension.valueCodeableConcept.coding.system" />
+            <min value="1" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/tipo-receita" />
+        </element>
+        <element id="Extension.valueCodeableConcept.coding.code">
+            <path value="Extension.valueCodeableConcept.coding.code"/>
+            <min value="1"/>
+        </element>
+    </differential>
+</StructureDefinition>

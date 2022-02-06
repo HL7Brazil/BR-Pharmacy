@@ -742,7 +742,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores únicos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf" />
     </element>
     <element id="Patient.identifier:cpf.value">
       <path value="Patient.identifier.value" />
@@ -1022,7 +1022,7 @@
       <comment value="Identifier.system sempre diferencia maiúsculas de minúsculas." />
       <requirements value="Existem muitos conjuntos de identificadores. Para realizar a correspondência de dois identificadores, precisamos saber com qual conjunto estamos lidando. O sistema identifica um determinado conjunto de identificadores únicos." />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/cns" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/cns" />
     </element>
     <element id="Patient.identifier:cns.value">
       <path value="Patient.identifier.value" />

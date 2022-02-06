@@ -75,7 +75,7 @@
     <element id="Medication.identifier:slicePrescricao.system">
       <path value="Medication.identifier.system" />
       <min value="1" />
-      <fixedUri value="http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao" />
+      <fixedUri value="https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao" />
     </element>
     <element id="Medication.identifier:slicePrescricao.value">
       <path value="Medication.identifier.value" />

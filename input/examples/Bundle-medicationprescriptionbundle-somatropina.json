@@ -9,14 +9,14 @@
     },
     "identifier": {
         "use": "official",
-        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao",
         "value": "C5AA6C29"
     },
     "type": "document",
     "timestamp": "2021-03-10T21:21:21Z",
     "entry": [
         {
-            "fullUrl": "https://prescricoes.org.br/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57",
+            "fullUrl": "https://br-pharmacy.gointerop.com/fhir/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57",
             "resource": {
                 "resourceType": "Composition",
                 "id": "180f219f-97a8-486d-99d9-ed631fe4fc57",
@@ -25,10 +25,24 @@
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/MedicationPrescriptionComposition"
                     ],
                     "lastUpdated": "2021-03-10T21:21:21Z"
-                },
+                },                
+                "extension": [
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/tipo-receita",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/tipo-receita",
+                                    "code": "SIMP",
+                                    "display": "Simples"
+                                }
+                            ]                            
+                        }
+                    }
+                ],    
                 "identifier": {
                     "use": "official",
-                    "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/prescricao",
+                    "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/prescricao",
                     "value": "C5AA6C29"
                 },
                 "status": "final",
@@ -42,13 +56,13 @@
                     ]
                 },
                 "subject": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                     "type": "Patient"
                 },
                 "date": "2021-03-10T21:21:21Z",
                 "author": [
                     {
-                        "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                        "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                         "type": "Practitioner"
                     }
                 ],
@@ -57,15 +71,15 @@
                     {
                         "entry": [
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                                "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                                 "type": "Patient"        
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                                "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                                 "type": "Practitioner"
                             },
                             {
-                                "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
+                                "reference": "urn:uuid:bf28a259-c88c-4b43-a512-5abf9c4fef52",
                                 "type": "MedicationRequest"
                             }
                         ]
@@ -74,7 +88,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+            "fullUrl": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
             "resource": {
                 "resourceType": "Patient",
                 "meta": {
@@ -92,7 +106,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "fullUrl": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
             "resource": {
                 "resourceType": "Practitioner",
                 "meta": {
@@ -104,12 +118,12 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/crm-sp",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/crm-sp",
                         "value": "137576"
                     },
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/cpf",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/cpf",
                         "value": "65890365436"
                     }
                 ],
@@ -142,7 +156,7 @@
             }
         },
         {
-            "fullUrl": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b84",
+            "fullUrl": "urn:uuid:bf28a259-c88c-4b43-a512-5abf9c4fef52",
             "resource": {
                 "resourceType": "MedicationRequest",
                 "meta": {
@@ -154,7 +168,7 @@
                 "identifier": [
                     {
                         "use": "official",
-                        "system": "http://rnds.saude.gov.br/fhir/r4/NamingSystem/itemprescricao",
+                        "system": "https://br-pharmacy.gointerop.com/fhir/NamingSystem/itemprescricao",
                         "value": "C5AW6C13-1"
                     }
                 ],
@@ -172,11 +186,11 @@
                     "text": "Hormotrop (Somatropina), 12 ui"
                 },
                 "subject": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81",
+                    "reference": "urn:uuid:044d49b7-898b-49fe-b03a-8fdedf45df2c",
                     "type": "Patient"
                 },
                 "requester": {
-                    "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+                    "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
                     "type": "Practitioner"
                 },
                 "reasonCode": [
@@ -218,11 +232,11 @@
         ],
         "when": "2021-03-10T21:21:21Z",
         "who": {
-            "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
             "type": "Practitioner"
         },
         "onBehalfOf": {
-            "reference": "urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b82",
+            "reference": "urn:uuid:3a59e77b-dd9f-482f-a762-fdff5e01dd0f",
             "type": "Practitioner"
         },
         "sigFormat": "application/pkcs7-signature",
