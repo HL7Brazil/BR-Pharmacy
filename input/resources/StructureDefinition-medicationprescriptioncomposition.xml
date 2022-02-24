@@ -90,7 +90,7 @@
           <path value="url" />
         </discriminator>
         <ordered value="false" />
-        <rules value="open" />
+        <rules value="closed" />
       </slicing>
       <min value="1" />
     </element>

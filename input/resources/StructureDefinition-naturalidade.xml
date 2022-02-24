@@ -1,0 +1,81 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="birthPlace" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/birthPlace" />
+    <version value="1.0.0" />
+    <name value="Lugar de nascimento" />
+    <title value="Lugar de nascimento" />
+    <status value="active" />
+    <date value="2022-02-06" />
+    <publisher value="GOInterop Tecnologia LTDA" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="https://gointerop.com" />
+        </telecom>
+    </contact>
+    <description value="Extensão para lugar de nascimento" />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <kind value="complex-type" />
+    <abstract value="false" />
+    <context>
+        <type value="element" />
+        <expression value="Patient" />
+    </context>
+    <type value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Extension">
+            <path value="Extension" />
+            <min value="1" />
+            <max value="1" />
+            <isModifier value="false" />
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/birthPlace" />
+        </element>
+        <element id="Extension.value[x]">
+            <path value="Extension.value[x]" />
+            <min value="1" />
+            <type>
+                <code value="Address" />
+            </type>
+        </element>
+        <element id="Extension.valueAddress">
+            <path value="Extension.valueAddress"/>
+            <min value="1" />
+        </element>
+        <element id="Extension.valueAddress.text">
+            <path value="Extension.valueAddress.text"/>
+            <min value="1" />
+        </element>
+        <element id="Extension.valueAddress.city">
+            <path value="Extension.valueAddress.city"/>
+            <min value="1" />
+            <short value="Nome da cidade, município etc." />
+            <definition value="O nome da cidade, vila, bairro, vila ou outra comunidade ou centro de entrega." />
+            <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/codigo-ibge"/>
+            </binding>            
+        </element>
+        <element id="Extension.valueAddress.country">
+            <path value="Extension.valueAddress.country"/>
+            <min value="1" />
+            <short value="País" />
+            <definition value="País - uma nação normalmente entendida ou geralmente aceita.&#xD;&#xA;País (p.e.: pode ser um código ISO 3166 de 3 letras)" />
+            <comment value="Códigos ISO 3166 de 3 letras podem ser usados no lugar de um nome de país legível." />
+            <binding>
+                <strength value="required"/>
+                <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/iso-3166"/>
+            </binding>            
+        </element>
+    </differential>
+</StructureDefinition>

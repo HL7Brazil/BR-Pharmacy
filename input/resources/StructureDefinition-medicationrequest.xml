@@ -174,6 +174,35 @@
       <comment value="Entre um conjunto de alternativas, um código escolhido diretamente é o ponto de partida mais apropriado para novas traduções. Há alguma ambigüidade sobre o que exatamente 'escolha direta' implica, e um acordo de parceiro comercial pode ser necessário para esclarecer o uso desse elemento e suas consequências de forma mais completa." />
       <requirements value="Isso foi identificado como um critério de segurança clínica - que esse par sistema / código exato foi escolhido explicitamente, em vez de inferido pelo sistema com base em algumas regras ou processamento de linguagem." />
     </element>
+    <element id="MedicationRequest.extension">
+      <path value="MedicationRequest.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <ordered value="false" />
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="MedicationRequest.extension:uso-continuo">
+      <path value="MedicationRequest.extension"/>
+      <sliceName value="uso-continuo"/>
+      <min value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo"/>
+      </type>
+    </element>
+    <element id="MedicationRequest.extension:dose-unica">
+      <path value="MedicationRequest.extension"/>
+      <sliceName value="dose-unica"/>
+      <min value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/dose-unica"/>
+      </type>
+    </element>
     <element id="MedicationRequest.identifier">
       <path value="MedicationRequest.identifier" />
       <slicing>
@@ -687,6 +716,76 @@
       <requirements value="Precisa conhecer o sistema que define a forma codificada da unidade." />
       <min value="1" />
       <fixedUri value="http://unitsofmeasure.org" />
+    </element>
+    <element id="MedicationRequest.dispenseRequest">
+      <path value="MedicationRequest.dispenseRequest"/>
+      <short value="Dados da requisição de dispensação"/>
+      <definition value="Contém detalhes da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="1"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.initialFill">
+      <path value="MedicationRequest.dispenseRequest.initialFill"/>
+      <short value="Dados da requisição de dispensação"/>
+      <definition value="Contém detalhes da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="1"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.initialFill.quantity">
+      <path value="MedicationRequest.dispenseRequest.initialFill.quantity"/>
+      <short value="Dados da quantidade da requisição de dispensação"/>
+      <definition value="Contém detalhes da quantidade da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.initialFill.duration">
+      <path value="MedicationRequest.dispenseRequest.initialFill.duration"/>
+      <short value="Dados da duração da requisição de dispensação"/>
+      <definition value="Contém detalhes da duração da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="1"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.dispenseInterval">
+      <path value="MedicationRequest.dispenseRequest.dispenseInterval"/>
+      <short value="Dados do intervalo de dispensação requisição de dispensação"/>
+      <definition value="Contém detalhes do intervalo de dispensação da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.validityPeriod">
+      <path value="MedicationRequest.dispenseRequest.validityPeriod"/>
+      <short value="Dados da validade de dispensação requisição de dispensação"/>
+      <definition value="Contém detalhes da validade de dispensação da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.numberOfRepeatsAllowed">
+      <path value="MedicationRequest.dispenseRequest.numberOfRepeatsAllowed"/>
+      <short value="Dados do número de repetições permitidas de dispensação da requisição de dispensação"/>
+      <definition value="Contém detalhes do número de repetições permitidas de dispensação da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.quantity">
+      <path value="MedicationRequest.dispenseRequest.quantity"/>
+      <short value="Dados da quantidade da requisição de dispensação"/>
+      <definition value="Contém detalhes da quantidade da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.expectedSupplyDuration">
+      <path value="MedicationRequest.dispenseRequest.expectedSupplyDuration"/>
+      <short value="Dados da duração esperada da requisição de dispensação"/>
+      <definition value="Contém detalhes da duração esperada da requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
+    </element>
+    <element id="MedicationRequest.dispenseRequest.performer">
+      <path value="MedicationRequest.dispenseRequest.performer"/>
+      <short value="Dados do estabelecimento esperado para a requisição de dispensação"/>
+      <definition value="Contém detalhes do estabelecimento esperado para a requisição de dispensação"/>
+      <comment value=""/>
+      <min value="0"/>      
     </element>
   </differential>
 </StructureDefinition>

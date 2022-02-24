@@ -23,52 +23,24 @@
 		<display value="Antibiótico"/>
 	</concept>
 	<concept>
-		<code value="A1"/>
-		<display value="Entorpecentes A1"/>
-	</concept>
-	<concept>
-		<code value="A2"/>
-		<display value="Entorpecentes A2"/>
-	</concept>
-	<concept>
-		<code value="A3"/>
-		<display value="Psicotrópicas A3"/>
-	</concept>
-	<concept>
-		<code value="B1"/>
-		<display value="Psicotrópicas B1"/>
-	</concept>
-	<concept>
-		<code value="B2"/>
-		<display value="Psicotrópicas B2"/>
-	</concept>
-	<concept>
-		<code value="C1"/>
-		<display value="Outras substâncias de controle especial C1"/>
+		<code value="CE"/>
+		<display value="Controle Especial C1 - e adendos das listas A1, A2 e B1"/>
 	</concept>
 	<concept>
 		<code value="C2"/>
-		<display value="Retinóides de Uso Sistêmico"/>
+		<display value="Retinóides de uso sistêmico"/>
 	</concept>
 	<concept>
 		<code value="C3"/>
-		<display value="Talidomida"/>
-	</concept>
-	<concept>
-		<code value="C4"/>
-		<display value="Substâncias antiretrovirais C4"/>
+		<display value="Talomida"/>
 	</concept>
 	<concept>
 		<code value="C5"/>
-		<display value="Anabolizantes C5"/>
+		<display value="Controle de Anabolizantes"/>
 	</concept>
 	<concept>
-		<code value="D1"/>
-		<display value="Precursoras"/>
-	</concept>	
-	<concept>
-		<code value="NA1"/>
-		<display value="Notificação de Receita A1"/>
+		<code value="NA"/>
+		<display value="Notificação de receita A (Listas A1, A2 e C3)"/>
 	</concept>
 	<concept>
 		<code value="NB1"/>

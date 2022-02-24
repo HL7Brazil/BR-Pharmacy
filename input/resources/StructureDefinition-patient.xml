@@ -218,6 +218,29 @@
       <definition value="Esses recursos não têm uma existência independente além do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
       <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, pois uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
     </element>
+    <element id="Patient.extension">
+      <path value="Patient.extension"/>
+      <short value="Extensões do paciente"/>
+      <definition value="Elementos adicionais comuns aos dados cadastrais do paciente"/>
+      <min value="1"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <ordered value="false" />
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="Patient.extension:naturalidade">
+      <path value="Patient.extension"/>
+      <sliceName value="naturalidade"/>
+      <min value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/naturalidade"/>
+      </type>      
+    </element>
     <element id="Patient.identifier">
       <path value="Patient.identifier" />
       <slicing>
@@ -1450,6 +1473,10 @@
       <definition value="O nome da cidade, vila, bairro, vila ou outra comunidade ou centro de entrega." />
       <comment value="Observe que as strings FHIR NÃO DEVEM exceder 1 MB de tamanho" />
       <min value="1" />
+      <binding>
+        <strength value="required"/>
+        <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/codigo-ibge"/>
+      </binding>
     </element>
     <element id="Patient.address.district">
       <path value="Patient.address.district" />
@@ -1474,9 +1501,13 @@
     <element id="Patient.address.country">
       <path value="Patient.address.country" />
       <short value="País" />
-      <definition value="País - uma nação normalmente entendida ou geralmente aceita.&#xD;&#xA;País (p.e.: pode ser um código ISO 3166 de 2 ou 3 letras)" />
+      <definition value="País - uma nação normalmente entendida ou geralmente aceita.&#xD;&#xA;País (p.e.: pode ser um código ISO 3166 de 3 letras)" />
       <comment value="Códigos ISO 3166 de 3 letras podem ser usados no lugar de um nome de país legível." />
       <min value="1" />
+      <binding>
+        <strength value="required"/>
+        <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/iso-3166"/>
+      </binding>
     </element>
     <element id="Patient.address.period">
       <path value="Patient.address.period" />

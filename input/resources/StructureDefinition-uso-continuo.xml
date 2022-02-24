@@ -1,0 +1,55 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="uso-continuo" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo" />
+    <version value="1.0.0" />
+    <name value="Uso contínuo" />
+    <title value="Uso contínuo" />
+    <status value="active" />
+    <date value="2022-02-06" />
+    <publisher value="GOInterop Tecnologia LTDA" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="https://gointerop.com" />
+        </telecom>
+    </contact>
+    <description value="Extensão para Uso contínuo" />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <kind value="complex-type" />
+    <abstract value="false" />
+    <context>
+        <type value="element" />
+        <expression value="MedicationRequest" />
+    </context>
+    <type value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Extension">
+            <path value="Extension" />
+            <min value="1" />
+            <max value="1" />
+            <isModifier value="false" />
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo" />
+        </element>
+        <element id="Extension.value[x]">
+            <path value="Extension.value[x]" />
+            <min value="1" />
+            <type>
+                <code value="boolean" />
+            </type>
+        </element>
+        <element id="Extension.valueBoolean">
+            <path value="Extension.valueBoolean"/>
+            <min value="1" />
+        </element>
+    </differential>
+</StructureDefinition>

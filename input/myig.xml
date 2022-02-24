@@ -114,9 +114,16 @@
     </resource>
     <resource>
       <reference>
+        <reference value="CodeSystem/codigo-ibge"/>
+      </reference>
+      <name value="codigo-ibge"/>
+      <description value="Terminologia de códigos de municípios do IBGE"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="CodeSystem/cbo"/>
       </reference>
-      <name value="catmat"/>
+      <name value="cbo"/>
       <description value="Terminologia da Classificação Brasileira de Ocupações (CBO)."/>
     </resource>
     <resource>
@@ -128,9 +135,16 @@
     </resource>
     <resource>
       <reference>
+        <reference value="CodeSystem/iso-3166"/>
+      </reference>
+      <name value="iso-3166"/>
+      <description value="Terminologia da ISO 3166 para códigos de países"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="CodeSystem/tipo-receita"/>
       </reference>
-      <name value="ean"/>
+      <name value="tipo-receita"/>
       <description value="Terminologia para tipos de receita."/>
     </resource>
     <resource>
@@ -142,10 +156,24 @@
     </resource>
     <resource>
       <reference>
+        <reference value="ValueSet/codigo-ibge"/>
+      </reference>
+      <name value="codigo-ibge"/>
+      <description value="Domínio de valores da tabela IBGE"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="ValueSet/ean"/>
       </reference>
       <name value="ean"/>
       <description value="Domínio de valores para European Article Number (EAN)"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/iso-3166"/>
+      </reference>
+      <name value="iso-3166"/>
+      <description value="Domínio de valores da ISO 3166"/>
     </resource>
     <resource>
       <reference>
