@@ -1,0 +1,65 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="siglaconselho"/>
+    <meta>
+        <versionId value="1"/>
+        <lastUpdated value="2022-03-17T20:18:47.375+00:00"/>
+    </meta>
+    <language value="pt-BR"/>
+    <url value="https://br-pharmacy.gointerop.com/fhir/CodeSystem/siglaconselho"/>
+    <version value="202203A"/>
+    <name value="Terminologia de Siglas de Conselhos profissioniais do Brasil"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <date value="2022-03-17T20:18:11.6743763+00:00"/>
+    <publisher value="GOInterop Tecnologia LTDA"/>
+    <description value="Terminologia de Siglas de Conselhos profissioniais do Brasil"/>
+    <content value="complete"/>
+    <concept>
+        <code value="COREN" />
+        <display value="COREN" />
+    </concept>
+    <concept>
+        <code value="CRBIO" />
+        <display value="CRBIO" />
+    </concept>
+    <concept>
+        <code value="CRBM" />
+        <display value="CRBM" />
+    </concept>
+    <concept>
+        <code value="CREFITO" />
+        <display value="CREFITO" />
+    </concept>
+    <concept>
+        <code value="CREFONO" />
+        <display value="CREFONO" />
+    </concept>
+    <concept>
+        <code value="CRESS" />
+        <display value="CRESS" />
+    </concept>
+    <concept>
+        <code value="CRF" />
+        <display value="CRF" />
+    </concept>
+    <concept>
+        <code value="CRM" />
+        <display value="CRM" />
+    </concept>
+    <concept>
+        <code value="CRN" />
+        <display value="CRN" />
+    </concept>
+    <concept>
+        <code value="CRO" />
+        <display value="CRO" />
+    </concept>
+    <concept>
+        <code value="CRP" />
+        <display value="CRP" />
+    </concept>
+    <concept>
+        <code value="CRTR" />
+        <display value="CRTR" />
+    </concept>
+</CodeSystem>

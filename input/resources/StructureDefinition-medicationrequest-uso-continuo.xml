@@ -1,6 +1,6 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="uso-continuo" />
-    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo" />
+    <id value="medicationrequest-uso-continuo" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-uso-continuo" />
     <version value="1.0.0" />
     <name value="Uso contínuo" />
     <title value="Uso contínuo" />
@@ -38,7 +38,7 @@
         </element>
         <element id="Extension.url">
             <path value="Extension.url" />
-            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-uso-continuo" />
         </element>
         <element id="Extension.value[x]">
             <path value="Extension.value[x]" />

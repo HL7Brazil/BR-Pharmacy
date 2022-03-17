@@ -7,6 +7,36 @@
             "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"
         ]
     },
+    "extension": [
+        {
+            "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/siglaconselho",
+                        "code": "CRM",
+                        "display": "CRM"
+                    }
+                ]
+            }
+        },
+        {
+            "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-ufconselho",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/uf",
+                        "code": "PE",
+                        "display": "Pernambuco"
+                    }
+                ]
+            }
+        },
+        {
+            "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-numeroconselho",
+            "valueString": "11467"
+        }
+    ],
     "identifier": [
         {
             "use": "official",

@@ -1,0 +1,59 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="practitioner-siglaconselho" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho" />
+    <version value="1.0.0" />
+    <name value="Conselho profissional" />
+    <title value="Conselho profissional" />
+    <status value="active" />
+    <date value="2022-02-06" />
+    <publisher value="GOInterop Tecnologia LTDA" />
+    <contact>
+        <telecom>
+            <system value="url" />
+            <value value="https://gointerop.com" />
+        </telecom>
+    </contact>
+    <description value="Extensão para Conselho profissional" />
+    <fhirVersion value="4.0.1" />
+    <mapping>
+        <identity value="rim" />
+        <uri value="http://hl7.org/v3" />
+        <name value="RIM Mapping" />
+    </mapping>
+    <kind value="complex-type" />
+    <abstract value="false" />
+    <context>
+        <type value="element" />
+        <expression value="Practitioner" />
+    </context>
+    <type value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint" />
+    <differential>
+        <element id="Extension">
+            <path value="Extension" />
+            <min value="1" />
+            <max value="1" />
+            <isModifier value="false" />
+        </element>
+        <element id="Extension.url">
+            <path value="Extension.url" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho" />
+        </element>
+        <element id="Extension.value[x]">
+            <path value="Extension.value[x]" />
+            <min value="1" />
+            <type>
+                <code value="CodeableConcept" />
+            </type>
+            <binding>
+                <strength value="required" />
+                <valueSet value="https://br-pharmacy.gointerop.com/fhir/ValueSet/siglaconselho" />
+            </binding>
+        </element>
+        <element id="Extension.valueCodeableConcept">
+            <path value="Extension.valueCodeableConcept"/>
+            <min value="1" />
+        </element>
+    </differential>
+</StructureDefinition>

@@ -101,6 +101,16 @@
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
                     ]
                 },
+                "extension": [
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/naturalidade",
+                        "valueAddress": {
+                            "text": "Rua Presidente Alguma Coisa 123",
+                            "city": "2611606",
+                            "country": "BRA"
+                        }
+                    }
+                ],
                 "name": [
                     {
                         "use": "official",
@@ -119,6 +129,36 @@
                         "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Practitioner"
                     ]
                 },
+                "extension": [
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/siglaconselho",
+                                    "code": "CRM",
+                                    "display": "CRM"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-ufconselho",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://br-pharmacy.gointerop.com/fhir/CodeSystem/uf",
+                                    "code": "PE",
+                                    "display": "Pernambuco"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-numeroconselho",
+                        "valueString": "11467"
+                    }
+                ],
                 "identifier": [
                     {
                         "use": "official",
@@ -221,6 +261,16 @@
                         "value": "MXQ8F71-1"
                     }
                 ],
+                "extension": [
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-uso-continuo",
+                        "valueBoolean": false
+                    },
+                    {
+                        "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-dose-unica",
+                        "valueBoolean": false
+                    }
+                ],
                 "status": "completed",
                 "intent": "original-order",
                 "authoredOn": "2021-03-10T21:21:21Z",
@@ -256,7 +306,14 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "dispenseRequest": {
+                    "expectedSupplyDuration": {
+                        "value": 30,                        
+                        "system": "http://unitsofmeasure.org",
+                        "code": "d"                        
+                    }
+                }
             }
         }
     ],

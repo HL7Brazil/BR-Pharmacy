@@ -1,6 +1,6 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="birthPlace" />
-    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/birthPlace" />
+    <id value="naturalidade" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/naturalidade" />
     <version value="1.0.0" />
     <name value="Lugar de nascimento" />
     <title value="Lugar de nascimento" />
@@ -38,7 +38,7 @@
         </element>
         <element id="Extension.url">
             <path value="Extension.url" />
-            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/birthPlace" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/naturalidade" />
         </element>
         <element id="Extension.value[x]">
             <path value="Extension.value[x]" />

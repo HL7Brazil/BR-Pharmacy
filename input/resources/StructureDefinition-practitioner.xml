@@ -208,6 +208,45 @@
       <definition value="Esses recursos não têm uma existência independente além do recurso que os contém - eles não podem ser identificados de forma independente e nem podem ter seu próprio escopo de transação independente." />
       <comment value="Isso nunca deve ser feito quando o conteúdo pode ser identificado corretamente, pois uma vez que a identificação é perdida, é extremamente difícil (e dependente do contexto) restaurá-lo novamente. Recursos contidos podem ter perfis e tags em seus elementos meta, mas NÃO DEVERÃO ter rótulos de segurança." />
     </element>
+    <element id="Practitioner.extension">
+      <path value="Practitioner.extension" />      
+      <min value="1" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <ordered value="false" />
+        <rules value="closed" />
+      </slicing>
+    </element>
+    <element id="Practitioner.extension:sliceSiglaConselho">
+      <path value="Practitioner.extension" />
+      <sliceName value="sliceSiglaConselho" />
+      <min value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho" />
+      </type>
+    </element>
+    <element id="Practitioner.extension:sliceUFConselho">
+      <path value="Practitioner.extension" />
+      <sliceName value="sliceUFConselho" />
+      <min value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-ufconselho" />
+      </type>
+    </element>
+    <element id="Practitioner.extension:sliceNumeroConselho">
+      <path value="Practitioner.extension" />
+      <sliceName value="sliceNumeroConselho" />
+      <min value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-numeroconselho" />
+      </type>
+    </element>
     <element id="Practitioner.identifier">
       <path value="Practitioner.identifier" />
       <slicing>

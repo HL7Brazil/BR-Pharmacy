@@ -1,6 +1,6 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="dose-unica" />
-    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/dose-unica" />
+    <id value="medicationrequest-dose-unica" />
+    <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-dose-unica" />
     <version value="1.0.0" />
     <name value="Dose única" />
     <title value="Dose única" />
@@ -38,7 +38,7 @@
         </element>
         <element id="Extension.url">
             <path value="Extension.url" />
-            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/dose-unica" />
+            <fixedUri value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-dose-unica" />
         </element>
         <element id="Extension.value[x]">
             <path value="Extension.value[x]" />

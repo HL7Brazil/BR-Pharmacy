@@ -142,10 +142,24 @@
     </resource>
     <resource>
       <reference>
+        <reference value="CodeSystem/siglaconselho"/>
+      </reference>
+      <name value="siglaconselho"/>
+      <description value="Terminologia de Sigla de Conselhos Profissionais"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="CodeSystem/tipo-receita"/>
       </reference>
       <name value="tipo-receita"/>
       <description value="Terminologia para tipos de receita."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/uf"/>
+      </reference>
+      <name value="uf"/>
+      <description value="Terminologia Unidades Federativas (UF)"/>
     </resource>
     <resource>
       <reference>
@@ -160,7 +174,7 @@
       </reference>
       <name value="codigo-ibge"/>
       <description value="Domínio de valores da tabela IBGE"/>
-    </resource>
+    </resource>    
     <resource>
       <reference>
         <reference value="ValueSet/ean"/>
@@ -195,6 +209,20 @@
       </reference>
       <name value="tipo-receita"/>
       <description value="Domínio de valores de tipos de receita."/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/siglaconselho"/>
+      </reference>
+      <name value="siglaconselho"/>
+      <description value="Domínio de valores de Conselhos profissionais"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/uf"/>
+      </reference>
+      <name value="uf"/>
+      <description value="Domínio de valores de Unidades Federativas (UF)"/>
     </resource>
     <resource>
       <reference>

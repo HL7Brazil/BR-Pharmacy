@@ -7,6 +7,16 @@
             "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/Patient"
         ]
     },
+    "extension": [
+        {
+            "url": "https://br-pharmacy.gointerop.com/fhir/StructureDefinition/naturalidade",
+            "valueAddress": {
+                "text": "Rua Presidente Alguma Coisa 123",
+                "city": "2611606",
+                "country": "BRA"
+            }
+        }
+    ],
     "name": [
         {
             "use": "official",

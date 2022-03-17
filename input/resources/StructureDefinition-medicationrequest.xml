@@ -191,7 +191,7 @@
       <min value="1"/>
       <type>
         <code value="Extension"/>
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/uso-continuo"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-uso-continuo"/>
       </type>
     </element>
     <element id="MedicationRequest.extension:dose-unica">
@@ -200,7 +200,7 @@
       <min value="1"/>
       <type>
         <code value="Extension"/>
-        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/dose-unica"/>
+        <profile value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/medicationrequest-dose-unica"/>
       </type>
     </element>
     <element id="MedicationRequest.identifier">
@@ -729,7 +729,7 @@
       <short value="Dados da requisição de dispensação"/>
       <definition value="Contém detalhes da requisição de dispensação"/>
       <comment value=""/>
-      <min value="1"/>      
+      <min value="0"/>      
     </element>
     <element id="MedicationRequest.dispenseRequest.initialFill.quantity">
       <path value="MedicationRequest.dispenseRequest.initialFill.quantity"/>
@@ -743,7 +743,7 @@
       <short value="Dados da duração da requisição de dispensação"/>
       <definition value="Contém detalhes da duração da requisição de dispensação"/>
       <comment value=""/>
-      <min value="1"/>      
+      <min value="0"/>      
     </element>
     <element id="MedicationRequest.dispenseRequest.dispenseInterval">
       <path value="MedicationRequest.dispenseRequest.dispenseInterval"/>
@@ -778,7 +778,7 @@
       <short value="Dados da duração esperada da requisição de dispensação"/>
       <definition value="Contém detalhes da duração esperada da requisição de dispensação"/>
       <comment value=""/>
-      <min value="0"/>      
+      <min value="1"/>      
     </element>
     <element id="MedicationRequest.dispenseRequest.performer">
       <path value="MedicationRequest.dispenseRequest.performer"/>
