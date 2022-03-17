@@ -2,8 +2,8 @@
     <id value="practitioner-siglaconselho" />
     <url value="https://br-pharmacy.gointerop.com/fhir/StructureDefinition/practitioner-siglaconselho" />
     <version value="1.0.0" />
-    <name value="Conselho profissional" />
-    <title value="Conselho profissional" />
+    <name value="Sigla do Conselho profissional" />
+    <title value="Sigla do Conselho profissional" />
     <status value="active" />
     <date value="2022-02-06" />
     <publisher value="GOInterop Tecnologia LTDA" />
@@ -13,7 +13,7 @@
             <value value="https://gointerop.com" />
         </telecom>
     </contact>
-    <description value="Extensão para Conselho profissional" />
+    <description value="Extensão para Sigla do Conselho profissional" />
     <fhirVersion value="4.0.1" />
     <mapping>
         <identity value="rim" />
